@@ -1,8 +1,8 @@
 # tvitter
 
-### MSC Advanced Computer Science
-#### Module: Web Technologies and Security
+## MSC Advanced Computer Science
+### Module: Web Technologies and Security
 
-##### Task:
+#### Task:
 
 Create a twitter like social media platform for sharing tv/movie interests
