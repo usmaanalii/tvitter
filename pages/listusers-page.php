@@ -4,9 +4,9 @@
         <!-- <link rel="stylesheet" href="../src/css/header.css"> -->
         <link rel="stylesheet" href="../src/css/center-page.css">
         <style media="screen">
-            * {
+            /** {
                 border: 1px solid black;
-            }
+            }*/
 
             #header, #user-list {
                 list-style-type: none;
@@ -16,6 +16,7 @@
 
             #header {
                 text-align: center;
+
             }
 
             #header li {
@@ -40,7 +41,7 @@
             ?>
             <br><br>
 
-            <h2>Timeline</h2>
+            <h2>Users</h2>
 
             <ul id="user-list">
                 <li>User 1</li>

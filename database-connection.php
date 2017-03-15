@@ -1,5 +1,5 @@
 <?php
-    require_once '../tvitter-config/config.php';
+    require_once __DIR__ . '/../tvitter-config/config.php';
     // Creating the variables and methods to connect to the database
     $web_app = "tvitter";
 

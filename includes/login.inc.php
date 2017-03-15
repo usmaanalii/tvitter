@@ -1,6 +1,6 @@
 <?php
-    require_once 'includes/registration.inc.php';
-    require_once 'includes/sql-helper.inc.php';
+    require_once __DIR__ . '/registration.inc.php';
+    require_once __DIR__ . '/sql-helper.inc.php';
 
     /**
      * RegisterUser class
@@ -47,7 +47,7 @@
             }
 
         }
-        
+
         // TODO: Add Docblock
         public function login_session_variables()
         {

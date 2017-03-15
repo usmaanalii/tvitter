@@ -1,5 +1,5 @@
 <?php
-    require_once 'database-connection.php';
+    require_once __DIR__  . '/../database-connection.php';
 
     /**
     * SqlHelper class
@@ -127,6 +127,23 @@
                 "id" => $db_id,
                 "username" => $db_username
             );
+        }
+
+        // TODO Docblock
+        public function get_all_usernames()
+        {
+            global $db_connection;
+            $statement = $db_connection->prepare("SELECT `username` FROM `users`");
+            $statement->execute();
+            $returned_usernames = $statement->get_result();
+
+            $usernames_array = array();
+
+            while ($row = $returned_usernames->fetch_array()) {
+                array_push($usernames_array, $row['username']);
+            }
+
+            return $usernames_array;
         }
     }
 
