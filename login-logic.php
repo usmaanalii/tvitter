@@ -6,6 +6,9 @@
     $password_match = $login_user->check_password_match();
 
     if ($password_match) {
+        session_start();
+        $_SESSION['id'] = $login_user->login_session_variables()["id"];
+        $_SESSION['username'] = $login_user->login_session_variables()["username"];
         header("Location: pages/profile-page.php");
     }
     else {

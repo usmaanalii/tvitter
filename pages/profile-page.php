@@ -16,6 +16,10 @@
                 text-align: center;
             }
 
+            #welcome span {
+                color: rgb(97, 242, 61);
+            }
+
             .profile-image {
                 width: 100px;
                 height: 100px;
@@ -77,7 +81,8 @@
                 include_once '../components/headers/loggedin-header.php';
             ?>
 
-            <h4 id="welcome">Welcome User</h4>
+            <?php session_start(); ?>
+            <h4 id="welcome">Welcome <span><?php echo $_SESSION['username']; ?></span></h4>
 
             <img class="profile-image" src="../src/images/profile-placeholder.jpg" alt="Profile Placeholder Image">
 

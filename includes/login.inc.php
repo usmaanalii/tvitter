@@ -47,6 +47,14 @@
             }
 
         }
+
+        public function login_session_variables()
+        {
+            $sql_helper = new SqlHelper();
+            $values = $sql_helper->get_user_data($this->username);
+
+            return $values;
+        }
     }
 
 ?>

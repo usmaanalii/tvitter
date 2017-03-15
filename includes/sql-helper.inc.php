@@ -93,6 +93,41 @@
             $statement->close();
             return $db_password;
         }
+
+        /**
+        * @method get_user_data
+        *
+        * goals of the function include...
+        *   1. Receieve a username
+        *   2. Use the username to access it's associated id, username and password
+        *   3. Will mainly be used in the UserLogin Class to store session variables
+        *
+        * @param string username
+        *
+        * @return array (Containing the user id and username)
+        */
+
+        function get_user_data($username)
+        {
+            global $db_connection;
+            $statement = $db_connection->prepare("SELECT `id`, `username` FROM `users` WHERE username = ?");
+            $statement->bind_param("s", $username);
+            $statement->execute();
+            $statement->store_result();
+            $statement->bind_result($id, $username_returned);
+
+            while ($statement->fetch()) {
+                $db_id = $id;
+                $db_username = $username_returned;
+            }
+
+            $statement->close();
+
+            return array(
+                "id" => $db_id,
+                "username" => $db_username
+            );
+        }
     }
 
 ?>
