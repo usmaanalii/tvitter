@@ -5,7 +5,7 @@
         <link rel="stylesheet" href="../src/css/center-page.css">
         <style media="screen">
             * {
-                border: 1px solid black;
+                /*border: 1px solid black;*/
             }
 
             ul {
@@ -87,7 +87,7 @@
 
             <br>
 
-            <form id="post-message" action="posts-logic.php" method="post">
+            <form id="post-message" action="../posts-logic.php" method="post">
                 <textarea name="post-message" rows="4" cols="50"></textarea>
                 <input type="submit" name="post-message-submit" value="tveet">
             </form>

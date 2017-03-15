@@ -1,6 +1,4 @@
 <?php
-    // PASSWORD MATCH NOT WORKING
-
     require_once 'includes/login.inc.php';
 
     $login_user = new UserLogin($_POST['username'], $_POST['password']);
