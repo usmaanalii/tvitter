@@ -5,7 +5,7 @@
         <link rel="stylesheet" href="../src/css/center-page.css">
         <style media="screen">
             * {
-                /*border: 1px solid black;*/
+                border: 1px solid black;
             }
 
             ul {
@@ -36,6 +36,15 @@
                 padding: 0;
                 margin: 0;
                 font-size: 0.8em;
+            }
+
+            #post-message {
+                text-align: center;
+            }
+
+            #post-message input[type="submit"] {
+                display: block;
+                margin: 0 auto;
             }
 
             #timeline-header {
@@ -76,6 +85,13 @@
                 <p><p>Reprehenderit enim consectetur fugiat labore cupidatat culpa labore. Ea reprehenderit excepteur aliqua ut do occaecat ad excepteur sit irure excepteur officia aliqua aute adipisicing cillum.</p></p>
             </div>
 
+            <br>
+
+            <form id="post-message" action="posts-logic.php" method="post">
+                <textarea name="post-message" rows="4" cols="50"></textarea>
+                <input type="submit" name="post-message-submit" value="tveet">
+            </form>
+
             <h2 id="timeline-header">Timeline</h2>
 
             <div class="posts-section">
@@ -92,8 +108,6 @@
                     <p>Non dolore proident duis officia excepteur labore ut eiusmod aliquip ipsum deserunt. Officia esse aute officia incididunt non aliqua cillum.</p>
                 </div>
             </div>
-
-
         </div>
     </body>
 </html>
