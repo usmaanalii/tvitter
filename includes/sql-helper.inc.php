@@ -107,7 +107,7 @@
         * @return array (Containing the user id and username)
         */
 
-        function get_user_data($username)
+        public function get_user_data($username)
         {
             global $db_connection;
             $statement = $db_connection->prepare("SELECT `id`, `username` FROM `users` WHERE username = ?");

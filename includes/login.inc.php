@@ -47,7 +47,8 @@
             }
 
         }
-
+        
+        // TODO: Add Docblock
         public function login_session_variables()
         {
             $sql_helper = new SqlHelper();
