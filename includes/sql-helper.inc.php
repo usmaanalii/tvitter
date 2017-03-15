@@ -1,0 +1,98 @@
+<?php
+    require_once 'database-connection.php';
+
+    /**
+    * SqlHelper class
+    *
+    * This will be used as a base for other classes that require database CRUD operations
+    *
+    * @method int user_count (Returns the row count for a username)
+    * @method void add_user (Inserts a user into the users table)
+    * @method string get_password (Returns the password for a specified user)
+    *
+    */
+
+    class SqlHelper
+    {
+
+        /**
+        * @method user_count
+        *
+        * goals of the function include...
+        *   1. Retrieve the user data for a specified username
+        *   2. Assess whether ot not a username has already been taken
+        *   3. Will mainly be used in the RegisterUser Class
+        *
+        * @param string username
+        *
+        * @return int (If the integer returned is bigget than zero, then the username exists)
+        */
+
+        public function user_count($username)
+        {
+            global $db_connection;
+            $statement = $db_connection->prepare("SELECT * FROM `users` WHERE username = ?");
+            $statement->bind_param("s", $username);
+            $statement->execute();
+            $statement->store_result();
+
+            $num_rows = $statement->num_rows;
+
+            return $num_rows;
+        }
+
+        /**
+        * @method add_user
+        *
+        * goals of the function include...
+        *   1. Recieve a username and password
+        *   2. Insert the username and password into the users table
+        *
+        * @param string username
+        * @param string password
+        *
+        * @return void ** May need to add error check **
+        */
+
+        public function add_user($username, $password)
+        {
+            global $db_connection;
+
+            $statement = $db_connection->prepare("INSERT INTO users (username, password) VALUES (?, ?)");
+            $statement->bind_param("ss", $username, $password);
+            $statement->execute();
+            $statement->close();
+        }
+
+        /**
+        * @method get_password
+        *
+        * goals of the function include...
+        *   1. Receieve a username
+        *   2. Use the username to access it's associated password in the users table
+        *   3. Will mainly be used in the UserLogin Class to assess password validity
+        *
+        * @param string username
+        *
+        * @return int (If the integer returned is bigget than zero, then the username exists)
+        */
+
+        function get_password($username)
+        {
+            global $db_connection;
+            $statement = $db_connection->prepare("SELECT `password` FROM `users` WHERE username = ?");
+            $statement->bind_param("s", $username);
+            $statement->execute();
+            $statement->store_result();
+            $statement->bind_result($password);
+
+            while ($statement->fetch()) {
+                $db_password = $password;
+            }
+
+            $statement->close();
+            return $db_password;
+        }
+    }
+
+?>

@@ -1,0 +1,9 @@
+/** {
+    border: 1px solid black;
+}*/
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+    margin-top: 5%;
+}
