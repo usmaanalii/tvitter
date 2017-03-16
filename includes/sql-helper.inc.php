@@ -145,6 +145,24 @@
 
             return $usernames_array;
         }
+
+        // TODO Docblock
+        public function get_user_bio($username)
+        {
+            global $db_connection;
+            $statement = $db_connection->prepare("SELECT `bio` FROM `users` WHERE username = ?" );
+            $statement->bind_param("s", $username);
+            $statement->execute();
+            $returned_bio = $statement->store_result();
+            $statement->bind_result($bio);
+
+            while ($statement->fetch()) {
+                $db_bio = $bio;
+            }
+
+            $statement->close();
+            return $db_bio;
+        }
     }
 
 ?>
