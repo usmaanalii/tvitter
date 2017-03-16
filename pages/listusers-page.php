@@ -37,18 +37,21 @@
         <div class="container">
 
             <?php
-                include_once '../components/headers/loggedin-header.php';
+                include_once __DIR__ . '/../components/headers/loggedin-header.php';
+
+                require_once __DIR__ . '/../includes/listusers.inc.php';
             ?>
             <br><br>
 
             <h2>Users</h2>
 
             <ul id="user-list">
-                <li>User 1</li>
-                <li>User 1</li>
-                <li>User 1</li>
-                <li>User 1</li>
-                <li>User 1</li>
+                <?php foreach($usernames as $username): ?>
+
+                        <!-- passing the username in the url -->
+                        <a style="display: block;" href="profile-page.php?username=<?php echo $username ?>"><?php echo $username; ?></a>
+
+                <?php endforeach; ?>
             </ul>
 
 

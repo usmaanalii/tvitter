@@ -39,7 +39,9 @@
             .profile-bio p {
                 padding: 0;
                 margin: 0;
-                font-size: 0.8em;
+                font-size: 1,1em;
+                text-align: center;
+                color: red;
             }
 
             #post-message {
@@ -82,12 +84,28 @@
             ?>
 
             <?php session_start(); ?>
-            <h4 id="welcome">Welcome <span><?php echo $_SESSION['username']; ?></span></h4>
+            <?php
+                // Using "X" as a dummy variable, reason can be seen in the get_user_bio method in the SqlHelper Class
+                // If the user comes from the 'log in' page, then $_SESSION is used
+                // If the user comes from the 'Users' paege, then $_GET is used
+                $username = isset($_GET['username']) ? $_GET['username']: $_SESSION['username'];
+            ?>
+            <h4 id="welcome">Welcome <span><?php echo $username ?></span></h4>
 
             <img class="profile-image" src="../src/images/profile-placeholder.jpg" alt="Profile Placeholder Image">
 
             <div class="profile-bio">
-                <p><p>Reprehenderit enim consectetur fugiat labore cupidatat culpa labore. Ea reprehenderit excepteur aliqua ut do occaecat ad excepteur sit irure excepteur officia aliqua aute adipisicing cillum.</p></p>
+                <p>
+                    <?php require_once __DIR__ . "/../includes/sql-helper.inc.php";
+
+                    $sql_helper = new SqlHelper();
+
+                    $bio = $sql_helper->get_user_bio($username);
+
+                    echo $bio;
+                    ?>
+
+                </p>
             </div>
 
             <br>

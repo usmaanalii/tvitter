@@ -153,14 +153,28 @@
             $statement = $db_connection->prepare("SELECT `bio` FROM `users` WHERE username = ?" );
             $statement->bind_param("s", $username);
             $statement->execute();
-            $returned_bio = $statement->store_result();
-            $statement->bind_result($bio);
+            $statement->store_result();
 
-            while ($statement->fetch()) {
-                $db_bio = $bio;
+            $num_rows = $statement->num_rows;
+
+
+            if ($num_rows > 0) {
+
+                $statement->bind_result($bio);
+
+                while ($statement->fetch()) {
+                    $db_bio = !empty($bio) ? $bio : "No bio";
+                }
+            } else {
+                $db_bio = "No bio";
             }
 
+
+
+
+
             $statement->close();
+
             return $db_bio;
         }
     }
