@@ -98,6 +98,7 @@
                 <p>
                     <?php require_once __DIR__ . "/../includes/sql-helper.inc.php";
 
+                    // TODO: Move this code into an include file to maintain structure 
                     $sql_helper = new SqlHelper();
 
                     $bio = $sql_helper->get_user_bio($username);
