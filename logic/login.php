@@ -11,8 +11,12 @@
     if ($complete_form) {
         if ($password_match) {
             session_start();
-            $_SESSION['id'] = $login_user->login_session_variables()["id"];
-            $_SESSION['username'] = $login_user->login_session_variables()["username"];
+            $session_id = $login_user->login_session_variables()["id"];
+            $session_username = $login_user->login_session_variables()["username"];
+
+            $_SESSION['id'] = $session_id;
+            $_SESSION['username'] = $session_username;
+
             header('Location: ../pages/profile-page.php');
         }
         else {

@@ -129,7 +129,17 @@
             );
         }
 
-        // TODO Docblock
+        /**
+        * @method get_all_usernames
+        *
+        * goals of the function include...
+        *   1. Return all usernames in the users table
+        *   2. Will be used to list all users in the 'listusers-page'
+        *   3. The usernames will be listed using a foreach loop
+        *
+        *
+        * @return array (Containing all usernames)
+        */
         public function get_all_usernames()
         {
             global $db_connection;
@@ -146,7 +156,7 @@
             return $usernames_array;
         }
 
-        // TODO Docblock
+        // TODO Docblock: Might change it to 'get_user_data'
         public function get_user_bio($username)
         {
             global $db_connection;
@@ -168,10 +178,6 @@
             } else {
                 $db_bio = "No bio";
             }
-
-
-
-
 
             $statement->close();
 

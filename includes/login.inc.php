@@ -48,7 +48,17 @@
 
         }
 
-        // TODO: Add Docblock
+        /**
+        * @method login_session_variables
+        *
+        * goals of the function include...
+        *   1. Act as a wrapper to get the user data
+        *   2. Retrieve the id and username for the specified user
+        *   3. Will be used in logic/login.php to set the $_SESSION['id'] and $_SESSION['username'] variables
+        *
+        *
+        * @return array (e.g login_session_variables["id"] = 1, login_session_variables["username"] = 'tom')
+        */
         public function login_session_variables()
         {
             $sql_helper = new SqlHelper();
