@@ -30,7 +30,7 @@
 
             <h2>Log in</h2>
 
-            <form action="../logic/login-logic.php" method="post">
+            <form action="../logic/login.php" method="post">
                 <input type="text" name="username" placeholder="username">
                 <br><br>
                 <input type="text" name="password" placeholder="password">

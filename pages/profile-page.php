@@ -111,7 +111,7 @@
 
             <br>
 
-            <form id="post-message" action="../logic/posts-logic.php" method="post">
+            <form id="post-message" action="../logic/posts.php" method="post">
                 <textarea name="post-message" rows="4" cols="50"></textarea>
                 <input type="submit" name="post-message-submit" value="tveet">
             </form>

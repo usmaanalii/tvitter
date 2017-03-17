@@ -16,7 +16,7 @@
 
             <h2>Register for <b> <?php echo $web_app; ?></b></h2>
 
-        <form action="logic/registration-logic.php" method="post">
+        <form action="logic/registration.php" method="post">
             <input type="text" name="username" placeholder="username">
             <br><br>
             <input type="text" name="password" placeholder="password">
