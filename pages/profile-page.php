@@ -96,7 +96,7 @@
             <div class="profile-bio">
                 <p>
                     <?php
-                        require_once __DIR__ . "/../includes/profile.inc.php";
+                        require_once __DIR__ . "/../logic/profile.php";
 
                         echo $bio;
                     ?>
@@ -106,7 +106,7 @@
 
             <br>
 
-            <form id="post-message" action="../logic/posts.php" method="post">
+            <form id="post-message" action="../logic/profile.php" method="post">
                 <textarea name="post-message" rows="4" cols="50"></textarea>
                 <input type="submit" name="post-message-submit" value="tveet">
             </form>
