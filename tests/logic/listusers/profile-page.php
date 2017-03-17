@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <link rel="stylesheet" href="../../src/css/header.css">
-        <link rel="stylesheet" href="../../src/css/center-page.css">
+        <link rel="stylesheet" href="../../../src/css/header.css">
+        <link rel="stylesheet" href="../../../src/css/center-page.css">
         <style media="screen">
             /** {
                 border: 1px solid black;
@@ -81,20 +81,20 @@
         <div class="container">
 
             <?php
-                include_once '../../components/headers/loggedin-header.php';
+                include_once '../../../components/headers/loggedin-header.php';
             ?>
 
             <?php session_start(); ?>
             <?php $username = $_GET['username'] ?>
             <h4 id="welcome">Welcome <span><?php echo $username ?></span></h4>
 
-            <a href="listusers.php">Back</a>
+            <a href="listusers-test.php">Back</a>
 
-            <img class="profile-image" src="../../src/images/profile-placeholder.jpg" alt="Profile Placeholder Image">
+            <img class="profile-image" src="../../../src/images/profile-placeholder.jpg" alt="Profile Placeholder Image">
 
             <div class="profile-bio">
                 <p>
-                    <?php require_once __DIR__ . "/../../includes/sql-helper.inc.php";
+                    <?php require_once __DIR__ . "/../../../includes/sql-helper.inc.php";
 
                     $sql_helper = new SqlHelper();
 

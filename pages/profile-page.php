@@ -85,7 +85,6 @@
 
             <?php session_start(); ?>
             <?php
-                // Using "X" as a dummy variable, reason can be seen in the get_user_bio method in the SqlHelper Class
                 // If the user comes from the 'log in' page, then $_SESSION is used
                 // If the user comes from the 'Users' paege, then $_GET is used
                 $username = isset($_GET['username']) ? $_GET['username']: $_SESSION['username'];
