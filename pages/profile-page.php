@@ -98,7 +98,7 @@
                     <?php
                         require_once __DIR__ . "/../logic/profile.php";
 
-                        echo $bio;
+                        echo $profile->bio;
                     ?>
 
                 </p>

@@ -3,6 +3,4 @@
 
     $profile = new UserProfile($username);
 
-    $bio = $profile->bio;
-
 ?>
