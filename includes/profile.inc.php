@@ -2,7 +2,17 @@
     require_once __DIR__ . "/sql-helper.inc.php";
 
     /**
-     * UserProfile Class
+     * UserProfile class
+     *
+     * @param integer id
+     * @param string username
+     * @param string password
+     * @param string bio
+     *
+     * // TODO: Add all new methods
+     *
+     *
+     *
      */
     class UserProfile
     {
@@ -21,6 +31,13 @@
             $this->username = $username;
             $this->password = $user_data["password"];
             $this->bio = $user_data["bio"];
+        }
+
+        public function insert_post_data($post)
+        {
+            $sql_helper = new SqlHelper();
+
+            $sql_helper->insert_post($this->username, $post);
         }
     }
 

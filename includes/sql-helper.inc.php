@@ -60,7 +60,7 @@
         {
             global $db_connection;
 
-            $statement = $db_connection->prepare("INSERT INTO users (username, password) VALUES (?, ?)");
+            $statement = $db_connection->prepare("INSERT INTO `users` (username, password) VALUES (?, ?)");
             $statement->bind_param("ss", $username, $password);
             $statement->execute();
             $statement->close();
@@ -132,6 +132,28 @@
 
             return $usernames_array;
         }
+
+        /**
+        * @method insert_post
+        *
+        * goals of the function include...
+        *   1. Recieve a string and user id
+        *   2. Insert the string and user id into the posts table
+        *   3. The user id will act as a foriegn key so that the get_posts method can display user specific posts for each profile
+        *
+        *
+        * @return void (The post will be added to the table)
+        */
+        public function insert_post($username, $post)
+        {
+            global $db_connection;
+            $statement = $db_connection->prepare("INSERT INTO `posts` (id, body, `time`) VALUES (?, ?)");
+
+            $statement->bind_param("ss", $username, $post);
+            $statement->execute();
+            $statement->close();
+        }
+
 
     }
 
