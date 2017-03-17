@@ -3,5 +3,5 @@
 
     $sql_helper = new SqlHelper();
 
-    $bio = $sql_helper->get_user_bio($username);
+    $bio = $sql_helper->get_user_data($username)["bio"];
 ?>

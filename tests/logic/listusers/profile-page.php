@@ -98,7 +98,7 @@
 
                     $sql_helper = new SqlHelper();
 
-                    $bio = $sql_helper->get_user_bio($_GET['username']);
+                    $bio = $sql_helper->get_user_data($_GET['username'])["bio"];
 
                     echo $bio;
                     ?>

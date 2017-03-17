@@ -8,6 +8,8 @@
      * @param string username
      * @param string password
      *
+     * // TODO: Add all new methods
+     *
      * @method bool check_password_match (compare form password with database password)
      *
      */
@@ -38,7 +40,7 @@
             $sql_helper = new SqlHelper();
             // password given by the login form
             $form_password = $this->password;
-            $db_password = $sql_helper->get_password($this->username);
+            $db_password = $sql_helper->get_user_data($this->username)["password"];
 
             if ($form_password == $db_password) {
                 return TRUE;

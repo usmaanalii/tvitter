@@ -6,9 +6,11 @@
     *
     * This will be used as a base for other classes that require database CRUD operations
     *
+    * // TODO: Add all new methods
+    *
     * @method int user_count (Returns the row count for a username)
     * @method void add_user (Inserts a user into the users table)
-    * @method string get_password (Returns the password for a specified user)
+    * @method string get_password (Returns the password for a specified
     *
     */
 
@@ -64,36 +66,7 @@
             $statement->close();
         }
 
-        /**
-        * @method get_password
-        *
-        * goals of the function include...
-        *   1. Receieve a username
-        *   2. Use the username to access it's associated password in the users table
-        *   3. Will mainly be used in the UserLogin Class to assess password validity
-        *
-        * @param string username
-        *
-        * @return int (If the integer returned is bigget than zero, then the username exists)
-        */
-
-        function get_password($username)
-        {
-            global $db_connection;
-            $statement = $db_connection->prepare("SELECT `password` FROM `users` WHERE username = ?");
-            $statement->bind_param("s", $username);
-            $statement->execute();
-            $statement->store_result();
-            $statement->bind_result($password);
-
-            while ($statement->fetch()) {
-                $db_password = $password;
-            }
-
-            $statement->close();
-            return $db_password;
-        }
-
+        // TODO Change the Docblock
         /**
         * @method get_user_data
         *
@@ -110,22 +83,26 @@
         public function get_user_data($username)
         {
             global $db_connection;
-            $statement = $db_connection->prepare("SELECT `id`, `username` FROM `users` WHERE username = ?");
+            $statement = $db_connection->prepare("SELECT * FROM `users` WHERE username = ?");
             $statement->bind_param("s", $username);
             $statement->execute();
             $statement->store_result();
-            $statement->bind_result($id, $username_returned);
+            $statement->bind_result($id_returned, $username_returned, $password_returned, $bio_returned);
 
             while ($statement->fetch()) {
-                $db_id = $id;
+                $db_id = $id_returned;
                 $db_username = $username_returned;
+                $db_password = $password_returned;
+                $db_bio = !empty($bio_returned) ? $bio_returned: "No bio";
             }
 
             $statement->close();
 
             return array(
                 "id" => $db_id,
-                "username" => $db_username
+                "username" => $db_username,
+                "password" => $db_password,
+                "bio" => $db_bio
             );
         }
 
@@ -156,33 +133,6 @@
             return $usernames_array;
         }
 
-        // TODO Docblock: Might change it to 'get_user_data'
-        public function get_user_bio($username)
-        {
-            global $db_connection;
-            $statement = $db_connection->prepare("SELECT `bio` FROM `users` WHERE username = ?" );
-            $statement->bind_param("s", $username);
-            $statement->execute();
-            $statement->store_result();
-
-            $num_rows = $statement->num_rows;
-
-
-            if ($num_rows > 0) {
-
-                $statement->bind_result($bio);
-
-                while ($statement->fetch()) {
-                    $db_bio = !empty($bio) ? $bio : "No bio";
-                }
-            } else {
-                $db_bio = "No bio";
-            }
-
-            $statement->close();
-
-            return $db_bio;
-        }
     }
 
 ?>
