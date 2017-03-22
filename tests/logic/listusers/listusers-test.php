@@ -12,7 +12,7 @@
 <?php foreach($usernames as $username): ?>
 
         <!-- passing the username in the url -->
-        <a style="display: block;" href="profile-page.php?username=<?php echo $username ?>"><?php echo $username; ?></a>
+        <a style="display: block;" href="profile?username=<?php echo $username ?>"><?php echo $username; ?></a>
         <br>
 
 <?php endforeach; ?>

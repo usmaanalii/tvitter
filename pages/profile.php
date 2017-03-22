@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="../src/css/header.css">
         <link rel="stylesheet" href="../src/css/center-page.css">
         <style media="screen">
@@ -44,13 +45,18 @@
                 color: red;
             }
 
-            #post-message {
+            #tveet-form {
                 text-align: center;
             }
 
-            #post-message input[type="submit"] {
+            #tveet-form input[type="submit"] {
                 display: block;
                 margin: 0 auto;
+            }
+
+            #tveet-form textarea {
+                width: 70%;
+                height: 50px;
             }
 
             #timeline-header {
@@ -96,7 +102,7 @@
             <div class="profile-bio">
                 <p>
                     <?php
-                        require_once __DIR__ . "/../logic/profile.php";
+                        require_once __DIR__ . "/../logic/profile/profile.php";
 
                         echo $profile->bio;
                     ?>
@@ -106,8 +112,8 @@
 
             <br>
 
-            <form id="post-message" action="../logic/posts.php" method="post">
-                <textarea name="post-message" rows="4" cols="50"></textarea>
+            <form id="tveet-form" action="../logic/profile/posts.php?username=<?php echo $username ?>" method="post">
+                <textarea name="post-message"></textarea>
                 <input type="submit" name="post-message-submit" value="tveet">
             </form>
 

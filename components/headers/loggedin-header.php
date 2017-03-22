@@ -1,6 +1,6 @@
 <ul id="header">
-    <li><a href="/code/tvitter/pages/profile-page.php">Profile</a></li>
-    <li><a href="/code/tvitter/pages/listusers-page.php">Users</a></li>
-    <li><a href="/code/tvitter/pages/timeline-page.php">Timeline</a></li>
-    <li><a href="/code/tvitter/pages/login-page.php">Logout</a></li>
+    <li><a href="/code/tvitter/pages/profile.php">Profile</a></li>
+    <li><a href="/code/tvitter/pages/listusers.php">Users</a></li>
+    <li><a href="/code/tvitter/pages/timeline.php">Timeline</a></li>
+    <li><a href="/code/tvitter/pages/login.php">Logout</a></li>
 </ul>

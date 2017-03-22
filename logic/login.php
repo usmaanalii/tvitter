@@ -17,7 +17,7 @@
             $_SESSION['id'] = $session_id;
             $_SESSION['username'] = $session_username;
 
-            header('Location: ../pages/profile-page.php');
+            header('Location: ../pages/profile.php');
         }
         else {
             header("Location: ../pages/error/incorrect-password.php");

@@ -8,7 +8,7 @@
     if ($complete_form) {
         if ($register_user->check_user_data()) {
             $register_user->insert_user_data();
-            header("Location: ../pages/login-page.php");
+            header("Location: ../pages/login.php");
         } else {
             header("Location: ../pages/error/username-taken.php");
         }

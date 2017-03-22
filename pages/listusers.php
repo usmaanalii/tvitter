@@ -2,6 +2,7 @@
 <html>
     <head>
         <!-- <link rel="stylesheet" href="../src/css/header.css"> -->
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="../src/css/center-page.css">
         <style media="screen">
             /** {
@@ -39,7 +40,7 @@
             <?php
                 include_once __DIR__ . '/../components/headers/loggedin-header.php';
 
-                require_once __DIR__ . '/../includes/listusers.inc.php';
+                require_once __DIR__ . '/../logic/listusers.php';
             ?>
             <br><br>
 
@@ -49,7 +50,7 @@
                 <?php foreach($usernames as $username): ?>
 
                         <!-- passing the username in the url -->
-                        <a style="display: block;" href="profile-page.php?username=<?php echo $username ?>"><?php echo $username; ?></a>
+                        <a style="display: block;" href="profile.php?username=<?php echo $username ?>"><?php echo $username; ?></a>
 
                 <?php endforeach; ?>
             </ul>

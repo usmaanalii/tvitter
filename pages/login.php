@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="../src/css/center-page.css">
         <style media="screen">
             ul {
@@ -25,11 +26,18 @@
         <div class="container">
 
             <?php
-                include_once '../components/headers/loggedin-header.php';
+                include_once '../components/headers/loggedout-header.php';
             ?>
-            <br><br>
 
-            <h2>Success</h2>
+            <h2>Log in</h2>
+
+            <form action="../logic/login.php" method="post">
+                <input type="text" name="username" placeholder="username">
+                <br><br>
+                <input type="text" name="password" placeholder="password">
+                <br><br>
+                <input type="submit" name="login-submit" value="Log in">
+            </form>
 
         </div>
     </body>
