@@ -144,17 +144,15 @@
         *
         * @return void (The post will be added to the table)
         */
-        public function insert_post($username, $post)
+        public function insert_post($user_id, $post)
         {
             global $db_connection;
-            $statement = $db_connection->prepare("INSERT INTO `posts` (id, body, `time`) VALUES (?, ?)");
+            $statement = $db_connection->prepare("INSERT INTO `posts` (id, body, `time`) VALUES (?, ?, NOW())");
 
-            $statement->bind_param("ss", $username, $post);
+            $statement->bind_param("ss", $user_id, $post);
             $statement->execute();
             $statement->close();
         }
-
-
     }
 
 ?>

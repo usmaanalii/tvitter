@@ -37,7 +37,7 @@
         {
             $sql_helper = new SqlHelper();
 
-            $sql_helper->insert_post($this->username, $post);
+            $sql_helper->insert_post($this->id, $post);
         }
     }
 

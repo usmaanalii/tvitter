@@ -92,7 +92,7 @@
             <?php session_start(); ?>
             <?php
                 // If the user comes from the 'log in' page, then $_SESSION is used
-                // If the user comes from the 'Users' paege, then $_GET is used
+                // If the user comes from the 'Users' (list of all users) paee, then $_GET is used
                 $username = isset($_GET['username']) ? $_GET['username']: $_SESSION['username'];
             ?>
             <h4 id="welcome">Welcome <span><?php echo $username ?></span></h4>
