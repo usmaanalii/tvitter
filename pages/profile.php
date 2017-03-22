@@ -93,7 +93,7 @@
         ?>
 
         <?php
-            if(!isset($_SESSION)) {
+            if (!isset($_SESSION)) {
                 session_start();
             }
         ?>
@@ -127,10 +127,10 @@
         <h2 id="timeline-header">Timeline</h2>
 
         <div class="posts-section">
-            <?php foreach($posts as $post): ?>
+            <?php foreach ($posts as $post): ?>
                 <div class="post">
                     <p>
-                        <span><?php echo explode(' ',trim($post))[0]; ?> </span>
+                        <span><?php echo explode(' ', trim($post))[0]; ?> </span>
                         <?php echo $post; ?>
                     </p>
                 </div>
