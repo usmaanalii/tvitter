@@ -33,13 +33,25 @@
             $this->bio = $user_data["bio"];
         }
 
+        /**
+         * TODO: DOCBLOCK
+         * [insert_post_data description]
+         * @param  [type]  $post [description]
+         * @return {[type]       [description]
+         */
         public function insert_post_data($post)
         {
             $sql_helper = new SqlHelper();
 
             $sql_helper->insert_post($this->id, $post);
         }
-    }
 
+        public function display_posts()
+        {
+            $sql_helper = new SqlHelper();
+
+            $sql_helper->get_user_posts($this->id);
+        }
+    }
 
 ?>

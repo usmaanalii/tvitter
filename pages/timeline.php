@@ -21,14 +21,23 @@
                 text-align: center;
             }
 
+            .posts-section .post:not(:first-child) {
+                margin-top: 3%;
+            }
+
             .posts-section .post {
                 border: 1px solid black;
                 padding: 0 2%;
                 background: rgb(209, 209, 209);
             }
 
-            .posts-section .post:not(:first-child) {
-                margin-top: 1%;
+            .post p {
+                font-size: 0.9em;
+            }
+
+            .post span {
+                font-weight: bold;
+                font-size: 1.2em;
             }
         </style>
         <meta charset="utf-8">
@@ -47,16 +56,13 @@
 
             <div class="posts-section">
                 <div class="post">
-                    <h4>Post 1</h4>
-                    <p>Non dolore proident duis officia excepteur labore ut eiusmod aliquip ipsum deserunt. Officia esse aute officia incididunt non aliqua cillum.</p>
+                    <p><span>Post 1</span> Non dolore proident duis officia excepteur labore ut eiusmod aliquip ipsum deserunt. Officia esse aute officia incididunt non aliqua cillum.</p>
                 </div>
                 <div class="post">
-                    <h4>Post 2</h4>
-                    <p>Non dolore proident duis officia excepteur labore ut eiusmod aliquip ipsum deserunt. Officia esse aute officia incididunt non aliqua cillum.</p>
+                    <p><span>Post 2</span> Non dolore proident duis officia excepteur labore ut eiusmod aliquip ipsum deserunt. Officia esse aute officia incididunt non aliqua cillum.</p>
                 </div>
                 <div class="post">
-                    <h4>Post 3</h4>
-                    <p>Non dolore proident duis officia excepteur labore ut eiusmod aliquip ipsum deserunt. Officia esse aute officia incididunt non aliqua cillum.</p>
+                    <p><span>Post 3</span> Non dolore proident duis officia excepteur labore ut eiusmod aliquip ipsum deserunt. Officia esse aute officia incididunt non aliqua cillum.</p>
                 </div>
             </div>
 

@@ -64,7 +64,7 @@
             }
 
             .posts-section .post:not(:first-child) {
-                margin-top: 1%;
+                margin-top: 3%;
             }
 
             .posts-section .post {
@@ -77,66 +77,78 @@
                 font-size: 0.9em;
             }
 
+            .post span {
+                font-weight: bold;
+                font-size: 1.2em;
+            }
+
         </style>
         <meta charset="utf-8">
         <title>Registration Page</title>
     </head>
     <body>
 
-        <div class="container">
+        <?php
+            include_once '../components/headers/loggedin-header.php';
+        ?>
 
-            <?php
-                include_once '../components/headers/loggedin-header.php';
-            ?>
+        <?php
+            if(!isset($_SESSION)) {
+                session_start();
+            }
+        ?>
+        <?php
+            // If the user comes from the 'log in' page, then $_SESSION is used
+            // If the user comes from the 'Users' (list of all users) paee, then $_GET is used
+            $username = isset($_GET['username']) ? $_GET['username']: $_SESSION['username'];
+        ?>
+        <h4 id="welcome">Welcome <span><?php echo $username ?></span></h4>
 
-            <?php
-                if(!isset($_SESSION)) {
-                    session_start();
-                }
-            ?>
-            <?php
-                // If the user comes from the 'log in' page, then $_SESSION is used
-                // If the user comes from the 'Users' (list of all users) paee, then $_GET is used
-                $username = isset($_GET['username']) ? $_GET['username']: $_SESSION['username'];
-            ?>
-            <h4 id="welcome">Welcome <span><?php echo $username ?></span></h4>
+        <img class="profile-image" src="../src/images/profile-placeholder.jpg" alt="Profile Placeholder Image">
 
-            <img class="profile-image" src="../src/images/profile-placeholder.jpg" alt="Profile Placeholder Image">
+        <div class="profile-bio">
+            <p>
+                <?php
+                    require_once __DIR__ . "/../logic/profile.php";
 
-            <div class="profile-bio">
-                <p>
-                    <?php
-                        require_once __DIR__ . "/../logic/profile.php";
+                    echo $profile_data->bio;
+                ?>
 
-                        echo $profile_data->bio;
-                    ?>
-
-                </p>
-            </div>
-
-            <br>
-
-            <form id="tveet-form" action="../logic/profile.php?recipient=<?php echo $username ?>" method="post">
-                <textarea name="post-message"></textarea>
-                <input type="submit" name="post-message-submit" value="tveet">
-            </form>
-
-            <h2 id="timeline-header">Timeline</h2>
-
-            <div class="posts-section">
-                <div class="post">
-                    <h4>Post 1</h4>
-                    <p>Non dolore proident duis officia excepteur labore ut eiusmod aliquip ipsum deserunt. Officia esse aute officia incididunt non aliqua cillum.</p>
-                </div>
-                <div class="post">
-                    <h4>Post 2</h4>
-                    <p>Non dolore proident duis officia excepteur labore ut eiusmod aliquip ipsum deserunt. Officia esse aute officia incididunt non aliqua cillum.</p>
-                </div>
-                <div class="post">
-                    <h4>Post 3</h4>
-                    <p>Non dolore proident duis officia excepteur labore ut eiusmod aliquip ipsum deserunt. Officia esse aute officia incididunt non aliqua cillum.</p>
-                </div>
-            </div>
+            </p>
         </div>
+
+        <br>
+
+        <form id="tveet-form" action="../logic/profile.php?recipient=<?php echo $username ?>" method="post">
+            <textarea name="post-message"></textarea>
+            <input type="submit" name="post-message-submit" value="tveet">
+        </form>
+
+        <h2 id="timeline-header">Timeline</h2>
+
+        <div class="posts-section">
+            <div class="post">
+                <p><span>Post 1</span> Non dolore proident duis officia excepteur labore ut eiusmod aliquip ipsum deserunt. Officia esse aute officia incididunt non aliqua cillum.</p>
+            </div>
+            <div class="post">
+                <p><span>Post 2</span> Non dolore proident duis officia excepteur labore ut eiusmod aliquip ipsum deserunt. Officia esse aute officia incididunt non aliqua cillum.</p>
+            </div>
+            <div class="post">
+                <p><span>Post 3</span> Non dolore proident duis officia excepteur labore ut eiusmod aliquip ipsum deserunt. Officia esse aute officia incididunt non aliqua cillum.</p>
+            </div>
+
+            <?php require_once __DIR__ . "/../logic/profile.php"; ?>
+            <?php foreach($posts as $post): ?>
+
+                    <div class="post">
+                        <p>
+                            <span><?php echo explode(' ',trim($post))[0]; ?> </span>
+                            <?php echo explode(' ',trim($post))[1];; ?>
+                        </p>
+                    </div>
+
+            <?php endforeach; ?>
+        </div>
+
     </body>
 </html>
