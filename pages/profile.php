@@ -127,26 +127,13 @@
         <h2 id="timeline-header">Timeline</h2>
 
         <div class="posts-section">
-            <div class="post">
-                <p><span>Post 1</span> Non dolore proident duis officia excepteur labore ut eiusmod aliquip ipsum deserunt. Officia esse aute officia incididunt non aliqua cillum.</p>
-            </div>
-            <div class="post">
-                <p><span>Post 2</span> Non dolore proident duis officia excepteur labore ut eiusmod aliquip ipsum deserunt. Officia esse aute officia incididunt non aliqua cillum.</p>
-            </div>
-            <div class="post">
-                <p><span>Post 3</span> Non dolore proident duis officia excepteur labore ut eiusmod aliquip ipsum deserunt. Officia esse aute officia incididunt non aliqua cillum.</p>
-            </div>
-
-            <?php require_once __DIR__ . "/../logic/profile.php"; ?>
             <?php foreach($posts as $post): ?>
-
-                    <div class="post">
-                        <p>
-                            <span><?php echo explode(' ',trim($post))[0]; ?> </span>
-                            <?php echo explode(' ',trim($post))[1];; ?>
-                        </p>
-                    </div>
-
+                <div class="post">
+                    <p>
+                        <span><?php echo explode(' ',trim($post))[0]; ?> </span>
+                        <?php echo $post; ?>
+                    </p>
+                </div>
             <?php endforeach; ?>
         </div>
 
