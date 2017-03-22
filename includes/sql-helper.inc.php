@@ -33,9 +33,18 @@
         public function user_count($username)
         {
             global $db_connection;
-            $statement = $db_connection->prepare("SELECT * FROM `users` WHERE username = ?");
-            $statement->bind_param("s", $username);
-            $statement->execute();
+
+            if (!($statement = $db_connection->prepare("SELECT * FROM `users` WHERE username = ?"))) {
+                echo "Prepare failed: (" . $db_connection->errno . ") " . $db_connection->error;
+            }
+            if (!$statement->bind_param("s", $username)) {
+                echo "Binding parameters failed: (" . $statement->errno . ") " . $statement->error;
+            }
+
+            if (!$statement->execute()) {
+                echo "Execute failed: (" . $statement->errno . ") " . $statement->error;
+            }
+
             $statement->store_result();
 
             $num_rows = $statement->num_rows;

@@ -19,3 +19,13 @@ CREATE TABLE `posts` (
 
     FOREIGN KEY (user_id) REFERENCES `users`(`id`)
 );
+
+-- insert users
+INSERT INTO `users` (`username`, `password`, `bio`) VALUES
+    (
+        ('usy', 'password','usy\'s bio'),
+        ('ali', 'password','ali\'s bio'),
+        ('mum', 'password','mum\'s bio'),
+        ('jav', 'password','jav\'s bio'),
+        ('tam', 'password','tam\'s bio')
+    );
