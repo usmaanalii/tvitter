@@ -10,7 +10,11 @@
 
     if ($complete_form) {
         if ($password_match) {
-            session_start();
+
+            if(!isset($_SESSION)){
+                session_start();
+            };
+            
             $session_id = $login_user->login_session_variables()["id"];
             $session_username = $login_user->login_session_variables()["username"];
 

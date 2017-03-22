@@ -147,7 +147,7 @@
         public function insert_post($user_id, $post)
         {
             global $db_connection;
-            $statement = $db_connection->prepare("INSERT INTO `posts` (id, body, `time`) VALUES (?, ?, NOW())");
+            $statement = $db_connection->prepare("INSERT INTO `posts` (user_id, body, `time`) VALUES (?, ?, NOW())");
 
             $statement->bind_param("ss", $user_id, $post);
             $statement->execute();

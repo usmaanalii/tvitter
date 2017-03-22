@@ -13,9 +13,9 @@ CREATE TABLE `users` (
 -- create posts table
 CREATE TABLE `posts` (
     `post_id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    `id` INT NOT NULL,
+    `user_id` INT NOT NULL,
     `time` TIME NOT NULL,
     `body` VARCHAR(140),
 
-    FOREIGN KEY (post_id) REFERENCES `users`(`id`)
+    FOREIGN KEY (user_id) REFERENCES `users`(`id`)
 );

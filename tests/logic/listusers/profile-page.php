@@ -84,7 +84,12 @@
                 include_once '../../../components/headers/loggedin-header.php';
             ?>
 
-            <?php session_start(); ?>
+            <?php
+                if(!isset($_SESSION)){
+                    session_start();
+                };
+            ?>
+            
             <?php $username = $_GET['username'] ?>
             <h4 id="welcome">Welcome <span><?php echo $username ?></span></h4>
 
