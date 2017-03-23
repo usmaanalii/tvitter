@@ -153,37 +153,39 @@
         *
         * @return void (The post will be added to the table)
         */
-        public function insert_post($user_id, $post)
+        public function insert_post($sender_id, $recipient_id ,$post)
         {
             global $db_connection;
-            $statement = $db_connection->prepare("INSERT INTO `posts` (user_id, body, `time`) VALUES (?, ?, NOW())");
+            $statement = $db_connection->prepare("INSERT INTO `posts` (sender_id, recipient_id, body, `time`) VALUES (?, ?, ?, NOW())");
 
-            $statement->bind_param("ss", $user_id, $post);
+            $statement->bind_param("iis", $sender_id, $recipient_id, $post);
             $statement->execute();
             $statement->close();
         }
 
         /**
-         * [get_user_posts description]
-         * @param  [type]  $user_id [description]
-         * @return {[type]          [description]
+         * Retrieve the posts for the current user profile
+         * @param  int $profile_id (the current profile user id)
+         * @return array (associative array containing the sender's username and the post)
          */
-        function get_user_posts($user_id)
-        {
-            global $db_connection;
-            $statement = $db_connection->prepare("SELECT `body` FROM `posts` WHERE `user_id` = ?");
-            $statement->bind_param("i", $user_id);
-            $statement->execute();
-            $returned_posts = $statement->get_result();
+         function get_user_posts($profile_id)
+         {
+             global $db_connection;
+             $statement = $db_connection->prepare("SELECT users.username, posts.body FROM `posts` INNER JOIN `users` ON users.id = posts.sender_id WHERE posts.recipient_id = ?");
+             $statement->bind_param("i", $profile_id);
+             $statement->execute();
+             $returned_posts = $statement->get_result();
 
-            $returned_posts_array = array();
+             $returned_posts_array = array();
 
-            while ($row = $returned_posts->fetch_array()) {
-                array_push($returned_posts_array, $row['body']);
-            }
+             while ($row = $returned_posts->fetch_array()) {
+                 array_push($returned_posts_array, ['sender_username' => $row['username'], 'post_body' => $row['body']]);
+             }
 
-            return $returned_posts_array;
-        }
+             return $returned_posts_array;
+         }
     }
+
+
 
 ?>

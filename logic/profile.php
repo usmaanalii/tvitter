@@ -7,25 +7,24 @@
     }
 
      /**
-      * This object represents the current page's user, from which
+      * This object represents the current page's user (being viewed), from which
       * the username and bio will be dynamically displayed
-      * @var $profile_data
+      * @var $current_profile
       */
-    $profile_data = new UserProfile($username);
-
-    $sender_profile = new UserProfile($_SESSION['username']);
+    $current_profile = new UserProfile($username);
 
     if (isset($_POST['post-message'])) {
         $post = $_POST['post-message'];
 
-        $recipient = $_GET['recipient'];
+        $sender_profile = new UserProfile($_SESSION['username']);
+        $recipient_profile = new UserProfile($_GET['recipient']);
 
-        $sender_profile->insert_post_data($recipient . ' ' . $post);
-        header("Location: ../pages/profile.php?username=$recipient");
+        $sender_profile->insert_post_data($sender_profile->id, $recipient_profile->id, $post);
+
+        header("Location: ../pages/profile.php?username=$recipient_profile->username");
     }
 
     // TODO: Need this to work through the UserProfile Class in profile.inc.php
     $sql_helper = new SqlHelper();
-
-    $posts = $sql_helper->get_user_posts($profile_data->id);
+    $posts = $sql_helper->get_user_posts($current_profile->id);
 ?>

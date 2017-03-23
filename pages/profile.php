@@ -79,7 +79,6 @@
 
             .post span {
                 font-weight: bold;
-                font-size: 1.2em;
             }
 
         </style>
@@ -111,7 +110,7 @@
                 <?php
                     require_once __DIR__ . "/../logic/profile.php";
 
-                    echo $profile_data->bio;
+                    echo $current_profile->bio;
                 ?>
 
             </p>
@@ -130,8 +129,8 @@
             <?php foreach ($posts as $post): ?>
                 <div class="post">
                     <p>
-                        <span><?php echo explode(' ', trim($post))[0]; ?> </span>
-                        <?php echo $post; ?>
+                        <span><?php echo "@" . $post['sender_username']; ?> </span>
+                        <?php echo $post['post_body']; ?>
                     </p>
                 </div>
             <?php endforeach; ?>

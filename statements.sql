@@ -13,13 +13,15 @@ CREATE TABLE `users` (
 -- create posts table
 CREATE TABLE `posts` (
     `post_id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    `user_id` INT NOT NULL,
+    `sender_id` INT NOT NULL,
     `recipient_id` INT NOT NULL,
     `time` TIME NOT NULL,
     `body` VARCHAR(140),
 
-    FOREIGN KEY (user_id) REFERENCES users(`id`)
+    FOREIGN KEY (sender_id) REFERENCES users(`id`),
+    FOREIGN KEY (recipient_id) REFERENCES users(`id`)
 );
+
 
 -- insert users
 INSERT INTO `users` (`username`, `password`, `bio`) VALUES

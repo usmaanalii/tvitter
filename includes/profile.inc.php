@@ -21,10 +21,14 @@
         private $password;
         public $bio;
 
+        public $sql_helper;
+
 
         function __construct($username)
         {
             $sql_helper = new SqlHelper();
+
+            $this->sql_helper = $sql_helper;
             $user_data = $sql_helper->get_user_data($username);
 
             $this->id = $user_data["id"];
@@ -39,11 +43,11 @@
          * @param  [type]  $post [description]
          * @return {[type]       [description]
          */
-        public function insert_post_data($post)
+        public function insert_post_data($sender_id, $recipient_id, $post)
         {
             $sql_helper = new SqlHelper();
 
-            $sql_helper->insert_post($this->id, $post);
+            $sql_helper->insert_post($sender_id, $recipient_id, $post);
         }
 
         public function display_posts()
