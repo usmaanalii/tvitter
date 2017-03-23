@@ -25,9 +25,21 @@
 
 
     $posts = get_user_posts(1);
+
     foreach ($posts as $post) {
+        if ($post['sender_username'] == 'usy') {
+            $post['sender_username'] = "";
+        }
+
         echo $post['sender_username'] . ' ' . $post['post_body'] . '<br>';
     }
 
+    // $test = array(1 => 'one');
+    // if ($test[1] == 'one') {
+    //     $test[1] = 'two';
+    // }
+    //
+    //
+    // print_r($test);
 
 ?>

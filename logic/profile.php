@@ -27,4 +27,13 @@
     // TODO: Need this to work through the UserProfile Class in profile.inc.php
     $sql_helper = new SqlHelper();
     $posts = $sql_helper->get_user_posts($current_profile->id);
+
+    // Change username in the event, post is on own profile
+    foreach ($posts as $post) {
+        if ($post['sender_username'] == $current_profile->username) {
+            $post['sender_username'] = ".";
+        }
+    }
+
+
 ?>

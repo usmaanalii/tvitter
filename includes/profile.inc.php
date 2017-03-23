@@ -49,13 +49,6 @@
 
             $sql_helper->insert_post($sender_id, $recipient_id, $post);
         }
-
-        public function display_posts()
-        {
-            $sql_helper = new SqlHelper();
-
-            $sql_helper->get_user_posts($this->id);
-        }
     }
 
 ?>

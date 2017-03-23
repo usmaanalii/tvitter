@@ -126,13 +126,26 @@
         <h2 id="timeline-header">Timeline</h2>
 
         <div class="posts-section">
+            <!--
+                - If the user is on his own profile, then a blank space will be
+                printed before the post
+                - Else the user's name will be printed prefixed with @ before
+                the post
+            -->
             <?php foreach ($posts as $post): ?>
-                <div class="post">
-                    <p>
-                        <span><?php echo "@" . $post['sender_username']; ?> </span>
-                        <?php echo $post['post_body']; ?>
-                    </p>
-                </div>
+                <?php if ($post['sender_username'] == $current_profile->username): ?>
+                    <?php $post['sender_username'] = ""; ?>
+                <?php endif; ?>
+                    <div class="post">
+                        <p>
+                            <?php if ($post['sender_username'] == ""): ?>
+                                <span><?php echo ""; ?> </span>
+                            <?php else: ?>
+                                <span><?php echo "@" . $post['sender_username']; ?> </span>
+                            <?php endif; ?>
+                            <?php echo $post['post_body']; ?>
+                        </p>
+                    </div>
             <?php endforeach; ?>
         </div>
 
