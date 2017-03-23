@@ -73,7 +73,16 @@
                 background: rgb(209, 209, 209);
             }
 
-            .post p {
+            .post p.sender-username {
+                margin : 0;
+                padding: 0;
+                display: inline-block;
+                font-size: 0.7em;
+                font-style: italic;
+                float: right;
+            }
+
+            .post p.post-body {
                 font-size: 0.9em;
             }
 
@@ -131,23 +140,33 @@
                 printed before the post
                 - Else the user's name will be printed prefixed with @ before
                 the post
+                -
+                - In the top right corner of each post will be the
+                recipient_username
+                -
+                - Both, the prefixed sender_username and recipient_username will
+                be hyperlinks leading to the profile pages 
             -->
             <?php foreach ($posts as $post): ?>
+
                 <?php if ($post['sender_username'] == $current_profile->username): ?>
                     <?php $post['sender_username'] = ""; ?>
                 <?php endif; ?>
+
                     <div class="post">
-                        <p>
+                        <p class = "sender-username"><a href="profile.php?username=<?php echo $post['recipient_username']; ?>"><?php echo $post['recipient_username']; ?></a></p>
+                        <p class="post-body">
+
                             <?php if ($post['sender_username'] == ""): ?>
                                 <span><?php echo ""; ?> </span>
                             <?php else: ?>
-                                <span><?php echo "@" . $post['sender_username']; ?> </span>
+                                <span><a href="profile.php?username=<?php echo $post['sender_username']; ?>">@<?php echo $post['sender_username']; ?></a> </span>
                             <?php endif; ?>
+
                             <?php echo $post['post_body']; ?>
                         </p>
                     </div>
             <?php endforeach; ?>
         </div>
-
     </body>
 </html>

@@ -166,20 +166,29 @@
         /**
          * Retrieve the posts for the current user profile
          * @param  int $profile_id (the current profile user id)
-         * @return array (associative array containing the sender's username and the post)
+         * @return array (associative array containing the sender's username, recipient's username and the post)
          */
-         function get_user_posts($profile_id)
+         function get_user_posts($id)
          {
              global $db_connection;
-             $statement = $db_connection->prepare("SELECT users.username, posts.body FROM `posts` INNER JOIN `users` ON users.id = posts.sender_id WHERE posts.recipient_id = ?");
-             $statement->bind_param("i", $profile_id);
+             $statement = $db_connection->prepare(
+                 "SELECT users1.username AS 'sender',
+                         users2.username AS 'recipient',
+                         posts.body AS 'body' FROM `posts`
+
+                 INNER JOIN `users` `users1` ON users1.id = posts.sender_id
+                 INNER JOIN `users` `users2` ON users2.id = posts.recipient_id
+
+                 WHERE posts.recipient_id = ?;"
+             );
+             $statement->bind_param("i", $id);
              $statement->execute();
              $returned_posts = $statement->get_result();
 
              $returned_posts_array = array();
 
              while ($row = $returned_posts->fetch_array()) {
-                 array_push($returned_posts_array, ['sender_username' => $row['username'], 'post_body' => $row['body']]);
+                 array_push($returned_posts_array, ['sender_username' => $row['sender'], 'recipient_username' => $row['recipient'], 'post_body' => $row['body']]);
              }
 
              return $returned_posts_array;

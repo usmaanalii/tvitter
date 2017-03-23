@@ -30,8 +30,8 @@
 
     // Change username in the event, post is on own profile
     foreach ($posts as $post) {
-        if ($post['sender_username'] == $current_profile->username) {
-            $post['sender_username'] = ".";
+        if ($post['recipient_username'] == $current_profile->username) {
+            $post['recipient_username'] = ".";
         }
     }
 

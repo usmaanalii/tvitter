@@ -31,13 +31,22 @@
                 background: rgb(209, 209, 209);
             }
 
-            .post p {
+            .post p.sender-username {
+                margin : 0;
+                padding: 0;
+                display: inline-block;
+                font-size: 0.7em;
+                font-style: italic;
+                float: right;
+            }
+
+            .post p.post-body {
                 font-size: 0.9em;
+                /*margin-top: -0.1%;*/
             }
 
             .post span {
                 font-weight: bold;
-                font-size: 1.2em;
             }
         </style>
         <meta charset="utf-8">
@@ -56,13 +65,16 @@
 
             <div class="posts-section">
                 <div class="post">
-                    <p><span>Post 1</span> Non dolore proident duis officia excepteur labore ut eiusmod aliquip ipsum deserunt. Officia esse aute officia incididunt non aliqua cillum.</p>
+                    <p class = "sender-username">username</p>
+                    <p class="post-body"><span>@user1</span> Non dolore proident duis officia excepteur labore ut eiusmod aliquip ipsum deserunt. Officia esse aute officia incididunt non aliqua cillum.</p>
                 </div>
                 <div class="post">
-                    <p><span>Post 2</span> Non dolore proident duis officia excepteur labore ut eiusmod aliquip ipsum deserunt. Officia esse aute officia incididunt non aliqua cillum.</p>
+                    <p class = "sender-username">username</p>
+                    <p class="post-body"><span>@user1</span> Non dolore proident duis officia excepteur labore ut eiusmod aliquip ipsum deserunt. Officia esse aute officia incididunt non aliqua cillum.</p>
                 </div>
                 <div class="post">
-                    <p><span>Post 3</span> Non dolore proident duis officia excepteur labore ut eiusmod aliquip ipsum deserunt. Officia esse aute officia incididunt non aliqua cillum.</p>
+                    <p class = "sender-username">username</p>
+                    <p class="post-body"><span>@user1</span> Non dolore proident duis officia excepteur labore ut eiusmod aliquip ipsum deserunt. Officia esse aute officia incididunt non aliqua cillum.</p>
                 </div>
             </div>
 
