@@ -53,6 +53,9 @@
         <title>Registration Page</title>
     </head>
     <body>
+        <?php
+            require_once __DIR__ . "/../logic/timeline.php";
+        ?>
 
         <div class="container">
 
@@ -64,21 +67,11 @@
             <h2>Timeline</h2>
 
             <div class="posts-section">
-                <div class="post">
-                    <p class = "sender-username">username</p>
-                    <p class="post-body"><span>@user1</span> Non dolore proident duis officia excepteur labore ut eiusmod aliquip ipsum deserunt. Officia esse aute officia incididunt non aliqua cillum.</p>
-                </div>
-                <div class="post">
-                    <p class = "sender-username">username</p>
-                    <p class="post-body"><span>@user1</span> Non dolore proident duis officia excepteur labore ut eiusmod aliquip ipsum deserunt. Officia esse aute officia incididunt non aliqua cillum.</p>
-                </div>
-                <div class="post">
-                    <p class = "sender-username">username</p>
-                    <p class="post-body"><span>@user1</span> Non dolore proident duis officia excepteur labore ut eiusmod aliquip ipsum deserunt. Officia esse aute officia incididunt non aliqua cillum.</p>
-                </div>
+                <?php
+                    // individual posts
+                    require_once __DIR__ . "/../components/timeline/posts.php";
+                ?>
             </div>
-
-
         </div>
     </body>
 </html>

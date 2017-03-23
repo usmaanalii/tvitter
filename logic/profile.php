@@ -28,12 +28,4 @@
     $sql_helper = new SqlHelper();
     $posts = $sql_helper->get_user_posts($current_profile->id);
 
-    // Change username in the event, post is on own profile
-    foreach ($posts as $post) {
-        if ($post['recipient_username'] == $current_profile->username) {
-            $post['recipient_username'] = ".";
-        }
-    }
-
-
 ?>
