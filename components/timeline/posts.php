@@ -17,7 +17,6 @@
     <?php endif; ?>
 
         <div class="post">
-            <p class = "sender-username">posted by <a href="profile.php?username=<?php echo $post['sender_username']; ?>"><?php echo $post['recipient_username']; ?></a></p>
             <p class="post-body">
                 <?php echo $post['post_body']; ?>
             </p>
