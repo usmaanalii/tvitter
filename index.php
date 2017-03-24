@@ -7,6 +7,9 @@
         <link rel="stylesheet" href="src/css/center-page.css">
         <link rel="stylesheet" href="src/css/header.css">
         <meta charset="utf-8">
+        <style media="screen">
+
+        </style>
         <title><?php echo $web_app; ?></title>
     </head>
     <body>

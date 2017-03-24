@@ -14,11 +14,8 @@
 
 
         <div class="post">
-            <p class = "sender-username">posted by <a href="profile.php?username=<?php echo $post['sender_username']; ?>"><?php echo $post['sender_username']; ?></a></p>
 
-            <?php if ($post['sender_username'] == $current_profile->username): ?>
-                <?php $post['sender_username'] = ""; ?>
-            <?php endif; ?>
+            <p class = "sender-username"><a href="profile.php?username=<?php echo $post['sender_username']; ?>"><?php echo $post['sender_username']; ?></a></p>
 
             <p class="post-body">
                 <?php echo $post['post_body']; ?>

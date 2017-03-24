@@ -49,7 +49,7 @@
                 text-align: center;
             }
 
-            #tveet-form input[type="submit"] {
+            #tveet-form input {
                 display: block;
                 margin: 0 auto;
             }
@@ -71,6 +71,7 @@
                 border: 1px solid black;
                 padding: 0 2%;
                 background: rgb(209, 209, 209);
+                word-wrap: break-word;
             }
 
             .post p.sender-username {
@@ -84,10 +85,6 @@
 
             .post p.post-body {
                 font-size: 0.9em;
-            }
-
-            .post span {
-                font-weight: bold;
             }
 
         </style>
@@ -136,7 +133,7 @@
 
         <div class="posts-section">
             <?php
-                // individual posts 
+                // individual posts
                 require_once __DIR__ . "/../components/profile/posts.php";
             ?>
         </div>

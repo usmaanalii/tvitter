@@ -13,9 +13,20 @@
 <?php foreach ($posts as $post): ?>
 
         <div class="post">
-            <p class = "sender-username">posted by <a href="profile.php?username=<?php echo $post['sender_username']; ?>"><?php echo $post['sender_username']; ?></a></p>
+            <?php if ($post['sender_username'] != $post['recipient_username']): ?>
+                <p class = "post-usernames">
+                    <a href="profile.php?username=<?php echo $post['sender_username']; ?>"><?php echo $post['sender_username']; ?></a> to
+                    <a href="profile.php?username=<?php echo $post['recipient_username']; ?>"><?php echo $post['recipient_username']; ?></a>
+                </p>
+            <?php else: ?>
+                <p class = "post-usernames">
+                    <a href="profile.php?username=<?php echo $post['sender_username']; ?>"><?php echo $post['sender_username']; ?></a>
+                </p>
+            <?php endif; ?>
+
             <p class="post-body">
                 <?php echo $post['post_body']; ?>
             </p>
+
         </div>
 <?php endforeach; ?>
