@@ -8,9 +8,10 @@
      * @param string username
      * @param string password
      *
-     * // TODO: Add all new methods
+     * TODO: Add all new methods
      *
      * @method bool check_password_match (compare form password with database password)
+     * @method array login_session_variables (used to retrieve profile data for logged in user)
      *
      */
     class UserLogin extends RegisterUser

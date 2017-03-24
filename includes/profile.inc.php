@@ -9,10 +9,9 @@
      * @param string password
      * @param string bio
      *
-     * // TODO: Add all new methods
+     * TODO: Add all new methods
      *
-     *
-     *
+     * @method void insert_post_data
      */
     class UserProfile
     {
@@ -38,10 +37,14 @@
         }
 
         /**
-         * TODO: DOCBLOCK
-         * [insert_post_data description]
-         * @param  [type]  $post [description]
-         * @return {[type]       [description]
+         * takes the $_POST data from the 'tveet' form on user profile pages
+         * and inserts into the database the following columns
+         * (post_id, sender_id, recipient_id, time, body)
+         * @param  int $sender_id [the id of the user posting the message, which will be the user currently logged in, tracked by the $_SESSION]
+         * @param  int $recipient_id [the id of the profile on which the message is being posted, tracked by $_GET['username']]
+         * @param  string $post [the contents of the post]
+         *
+         * @return void [...]
          */
         public function insert_post_data($sender_id, $recipient_id, $post)
         {

@@ -6,11 +6,16 @@
     *
     * This will be used as a base for other classes that require database CRUD operations
     *
-    * // TODO: Add all new methods
+    * TODO: Add all new methods
+    * TODO: methods that insert into the database to return TRUE?
     *
     * @method int user_count (Returns the row count for a username)
     * @method void add_user (Inserts a user into the users table)
-    * @method string get_password (Returns the password for a specified
+    * @method array get_user_daa (Returns all user data in a associative array)
+    * @method array get_all_usernames (Returns array of all usernames)
+    * @method void insert_post (Inserts post into posts table)
+    * @method array get_user_posts (Returns data about each post for a given id)
+    * @method array get_all_posts (Returns data about all posts in posts table)
     *
     */
 
@@ -75,18 +80,16 @@
             $statement->close();
         }
 
-        // TODO Change the Docblock
         /**
         * @method get_user_data
         *
         * goals of the function include...
         *   1. Receieve a username
-        *   2. Use the username to access it's associated id, username and password
-        *   3. Will mainly be used in the UserLogin Class to store session variables
+        *   2. Use the username to access it's details
         *
         * @param string username
         *
-        * @return array (Containing the user id and username)
+        * @return array (Containing the user id, username, password and bio)
         */
 
         public function get_user_data($username)
@@ -179,7 +182,9 @@
                 INNER JOIN `users` `users1` ON users1.id = posts.sender_id
                 INNER JOIN `users` `users2` ON users2.id = posts.recipient_id
 
-                WHERE posts.recipient_id = ?;"
+                WHERE posts.recipient_id = ?
+
+                ORDER BY posts.time DESC;"
             );
             $statement->bind_param("i", $id);
             $statement->execute();
@@ -196,7 +201,7 @@
 
         /**
          * Retrieve the posts from all users
-         * 
+         *
          * @return array (associative array containing the sender's username, recipient's username and the post)
          */
         public function get_all_posts()
@@ -208,7 +213,9 @@
                         posts.body AS 'body' FROM `posts`
 
                 INNER JOIN `users` `users1` ON users1.id = posts.sender_id
-                INNER JOIN `users` `users2` ON users2.id = posts.recipient_id;"
+                INNER JOIN `users` `users2` ON users2.id = posts.recipient_id
+
+                ORDER BY posts.time DESC;"
             );
             $statement->execute();
             $returned_posts = $statement->get_result();

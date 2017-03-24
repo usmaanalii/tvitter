@@ -36,10 +36,12 @@ INSERT INTO `users` (`username`, `password`, `bio`) VALUES
 -- query to collect, sender_username, recipient_username and post_body
 -- located in get_user_posts method
 SELECT users1.username AS 'sender',
-       users2.username AS 'recipien',
+       users2.username AS 'recipient',
        posts.body AS 'body' FROM `posts`
 
 INNER JOIN `users` `users1` ON users1.id = posts.sender_id
 INNER JOIN `users` `users2` ON users2.id = posts.recipient_id
 
-WHERE posts.recipient_id = ?;
+WHERE posts.recipient_id = ?
+
+ORDER BY posts.time DESC;
