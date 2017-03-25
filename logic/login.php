@@ -1,7 +1,7 @@
 <?php
     require_once __DIR__ . '/../includes/login.inc.php';
 
-    // check if username and password have been added
+    // check if form is complete
     $complete_form = !empty($_POST['username']) && !empty($_POST['password']);
 
     $logged_in_user = new UserLogin($_POST['username'], $_POST['password']);
