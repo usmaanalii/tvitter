@@ -87,6 +87,17 @@
                 font-size: 0.9em;
             }
 
+            .post .delete-post-button {
+                background: none;
+                outline: none;
+                border: none;
+                float: right;
+                padding : 0;
+                margin-top: 4.5%;
+                color: rgb(168, 165, 165);
+                cursor: pointer;
+            }
+
         </style>
         <meta charset="utf-8">
         <title>Registration Page</title>
