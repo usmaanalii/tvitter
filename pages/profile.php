@@ -2,6 +2,7 @@
 <html>
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
         <link rel="stylesheet" href="../src/css/header.css">
         <link rel="stylesheet" href="../src/css/center-page.css">
         <style media="screen">
@@ -85,6 +86,19 @@
 
             .post p.post-body {
                 font-size: 0.9em;
+                margin-bottom: 1%;
+            }
+
+            h6.post-time {
+                display: inline;
+                /*margin-left: 95%;*/
+                margin-top: 20px;
+                color: rgb(184, 178, 178);
+            }
+
+            h6.post-time:hover {
+                color: rgb(168, 165, 165);
+                cursor: none;
             }
 
             .post .delete-post-button {
@@ -92,8 +106,8 @@
                 outline: none;
                 border: none;
                 float: right;
+                margin-top: 0.9%;
                 padding : 0;
-                margin-top: 4.5%;
                 color: rgb(168, 165, 165);
                 cursor: pointer;
             }
@@ -148,5 +162,13 @@
                 require_once __DIR__ . "/../components/profile/posts.php";
             ?>
         </div>
+
+        <script>
+            $(document).ready(function() {
+                $('.delete-post-button').click(function() {
+
+                });
+            });
+        </script>
     </body>
 </html>

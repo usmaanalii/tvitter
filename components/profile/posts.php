@@ -11,9 +11,11 @@
 
             <p class="post-body">
                 <?php echo $post['post_body']; ?>
-                <?php if ($post['sender_username'] == $_SESSION['username']): ?>
-                    <button type="button" class="delete-post-button">x</button>
-                <?php endif; ?>
             </p>
+            
+            <?php if ($post['sender_username'] == $_SESSION['username']): ?>
+                <button type="button" class="delete-post-button">x</button>
+            <?php endif; ?>
+            <h6 class="post-time"><?php echo substr($post['post_time'], 0, 5) ?></h6>
         </div>
 <?php endforeach; ?>

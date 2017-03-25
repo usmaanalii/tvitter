@@ -177,7 +177,10 @@
             $statement = $db_connection->prepare(
                 "SELECT users1.username AS 'sender',
                         users2.username AS 'recipient',
-                        posts.body AS 'body' FROM `posts`
+                        posts.body AS 'body',
+                        posts.time AS 'time'
+                        FROM `posts`
+
 
                 INNER JOIN `users` `users1` ON users1.id = posts.sender_id
                 INNER JOIN `users` `users2` ON users2.id = posts.recipient_id
@@ -193,7 +196,7 @@
             $returned_posts_array = array();
 
             while ($row = $returned_posts->fetch_array()) {
-                array_push($returned_posts_array, ['sender_username' => $row['sender'], 'recipient_username' => $row['recipient'], 'post_body' => $row['body']]);
+                array_push($returned_posts_array, ['sender_username' => $row['sender'], 'recipient_username' => $row['recipient'], 'post_body' => $row['body'], 'post_time' => $row['time']]);
             }
 
             return $returned_posts_array;
@@ -210,7 +213,9 @@
             $statement = $db_connection->prepare(
                 "SELECT users1.username AS 'sender',
                         users2.username AS 'recipient',
-                        posts.body AS 'body' FROM `posts`
+                        posts.body AS 'body',
+                        posts.time AS 'time'
+                        FROM `posts`
 
                 INNER JOIN `users` `users1` ON users1.id = posts.sender_id
                 INNER JOIN `users` `users2` ON users2.id = posts.recipient_id
@@ -223,10 +228,21 @@
             $returned_posts_array = array();
 
             while ($row = $returned_posts->fetch_array()) {
-                array_push($returned_posts_array, ['sender_username' => $row['sender'], 'recipient_username' => $row['recipient'], 'post_body' => $row['body']]);
+                array_push($returned_posts_array, ['sender_username' => $row['sender'], 'recipient_username' => $row['recipient'], 'post_body' => $row['body'], 'post_time' => $row['time']]);
             }
 
             return $returned_posts_array;
+        }
+
+        public function delete_post($post_id)
+        {
+
+            global $db_connection;
+            $statement = $db_connection->prepare("DELETE FROM posts WHERE post_id = ?");
+
+            $statement->bind_param("i", $post_id);
+            $statement->execute();
+            $statement->close();
         }
     }
 

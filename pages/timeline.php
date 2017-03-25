@@ -43,15 +43,28 @@
 
             .post p.post-body {
                 font-size: 0.9em;
+                margin-bottom: 1%; /* dependency with delete-post-button margin */
             }
-            
+
+            h6.post-time {
+                display: inline;
+                /*margin-left: 95%;*/
+                margin-top: 20px;
+                color: rgb(184, 178, 178);
+            }
+
+            h6.post-time:hover {
+                color: rgb(168, 165, 165);
+                cursor: none;
+            }
+
             .post .delete-post-button {
                 background: none;
                 outline: none;
                 border: none;
                 float: right;
                 padding : 0;
-                margin-top: 4.5%;
+                margin-top: 7.8%;
                 color: rgb(168, 165, 165);
                 cursor: pointer;
             }
