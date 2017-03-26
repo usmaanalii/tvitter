@@ -5,6 +5,9 @@
     - If the post was made to another user, then the top right corner will
     consist of (sender) to (recipient), both of which will be links leading
     back to the respective profile pages
+    -
+    - The javascript code that deletes posts based on the clicking of the button with the class 'delete-post-button' is dependent on the node structure of the html tags
+    - If the structure is changed, the query selectors in src/js/ajax need to be changed to match
  -->
 <?php foreach ($posts as $post): ?>
 
