@@ -1,7 +1,8 @@
 <?php
-    require_once __DIR__ . '/../includes/sql-helper.inc.php';
+require_once __DIR__ . '/../includes/sql-helper.inc.php';
 
-    $sql_helper = new SqlHelper();
+$sql_helper = new SqlHelper();
 
-    $usernames = $sql_helper->get_all_usernames();
-?>
+$usernames = $sql_helper->get_all_usernames();
+
+// No closing php tag according to php style guide
