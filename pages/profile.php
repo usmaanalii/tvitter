@@ -163,12 +163,6 @@
             ?>
         </div>
 
-        <script>
-            $(document).ready(function() {
-                $('.delete-post-button').click(function() {
-
-                });
-            });
-        </script>
+        <script src="../src/js/ajax/deletePosts.js"></script>
     </body>
 </html>
