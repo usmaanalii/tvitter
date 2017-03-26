@@ -234,13 +234,19 @@ class SqlHelper
         return $returned_posts_array;
     }
 
-    public function delete_post($post_id)
+    /**
+     * TODO: Docblock
+     * [delete_post description]
+     * @param  [type]  $post_time [description]
+     * @return {[type]            [description]
+     */
+    public function delete_post($post_time)
     {
 
         global $db_connection;
-        $statement = $db_connection->prepare("DELETE FROM posts WHERE post_id = ?");
+        $statement = $db_connection->prepare("DELETE FROM posts WHERE time = ?");
 
-        $statement->bind_param("i", $post_id);
+        $statement->bind_param("s", $post_time);
         $statement->execute();
         $statement->close();
     }
