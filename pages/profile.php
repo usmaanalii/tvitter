@@ -163,6 +163,6 @@
             ?>
         </div>
 
-        <script src="../src/js/ajax/deletePosts.js"></script>
+        <script src="../src/js/ajax/deletePostProfile.js"></script>
     </body>
 </html>

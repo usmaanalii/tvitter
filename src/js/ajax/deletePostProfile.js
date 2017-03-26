@@ -15,3 +15,7 @@ $(document).ready(function() {
         location.reload();
     });
 });
+
+// For timeline page
+// var postTime = $(this).parent().siblings(".post-time").html();
+// var senderUsername = $(this).parent().siblings('.post-usernames').children('a').html()
