@@ -6,7 +6,7 @@ $(document).ready(function() {
 
         $.ajax({
              type: "POST",
-             url: '../logic/functionality/delete-posts.php',
+             url: '../logic/functionality/delete-post.php',
              data:{'post-time': postTime, 'post-username': senderUsername},
              success:function() {
              }

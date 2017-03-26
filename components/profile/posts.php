@@ -21,6 +21,6 @@
 <?php endforeach; ?>
 
 <?php
-    // TODO: Change the time format - Ajax delete-posts dependent on this
+    // TODO: Change the time format - Ajax delete-post dependent on this
     // substr($post['post_time'], 0, 5)
 ?>
