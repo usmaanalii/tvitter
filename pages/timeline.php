@@ -70,6 +70,11 @@
                 cursor: pointer;
             }
 
+            .post .delete-button {
+                float: right;
+                margin: 0;
+                padding: 0;
+            }
         </style>
         <meta charset="utf-8">
         <title>Registration Page</title>
