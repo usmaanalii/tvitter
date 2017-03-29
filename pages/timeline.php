@@ -78,6 +78,10 @@
         require_once __DIR__ . "/../logic/timeline.php";
     ?>
 
+    <?php
+        $username = isset($_GET['username']) ? $_GET['username']: $_SESSION['username'];
+    ?>
+
     <div class="container">
 
         <?php

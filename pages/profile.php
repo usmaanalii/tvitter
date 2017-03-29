@@ -101,15 +101,10 @@
                 cursor: none;
             }
 
-            .post .delete-post-button {
-                background: none;
-                outline: none;
-                border: none;
+            .post .delete-button {
                 float: right;
-                margin-top: 0.9%;
-                padding : 0;
-                color: rgb(168, 165, 165);
-                cursor: pointer;
+                margin: 0;
+                padding: 0;
             }
 
         </style>

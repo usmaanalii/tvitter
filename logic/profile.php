@@ -7,8 +7,7 @@ if(!isset($_SESSION)) {
 }
 
  /**
-  * This object represents the current page's user (being viewed), from which
-  * the username and bio will be dynamically displayed
+  * reprsents the user of the current profile being shown
   * @var $current_profile
   */
 $current_profile = new UserProfile($username);
@@ -24,8 +23,20 @@ if (isset($_POST['post-message'])) {
     header("Location: ../pages/profile.php?username=$recipient_profile->username");
 }
 
-// TODO: Need this to work through the UserProfile Class in profile.inc.php
+/**
+ * Used to retrieve the posts for the current profile being shown
+ * TODO: Need this to work through the UserProfile Class in profile.inc.php
+ * @var SqlHelper
+ */
 $sql_helper = new SqlHelper();
 $posts = $sql_helper->get_user_posts($current_profile->id);
-
 // No closing php tag according to php style guide
+
+if (isset($_POST['delete-post-id'])) {
+
+    $sql_helper = new SqlHelper();
+
+    $sql_helper->delete_post($_POST['delete-post-id']);
+
+    header("Location: ../pages/profile.php");
+}

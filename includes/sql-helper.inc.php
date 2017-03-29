@@ -177,6 +177,7 @@ class SqlHelper
         $statement = $db_connection->prepare(
             "SELECT users1.username AS 'sender',
                     users2.username AS 'recipient',
+                    posts.post_id AS 'post_id',
                     posts.body AS 'body',
                     posts.time AS 'time'
                     FROM `posts`
@@ -196,7 +197,7 @@ class SqlHelper
         $returned_posts_array = array();
 
         while ($row = $returned_posts->fetch_array()) {
-            array_push($returned_posts_array, ['sender_username' => $row['sender'], 'recipient_username' => $row['recipient'], 'post_body' => $row['body'], 'post_time' => $row['time']]);
+            array_push($returned_posts_array, ['sender_username' => $row['sender'], 'recipient_username' => $row['recipient'], 'post_id' => $row['post_id'], 'post_body' => $row['body'], 'post_time' => $row['time']]);
         }
 
         return $returned_posts_array;
@@ -213,6 +214,7 @@ class SqlHelper
         $statement = $db_connection->prepare(
             "SELECT users1.username AS 'sender',
                     users2.username AS 'recipient',
+                    posts.post_id AS 'post_id',
                     posts.body AS 'body',
                     posts.time AS 'time'
                     FROM `posts`
@@ -228,7 +230,7 @@ class SqlHelper
         $returned_posts_array = array();
 
         while ($row = $returned_posts->fetch_array()) {
-            array_push($returned_posts_array, ['sender_username' => $row['sender'], 'recipient_username' => $row['recipient'], 'post_body' => $row['body'], 'post_time' => $row['time']]);
+            array_push($returned_posts_array, ['sender_username' => $row['sender'], 'recipient_username' => $row['recipient'], 'post_id' => $row['post_id'],'post_body' => $row['body'], 'post_time' => $row['time']]);
         }
 
         return $returned_posts_array;
@@ -237,16 +239,16 @@ class SqlHelper
     /**
      * TODO: Docblock
      * [delete_post description]
-     * @param  [type]  $post_time [description]
+     * @param  [type]  $post_id [description]
      * @return {[type]            [description]
      */
-    public function delete_post($post_time)
+    public function delete_post($post_id)
     {
 
         global $db_connection;
-        $statement = $db_connection->prepare("DELETE FROM posts WHERE time = ?");
+        $statement = $db_connection->prepare("DELETE FROM posts WHERE post_id = ?");
 
-        $statement->bind_param("s", $post_time);
+        $statement->bind_param("i", $post_id);
         $statement->execute();
         $statement->close();
     }
