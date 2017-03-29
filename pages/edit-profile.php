@@ -39,15 +39,6 @@
                 margin-bottom: 2%;
             }
 
-            form.edit-profile-form {
-                margin-bottom: 2px;
-            }
-
-            form .edit-profile-button {
-                display: block;
-                margin: 0 auto;
-            }
-
             .profile-bio {
                 width: 75%;
                 display: block;
@@ -62,65 +53,25 @@
                 color: red;
             }
 
-            #tveet-form {
-                text-align: center;
-            }
-
-            #tveet-form input {
-                display: block;
+            form.add-bio-form {
+                width: 60%;
                 margin: 0 auto;
             }
 
-            #tveet-form textarea {
-                width: 70%;
-                height: 50px;
+            form.add-bio-form textarea {
+                margin-left: 1.8%;
+                width: 93%;
+                height: 10vh;
             }
 
-            #timeline-header {
-                text-align: center;
+            form.add-bio-form input[type="text"] {
+                display: block;
+                margin: 2%;
+                width: 94%
             }
 
-            .posts-section .post:not(:first-child) {
-                margin-top: 3%;
-            }
-
-            .posts-section .post {
-                border: 1px solid black;
-                padding: 0 2%;
-                background: rgb(209, 209, 209);
-                word-wrap: break-word;
-            }
-
-            .post p.sender-username {
-                margin : 0;
-                padding: 0;
-                display: inline-block;
-                font-size: 0.7em;
-                font-style: italic;
-                float: right;
-            }
-
-            .post p.post-body {
-                font-size: 0.9em;
-                margin-bottom: 1%;
-            }
-
-            h6.post-time {
-                display: inline;
-                /*margin-left: 95%;*/
-                margin-top: 20px;
-                color: rgb(184, 178, 178);
-            }
-
-            h6.post-time:hover {
-                color: rgb(168, 165, 165);
-                cursor: none;
-            }
-
-            .post .delete-button {
-                float: right;
-                margin: 0;
-                padding: 0;
+            form.add-bio-form input[type="submit"] {
+                margin-left: 1.5%;
             }
 
         </style>
@@ -147,40 +98,23 @@
 
         <img class="profile-image" src="../src/images/profile-placeholder.jpg" alt="Profile Placeholder Image">
 
-        <?php if ($_SESSION['username'] == $_GET['username']): ?>
-            <form class="edit-profile-form" action="../logic/profile.php?username=<?php echo $username; ?>" method="post">
-                <input class="edit-profile-button "type="submit" name="edit-profile" value="?">
-            </form>
-        <?php endif; ?>
-
         <div class="profile-bio">
             <p>
                 <?php
                     require_once __DIR__ . "/../logic/profile.php";
-
                     echo $current_profile->bio;
                 ?>
-
             </p>
         </div>
 
         <div class="container">
-
-        <div class="posts-section">
-            <form id="tveet-form" action="../logic/profile.php?recipient=<?php echo $username ?>" method="post">
-                <textarea name="post-message"></textarea>
+            <form class="add-bio-form" action="../logic/edit-profile.php" method="post">
+                <textarea name="bio" placeholder="Bio"></textarea>
+                <input type="text" name="email" placeholder="Email">
+                <input type="text" name="website" placeholder="Website">
                 <br>
-                <input type="submit" name="post-message-submit" value="tveet">
+                <input type="submit" name="bio-message-submit" value="Add">
             </form>
-
-        <h2 id="timeline-header">Timeline</h2>
-
-            <?php
-                // individual posts
-                require_once __DIR__ . "/../components/profile/posts.php";
-            ?>
         </div>
-    </div>
-        <script src="../src/js/ajax/deletePostProfile.js"></script>
     </body>
 </html>

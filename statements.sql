@@ -7,7 +7,9 @@ CREATE TABLE `users` (
     `id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     `username` VARCHAR(255) NOT NULL,
     `password` VARCHAR(16) NOT NULL,
-    `bio` VARCHAR(180) NOT NULL
+    `bio` VARCHAR(180) NOT NULL,
+    `email` VARCHAR(40) NOT NULL,
+    `website` VARCHAR(40) NOT NULL
 );
 
 -- TODO: Need to change the time to datetime

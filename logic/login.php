@@ -21,7 +21,7 @@ if ($complete_form) {
         $_SESSION['id'] = $session_id;
         $_SESSION['username'] = $session_username;
 
-        header('Location: ../pages/profile.php');
+        header("Location: ../pages/profile.php?username=$session_username");
     }
     else {
         header("Location: ../pages/error/incorrect-password.php");

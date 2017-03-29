@@ -95,7 +95,7 @@ class SqlHelper
     public function get_user_data($username)
     {
         global $db_connection;
-        $statement = $db_connection->prepare("SELECT * FROM `users` WHERE username = ?");
+        $statement = $db_connection->prepare("SELECT `id`, `username`, `password`, `bio` FROM `users` WHERE username = ?");
         $statement->bind_param("s", $username);
         $statement->execute();
         $statement->store_result();
@@ -156,7 +156,7 @@ class SqlHelper
     *
     * @return void (The post will be added to the table)
     */
-    public function insert_post($sender_id, $recipient_id ,$post)
+    public function insert_post($sender_id, $recipient_id, $post)
     {
         global $db_connection;
         $statement = $db_connection->prepare("INSERT INTO `posts` (sender_id, recipient_id, body, `time`) VALUES (?, ?, ?, NOW())");
@@ -169,7 +169,7 @@ class SqlHelper
     /**
      * Retrieve the posts for the current user profile
      * @param  int $profile_id (the current profile user id)
-     * @return array (associative array containing the sender's username, recipient's username and the post)
+     * @return array (associative array containing the sender's username, recipient's username, post id, body and time)
      */
     public function get_user_posts($id)
     {
@@ -206,7 +206,7 @@ class SqlHelper
     /**
      * Retrieve the posts from all users
      *
-     * @return array (associative array containing the sender's username, recipient's username and the post)
+     * @return array (associative array containing the sender's username, recipient's username, post id, post body and post time)
      */
     public function get_all_posts()
     {
@@ -244,12 +244,25 @@ class SqlHelper
      */
     public function delete_post($post_id)
     {
-
         global $db_connection;
         $statement = $db_connection->prepare("DELETE FROM posts WHERE post_id = ?");
 
         $statement->bind_param("i", $post_id);
         $statement->execute();
+        $statement->close();
+    }
+
+
+    public function insert_edit_bio($user_id, $bio, $email, $website)
+    {
+        global $db_connection;
+
+        $statement = $db_connection->prepare("UPDATE users SET bio = ?, email = ?, website = ? WHERE id = ?");
+
+        $statement->bind_param("sssi", $bio, $email, $website, $user_id);
+
+        $statement->execute();
+
         $statement->close();
     }
 }

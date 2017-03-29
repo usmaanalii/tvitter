@@ -32,6 +32,7 @@ $sql_helper = new SqlHelper();
 $posts = $sql_helper->get_user_posts($current_profile->id);
 // No closing php tag according to php style guide
 
+// Delete post
 if (isset($_POST['delete-post-id'])) {
 
     $sql_helper = new SqlHelper();
@@ -39,4 +40,10 @@ if (isset($_POST['delete-post-id'])) {
     $sql_helper->delete_post($_POST['delete-post-id']);
 
     header("Location: ../pages/profile.php");
+}
+
+// Edit Profile
+if (isset($_POST['edit-profile'])) {
+
+    header("Location: ../pages/edit-profile.php?username=" . $_GET['username']);
 }
