@@ -81,7 +81,7 @@
     <body>
 
         <?php
-            include_once '../components/headers/loggedin-header.php';
+            include_once '../components/navigation/loggedin-navigation.php';
         ?>
 
         <?php

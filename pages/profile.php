@@ -76,7 +76,7 @@
                 height: 50px;
             }
 
-            #timeline-header {
+            #timeline-navigation {
                 text-align: center;
             }
 
@@ -130,7 +130,7 @@
     <body>
 
         <?php
-            include_once '../components/headers/loggedin-header.php';
+            include_once '../components/navigation/loggedin-navigation.php';
         ?>
 
         <?php
@@ -173,7 +173,7 @@
                 <input type="submit" name="post-message-submit" value="tveet">
             </form>
 
-        <h2 id="timeline-header">Timeline</h2>
+        <h2 id="timeline-navigation">Timeline</h2>
 
             <?php
                 // individual posts

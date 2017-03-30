@@ -82,5 +82,3 @@ class RegisterUser
         $statement->close();
     }
 }
-
-// No closing php tag according to php style guide

@@ -16,7 +16,7 @@
 
         <div class="container">
 
-            <?php include_once 'components/headers/registration-header.php'; ?>
+            <?php include_once 'components/navigation/registration-navigation.php'; ?>
 
             <h2>Register for <b> <?php echo $web_app; ?></b></h2>
 

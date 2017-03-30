@@ -31,7 +31,7 @@
             ?>
 
             <?php
-                include_once '../components/headers/loggedout-header.php';
+                include_once '../components/navigation/loggedout-navigation.php';
             ?>
 
             <h2>Log in</h2>

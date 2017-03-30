@@ -16,7 +16,7 @@
 
         <div class="container">
 
-            <?php include_once '../../components/headers/registration-header.php'; ?>
+            <?php include_once '../../components/navigation/registration-navigation.php'; ?>
             <br><br>
 
             <h2>Username Taken</h2>

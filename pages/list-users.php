@@ -45,7 +45,7 @@
         <div class="container">
 
             <?php
-                include_once __DIR__ . '/../components/headers/loggedin-header.php';
+                include_once __DIR__ . '/../components/navigation/loggedin-navigation.php';
 
                 require_once __DIR__ . '/../logic/list-users.php';
             ?>
