@@ -14,13 +14,15 @@
         $statement->bind_param("s", $username);
         $statement->execute();
         $statement->store_result();
-        $statement->bind_result($id_returned, $username_returned, $password_returned, $bio_returned);
+        $statement->bind_result($id, $username, $password, $bio, $email, $website);
 
         while ($statement->fetch()) {
-            $db_id = $id_returned;
-            $db_username = $username_returned;
-            $db_password = $password_returned;
-            $db_bio = !empty($bio_returned) ? $bio_returned: "No bio";
+            $db_id = $id;
+            $db_username = $username;
+            $db_password = $password;
+            $db_bio = !empty($bio) ? $bio: "No bio";
+            $db_email = !empty($email) ? $email: "No email";
+            $db_website = !empty($website) ? $website: "No website";
         }
 
         $statement->close();
@@ -29,19 +31,15 @@
             "id" => $db_id,
             "username" => $db_username,
             "password" => $db_password,
-            "bio" => $db_bio
+            "bio" => $db_bio,
+            "email" => $db_email,
+            "website" => $db_website
         );
     }
 
     $test = get_user_data("jav");
 
-    echo $test["id"];
-    echo "<br>";
-    echo $test["username"];
-    echo "<br>";
-    echo $test["password"];
-    echo "<br>";
-    echo $test["bio"];
+    print_r($test);
 
 
 ?>

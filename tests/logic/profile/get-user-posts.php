@@ -33,15 +33,9 @@
     }
 
 
-    $posts = get_user_posts(2);
+    $test = get_user_posts(1);
 
-    foreach ($posts as $post) {
-        if ($post['sender_username'] == $post['recipient_username']) {
-            $post['recipient_username'] = "";
-        }
-
-        echo 'sender: ' .  $post['sender_username'] . '<br>' . 'recipient: ' . $post['recipient_username'] . '<br>' . 'post: '.   $post['post_body'] . '<br><br>';
-    }
+    print_r($test);
 
 
 ?>
