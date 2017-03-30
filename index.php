@@ -4,7 +4,6 @@
 <html>
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="src/css/center-page.css">
         <link rel="stylesheet" href="src/css/navigation.css">
         <meta charset="utf-8">
         <style media="screen">
@@ -29,5 +28,6 @@
         </form>
 
         </div>
+
     </body>
 </html>
