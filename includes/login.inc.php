@@ -1,5 +1,4 @@
 <?php
-require_once __DIR__ . '/registration.inc.php';
 require_once __DIR__ . '/sql-helper.inc.php';
 
 /**
@@ -11,18 +10,22 @@ require_once __DIR__ . '/sql-helper.inc.php';
  * TODO: Add all new methods
  *
  * @method bool check_password_match (compare form password with database password)
- * @method array login_session_variables (used to retrieve profile data for logged in user)
+ * @method array get_user_data (used to id, username etc.. for the user logging in)
  *
  */
-class UserLogin extends RegisterUser
+class UserLogin
 {
     private $username;
     private $password;
+    private $db_connection;
 
     function __construct($username, $password)
     {
         $this->username = $username;
         $this->password = $password;
+
+        $sql_helper = new SqlHelper();
+        $this->db_connection = $sql_helper->get_db_connection();
     }
 
     /**
@@ -38,36 +41,61 @@ class UserLogin extends RegisterUser
     */
     public function check_password_match()
     {
-        $sql_helper = new SqlHelper();
-        // password given by the login form
-        $form_password = $this->password;
-        $db_password = $sql_helper->get_user_data($this->username)["password"];
+        $db_connection = $this->db_connection;
 
-        if ($form_password == $db_password) {
-            return TRUE;
-        } else {
-            return FALSE;
+        $login_password = $this->password;
+
+        $statement = $db_connection->prepare("SELECT `password` FROM `users` WHERE username = ?");
+        $statement->bind_param("s", $this->username);
+        $statement->execute();
+        $statement->store_result();
+        $statement->bind_result($password_returned);
+
+        while ($statement->fetch()) {
+            $db_password = $password_returned;
         }
+
+        $statement->close();
+
+        return $db_password === $login_password;
 
     }
 
     /**
-    * @method login_session_variables
+    * @method get_user_data
     *
     * goals of the function include...
-    *   1. Act as a wrapper to get the user data
-    *   2. Retrieve the id and username for the specified user
-    *   3. Will be used in logic/login.php to set the $_SESSION['id'] and $_SESSION['username'] variables
+    *   1. Receieve a username
+    *   2. Use the username to access it's details
     *
+    * @param string username
     *
-    * @return array (e.g login_session_variables["id"] = 1, login_session_variables["username"] = 'tom')
+    * @return array (Containing the user id, username, password and bio)
     */
-    public function login_session_variables()
+    public function get_user_data()
     {
-        $sql_helper = new SqlHelper();
-        $values = $sql_helper->get_user_data($this->username);
+        $db_connection = $this->db_connection;
+        $statement = $db_connection->prepare("SELECT `id`, `username`, `password`, `bio` FROM `users` WHERE username = ?");
+        $statement->bind_param("s", $this->username);
+        $statement->execute();
+        $statement->store_result();
+        $statement->bind_result($id_returned, $username_returned, $password_returned, $bio_returned);
 
-        return $values;
+        while ($statement->fetch()) {
+            $db_id = $id_returned;
+            $db_username = $username_returned;
+            $db_password = $password_returned;
+            $db_bio = !empty($bio_returned) ? $bio_returned: "No bio";
+        }
+
+        $statement->close();
+
+        return array(
+            "id" => $db_id,
+            "username" => $db_username,
+            "password" => $db_password,
+            "bio" => $db_bio
+        );
     }
 }
 

@@ -15,11 +15,10 @@ if ($complete_form) {
             session_start();
         };
 
-        $session_id = $logged_in_user->login_session_variables()["id"];
-        $session_username = $logged_in_user->login_session_variables()["username"];
+        $logged_in_user_data = $logged_in_user->get_user_data();
 
-        $_SESSION['id'] = $session_id;
-        $_SESSION['username'] = $session_username;
+        $_SESSION['id'] = $logged_in_user_data['id'];
+        $session_username = $_SESSION['username'] = $logged_in_user_data['username'];
 
         header("Location: ../pages/profile.php?username=$session_username");
     }

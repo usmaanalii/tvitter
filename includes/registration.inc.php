@@ -7,66 +7,79 @@ require_once __DIR__ . '/sql-helper.inc.php';
  * @param string username
  * @param string password
  *
- * @method bool check_user_data (check username from POST form)
- * @method void insert_user_data (insert username and password into  database)
+ * @method int username_count (Returns the row count for a username)
+ * @method void insert_user (Inserts a user into the users table)
  *
  */
 class RegisterUser
 {
     private $username;
     private $password;
+    private $db_connection;
 
     function __construct($username, $password)
     {
         $this->username = $username;
         $this->password = $password;
+
+        $sql_helper = new SqlHelper();
+        $this->db_connection = $sql_helper->get_db_connection();
     }
 
     /**
-    * @method check_user
+    * @method username_count
     *
     * goals of the function include...
-    *   1. Check post data has been added via the registration form
-    *   2. Check the posted username is not taken in the database
+    *   1. Retrieve the user data for a specified username
+    *   2. Assess whether ot not a username has already been taken
+    *   3. Will mainly be used in the RegisterUser Class
     *
+    * @param string username
     *
-    * @return bool (indicates username unique or already taken)
+    * @return int (If the integer returned is bigget than zero, then the username exists)
     */
 
-    public function check_user_data()
+    public function username_count()
     {
-        if ($_SERVER['REQUEST_METHOD'] == "POST") {
-        $username = mysql_real_escape_string($this->username);
-        $password = mysql_real_escape_string($this->password);
+        $db_connection = $this->db_connection;
 
-        $sql_helper = new SqlHelper();
-
-        if ($sql_helper->user_count($username) > 0) {
-            return FALSE;
-        } else {
-            return TRUE;
+        if (!($statement = $db_connection->prepare("SELECT * FROM `users` WHERE username = ?"))) {
+            echo "Prepare failed: (" . $db_connection->errno . ") " . $db_connection->error;
         }
-    } else {
-        return FALSE;
+        if (!$statement->bind_param("s", $this->username)) {
+            echo "Binding parameters failed: (" . $statement->errno . ") " . $statement->error;
+        }
+
+        if (!$statement->execute()) {
+            echo "Execute failed: (" . $statement->errno . ") " . $statement->error;
+        }
+
+        $statement->store_result();
+
+        $num_rows = $statement->num_rows;
+
+        return $num_rows;
     }
-}
 
     /**
     * @method insert_user
     *
     * goals of the function include...
-    *   1. Insert the username and password into the database
+    *   1. Recieve a username and password
+    *   2. Insert the username and password into the users table
     *
-    * @param string $registered_username (Post data from username field)
-    * @param string $registered_password (Post data from password field)
     *
-    * @return void
+    * @return void ** May need to add error check **
     */
-    public function insert_user_data()
-    {
-        $sql_helper = new SqlHelper();
 
-        $sql_helper->add_user($this->username, $this->password);
+    public function insert_user()
+    {
+        $db_connection = $this->db_connection;
+
+        $statement = $db_connection->prepare("INSERT INTO `users` (username, password) VALUES (?, ?)");
+        $statement->bind_param("ss", $this->username, $this->password);
+        $statement->execute();
+        $statement->close();
     }
 }
 

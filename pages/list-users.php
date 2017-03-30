@@ -41,7 +41,7 @@
             <?php
                 include_once __DIR__ . '/../components/headers/loggedin-header.php';
 
-                require_once __DIR__ . '/../logic/listusers.php';
+                require_once __DIR__ . '/../logic/list-users.php';
             ?>
             <br><br>
 

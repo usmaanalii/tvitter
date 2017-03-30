@@ -89,11 +89,11 @@
                     session_start();
                 };
             ?>
-            
+
             <?php $username = $_GET['username'] ?>
             <h4 id="welcome">Welcome <span><?php echo $username ?></span></h4>
 
-            <a href="listusers-test.php">Back</a>
+            <a href="list-users-test.php">Back</a>
 
             <img class="profile-image" src="../../../src/images/profile-placeholder.jpg" alt="Profile Placeholder Image">
 

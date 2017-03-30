@@ -8,42 +8,46 @@ if(!isset($_SESSION)) {
 
  /**
   * reprsents the user of the current profile being shown
+  * this will be either $_SESSION['username'] or $_GET['username']
   * @var $current_profile
   */
 $current_profile = new UserProfile($username);
 
+/**
+ * Used to insert the post into the `posts` table
+ */
 if (isset($_POST['post-message'])) {
     $post = $_POST['post-message'];
 
     $sender_profile = new UserProfile($_SESSION['username']);
     $recipient_profile = new UserProfile($_GET['recipient']);
 
-    $sender_profile->insert_post_data($sender_profile->id, $recipient_profile->id, $post);
+    $sender_profile->insert_post($sender_profile->id, $recipient_profile->id, $post);
 
     header("Location: ../pages/profile.php?username=$recipient_profile->username");
 }
 
 /**
  * Used to retrieve the posts for the current profile being shown
- * TODO: Need this to work through the UserProfile Class in profile.inc.php
- * @var SqlHelper
  */
-$sql_helper = new SqlHelper();
-$posts = $sql_helper->get_user_posts($current_profile->id);
-// No closing php tag according to php style guide
+$posts = $current_profile->get_posts();
 
 // Delete post
 if (isset($_POST['delete-post-id'])) {
 
-    $sql_helper = new SqlHelper();
+    $current_profile->delete_post($_POST['delete-post-id']);
 
-    $sql_helper->delete_post($_POST['delete-post-id']);
+    $post_recipient = $_POST['post-recipient'];
 
-    header("Location: ../pages/profile.php");
+    header("Location: ../pages/profile.php?username=$post_recipient");
 }
 
-// Edit Profile
+/**
+ * Leads to the edit-profile page, where contact details can be added
+ */
 if (isset($_POST['edit-profile'])) {
 
     header("Location: ../pages/edit-profile.php?username=" . $_GET['username']);
 }
+
+// No closing php tag according to php style guide

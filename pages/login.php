@@ -24,6 +24,11 @@
     <body>
 
         <div class="container">
+            <?php
+                if (!isset($_SESSION)) {
+                    session_start();
+                }
+            ?>
 
             <?php
                 include_once '../components/headers/loggedout-header.php';
