@@ -29,6 +29,15 @@
                 text-align: center;
             }
 
+            form.search-posts {
+                margin-bottom: 3%;
+            }
+
+            form.search-posts input[type="text"] {
+                width: 97.25%;
+                padding: 1%;
+            }
+
             .posts-section .post:not(:first-child) {
                 margin-top: 3%;
             }
@@ -98,6 +107,11 @@
         <br><br>
         <h2>Timeline</h2>
 
+        <form class="search-posts" action="timeline.php?username=<?php echo $_SESSION['username']; ?>" method="post">
+            <input type="hidden" name="username" value="<?php echo $_GET['username']; ?>">
+            <input type="text" name="search-input" placeholder="e.g. game of thrones">
+        </form>
+
         <div class="posts-section">
             <?php
                 // individual posts
@@ -105,5 +119,4 @@
             ?>
         </div>
     </div>
-    <script src="../src/js/ajax/deletePostTimeline.js"></script>
 </html>

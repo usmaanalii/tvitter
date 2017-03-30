@@ -2,13 +2,19 @@
 <html>
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <!-- <link rel="stylesheet" href="../src/css/header.css"> -->
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="../src/css/center-page.css">
         <style media="screen">
             /** {
                 border: 1px solid black;
             }*/
+
+            .container {
+                width: 80%;
+                max-width: 350px;
+                margin: 0 auto;
+                margin-top: 5%;
+            }
 
             #header, #user-list {
                 list-style-type: none;
