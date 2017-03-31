@@ -1,5 +1,5 @@
 /*jshint sub:true*/
-
+// TODO: Change the blur events to 'keyup delays'
 $(document).ready(function() {
 
     /**
@@ -31,6 +31,10 @@ $(document).ready(function() {
         });
     };
 
+    /**
+     * [Recieves a password and assesses it's strength returning a colour matching it's strength]
+     * @return {[TODO: ajax return type??]} [Inserts a circle element which has the colour of it's strength e.g. red = weak, dark-green = very strong]
+     */
     var checkPasswordStrength = function() {
         $('#password').blur(function(event) {
             event.preventDefault();
