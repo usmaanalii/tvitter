@@ -1,3 +1,5 @@
+/*jshint sub:true*/
+
 $(document).ready(function() {
 
     /**
@@ -18,10 +20,36 @@ $(document).ready(function() {
                 data: formData,
                 success: function(response) {
                     if (response === "X") {
-                        $('.response').html(response).css("color", "red");
+                        $('#username-ajax-response').html('&#9679;').css("color", "red");
                     }
                     else {
-                        $('.response').html(response).css("color", "green");
+                        $('#username-ajax-response').html('&#9679;').css("color", "green");
+                    }
+                }
+        });
+
+        });
+    };
+
+    var checkPasswordStrength = function() {
+        $('#password').blur(function(event) {
+            event.preventDefault();
+
+            var formData = $(this).serialize();
+
+            $.ajax({
+                type: 'POST',
+                url: 'logic/ajax/registration.php',
+                data: formData,
+                success: function(response) {
+                    var strength = {
+                        0: {'level': 'weak', 'color': '#ff2020'},
+                        1: {'level': 'medium', 'color': '#e79c0a'},
+                        2: {'level': 'strong', 'color': '#45a303'},
+                        3: {'level': 'very strong', 'color': 'green'}
+                    };
+                    if (response) {
+                        $('#password-ajax-response').html('&#9679;').css("color", strength[response]['color']);
                     }
                 }
         });
@@ -31,4 +59,5 @@ $(document).ready(function() {
 
     // Function call's
     checkUsername();
+    checkPasswordStrength();
 });

@@ -20,7 +20,7 @@
                 margin-top: 5%;
             }
 
-            .response {
+            .ajax-response-container {
                 display: inline;
                 padding: 0;
                 margin: 0;
@@ -38,9 +38,10 @@
 
         <form id="reg-form" action="logic/registration.php" method="post">
             <input id="username" type="text" name="username" placeholder="username">
-            <div class="response"></div>
+            <div id="username-ajax-response" class="ajax-response-container"></div>
             <br><br>
-            <input type="text" name="password" placeholder="password">
+            <input id="password" type="text" name="password" placeholder="password">
+            <div id="password-ajax-response" class="ajax-response-container"></div>
             <br><br>
             <input type="submit" name="register-submit" value="Sign up">
         </form>

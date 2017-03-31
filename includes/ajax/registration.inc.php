@@ -45,4 +45,27 @@ class AjaxRegisterUser
 
         return $num_rows;
     }
+
+    /**
+     * TODO: Docblock
+     * [password_strength_check description]
+     * @param  [type]  $password [description]
+     * @return {[type]           [description]
+     */
+    public function password_strength_check($password)
+    {
+        /**
+         * Criteria for strength
+         *
+         * 1. Longer than 6 chars
+         * 2. Uppercase character
+         * 3. Numbers
+         * 4. Special character
+         */
+        $length = strlen($password) > 6 ? TRUE:FALSE;
+        $uppercase = preg_match('/[A-Z]/', $password) ? TRUE:FALSE;
+        $numbers = preg_match('/[0-9]/', $password) ? TRUE:FALSE;
+
+        return $length + $uppercase + $numbers;
+    }
 }
