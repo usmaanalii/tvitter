@@ -3,6 +3,13 @@
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <style media="screen">
+
+            .container {
+                width: 80%;
+                max-width: 350px;
+                margin: 0 auto;
+                margin-top: 5%;
+            }
             ul {
                 list-style-type: none;
                 margin: 0;
@@ -42,7 +49,6 @@
                 <br><br>
                 <input type="submit" name="login-submit" value="Log in">
             </form>
-
         </div>
     </body>
 </html>
