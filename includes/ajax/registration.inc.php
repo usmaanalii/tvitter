@@ -52,7 +52,7 @@ class AjaxRegisterUser
      * @param  [type]  $password [description]
      * @return {[type]           [description]
      */
-    public function password_strength_check($password)
+    public static function check_password_strength($password)
     {
         /**
          * Criteria for strength
