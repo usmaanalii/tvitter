@@ -14,6 +14,18 @@ class AjaxRegisterUser
         $this->db_connection = $sql_helper->get_db_connection();
     }
 
+    /**
+    * @method check_username
+    *
+    * goals of the function include...
+    *   1. Retrieve the user data for a specified username
+    *   2. Assess whether ot not a username has already been taken
+    *   3. Will mainly be used in the RegisterUser Class
+    *
+    * @param string username
+    *
+    * @return string (If the integer returned is bigget than zero, then the username exists, returning Y, else returns X)
+    */
     public static function check_username($username)
     {
         global $db_connection;
