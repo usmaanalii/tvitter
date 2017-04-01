@@ -1,9 +1,10 @@
 <?php
 require_once __DIR__ . '/../sql-helper.inc.php';
+require_once 'registration.inc.php';
 /**
  * Class for ajax registration methods
  */
-class AjaxUserLogin
+class AjaxUserLogin extends AjaxUserRegistration
 {
 
     private $db_connection;

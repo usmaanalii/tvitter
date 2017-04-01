@@ -19,14 +19,18 @@ $(document).ready(function() {
                 url: 'logic/ajax/registration.php',
                 data: formData,
                 success: function(response) {
-                    if (response === "X") {
+                    console.log(response);
+                    if (response === "") {
+                        $('#username-ajax-response').html('');
+                    }
+                    else if (response === "X") {
                         $('#username-ajax-response').html('&#9679;').css("color", "red");
                     }
                     else {
                         $('#username-ajax-response').html('&#9679;').css("color", "green");
                     }
                 }
-        });
+            });
 
         });
     };
@@ -47,16 +51,28 @@ $(document).ready(function() {
                 data: formData,
                 success: function(response) {
                     var strength = {
-                        0: {'level': 'weak', 'color': '#ff2020'},
-                        1: {'level': 'medium', 'color': '#e79c0a'},
-                        2: {'level': 'strong', 'color': '#45a303'},
-                        3: {'level': 'very strong', 'color': 'green'}
+                        0: {
+                            'level': 'weak',
+                            'color': '#ff2020'
+                        },
+                        1: {
+                            'level': 'medium',
+                            'color': '#e79c0a'
+                        },
+                        2: {
+                            'level': 'strong',
+                            'color': '#45a303'
+                        },
+                        3: {
+                            'level': 'very strong',
+                            'color': 'green'
+                        }
                     };
                     if (response) {
                         $('#password-ajax-response').html('&#9679;').css("color", strength[response]['color']);
                     }
                 }
-        });
+            });
 
         });
     };
@@ -94,8 +110,24 @@ $(document).ready(function() {
 
     };
 
+    var emptySubmit = function() {
+        $('#reg-form').submit(function(event) {
+
+            var username = $('#username-input').val();
+            var password = $('#password-input').val();
+
+            if (!username || !password) {
+                event.preventDefault();
+                $('#empty-input-ajax-response').html('Incomplete Field').css('color', 'red');
+            }
+
+            emptyInputs();
+        });
+    };
+
     // Function call's
     checkUsername();
     checkPasswordStrength();
     resetFields();
+    emptySubmit();
 });

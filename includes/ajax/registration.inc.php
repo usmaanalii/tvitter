@@ -3,7 +3,7 @@ require_once __DIR__ . '/../sql-helper.inc.php';
 /**
  * Class for ajax registration methods
  */
-class AjaxRegisterUser
+class AjaxUserRegistration
 {
 
     private $db_connection;
@@ -20,7 +20,7 @@ class AjaxRegisterUser
     * goals of the function include...
     *   1. Retrieve the user data for a specified username
     *   2. Assess whether ot not a username has already been taken
-    *   3. Will mainly be used in the RegisterUser Class
+    *   3. Will mainly be used in the UserRegistration Class
     *
     * @param string username
     *

@@ -56,7 +56,7 @@
 
             <form id="reg-form" action="../logic/login.php" method="post">
                 <input id="username-input" type="text" name="username" placeholder="username">
-                <br>
+                <div id="username-ajax-response" class="ajax-response-container"></div>
                 <br>
                 <input id="password-input" type="text" name="password" placeholder="password">
                 <div id="password-ajax-response" class="ajax-response-container"></div>

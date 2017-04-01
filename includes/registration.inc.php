@@ -2,7 +2,7 @@
 require_once __DIR__ . '/sql-helper.inc.php';
 
 /**
- * RegisterUser class
+ * UserRegistration class
  *
  * @param string username
  * @param string password
@@ -11,7 +11,7 @@ require_once __DIR__ . '/sql-helper.inc.php';
  * @method void insert_user (Inserts a user into the users table)
  *
  */
-class RegisterUser
+class UserRegistration
 {
     private $username;
     private $password;
@@ -32,7 +32,7 @@ class RegisterUser
     * goals of the function include...
     *   1. Retrieve the user data for a specified username
     *   2. Assess whether ot not a username has already been taken
-    *   3. Will mainly be used in the RegisterUser Class
+    *   3. Will mainly be used in the UserRegistration Class
     *
     * @param string username
     *

@@ -3,7 +3,7 @@ require_once __DIR__ . '/../includes/registration.inc.php';
 
 $complete_form = !empty($_POST['username']) && !empty($_POST['password']);
 
-$register_user = new RegisterUser($_POST['username'], $_POST['password']);
+$register_user = new UserRegistration($_POST['username'], $_POST['password']);
 
 if ($complete_form) {
     if ($register_user->username_count() == 0) {

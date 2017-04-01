@@ -25,6 +25,15 @@
                 padding: 0;
                 margin: 0;
             }
+
+            #empty-input-ajax-response {
+                display: block;
+                font-size: 0.9em;
+            }
+
+            input[type="submit"] {
+                margin-top: 4%;
+            }
         </style>
         <title><?php echo $web_app; ?></title>
     </head>
@@ -42,7 +51,9 @@
             <br><br>
             <input id="password-input" type="text" name="password" placeholder="password">
             <div id="password-ajax-response" class="ajax-response-container"></div>
-            <br><br>
+            <br>
+            <div id="empty-input-ajax-response" class="ajax-response-container"></div>
+
             <input type="submit" name="register-submit" value="Sign up">
         </form>
 

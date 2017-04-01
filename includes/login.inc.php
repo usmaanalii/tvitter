@@ -2,7 +2,7 @@
 require_once __DIR__ . '/sql-helper.inc.php';
 
 /**
- * RegisterUser class
+ * UserRegistration class
  *
  * @param string username
  * @param string password
