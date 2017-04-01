@@ -37,10 +37,10 @@
             <h2>Register for <b> <?php echo $web_app; ?></b></h2>
 
         <form id="reg-form" action="logic/registration.php" method="post">
-            <input id="username" type="text" name="username" placeholder="username">
+            <input id="username-input" type="text" name="username" placeholder="username">
             <div id="username-ajax-response" class="ajax-response-container"></div>
             <br><br>
-            <input id="password" type="text" name="password" placeholder="password">
+            <input id="password-input" type="text" name="password" placeholder="password">
             <div id="password-ajax-response" class="ajax-response-container"></div>
             <br><br>
             <input type="submit" name="register-submit" value="Sign up">

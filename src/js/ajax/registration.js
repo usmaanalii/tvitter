@@ -9,7 +9,7 @@ $(document).ready(function() {
      *                  with suitable colour]
      */
     var checkUsername = function() {
-        $('#username').blur(function(event) {
+        $('#username-input').blur(function(event) {
             event.preventDefault();
 
             var formData = $(this).serialize();
@@ -36,7 +36,7 @@ $(document).ready(function() {
      * @return {[TODO: ajax return type??]} [Inserts a circle element which has the colour of it's strength e.g. red = weak, dark-green = very strong]
      */
     var checkPasswordStrength = function() {
-        $('#password').blur(function(event) {
+        $('#password-input').blur(function(event) {
             event.preventDefault();
 
             var formData = $(this).serialize();
@@ -61,7 +61,41 @@ $(document).ready(function() {
         });
     };
 
+    /**
+     * reset ajax error displays when delete key is pressed
+     * @return {[TODO: return type?]} [description]
+     */
+    var resetFields = function() {
+
+        $('#username-input').keydown(function(event) {
+            if (event.keyCode === 8) {
+                $('#username-ajax-response').html('');
+            }
+        });
+
+        $('#password-input').keydown(function(event) {
+            if (event.keyCode === 8) {
+                $('#password-ajax-response').html('');
+            }
+        });
+
+        // Doesn't work, need the circle to dissappear when input is empty like the password field
+        $('#username-input').blur(function(event) {
+            if ($(this).val() === "") {
+                $('#username-ajax-response').html('');
+            }
+        });
+
+        $('#password-input').blur(function(event) {
+            if ($(this).val() === "") {
+                $('#password-ajax-response').html('');
+            }
+        });
+
+    };
+
     // Function call's
     checkUsername();
     checkPasswordStrength();
+    resetFields();
 });
