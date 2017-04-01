@@ -6,25 +6,22 @@ require_once __DIR__ . '/../sql-helper.inc.php';
 class AjaxRegisterUser
 {
 
-    private $username;
     private $db_connection;
 
-    function __construct($username)
+    function __construct()
     {
-        $this->username = $username;
-
         $sql_helper = new SqlHelper();
         $this->db_connection = $sql_helper->get_db_connection();
     }
 
-    public function check_username()
+    public static function check_username($username)
     {
         global $db_connection;
 
         if (!($statement = $db_connection->prepare("SELECT * FROM `users` WHERE username = ?"))) {
             echo "Prepare failed: (" . $db_connection->errno . ") " . $db_connection->error;
         }
-        if (!$statement->bind_param("s", $this->username)) {
+        if (!$statement->bind_param("s", $username)) {
             echo "Binding parameters failed: (" . $statement->errno . ") " . $statement->error;
         }
 

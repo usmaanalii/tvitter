@@ -46,7 +46,6 @@ $(document).ready(function() {
                 url: 'logic/ajax/registration.php',
                 data: formData,
                 success: function(response) {
-                    console.log(response);
                     var strength = {
                         0: {'level': 'weak', 'color': '#ff2020'},
                         1: {'level': 'medium', 'color': '#e79c0a'},

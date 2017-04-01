@@ -1,16 +1,23 @@
 <?php
 require_once __DIR__ . '/../../includes/ajax/registration.inc.php';
 
-if (isset($_POST['username'])) {
+if (isset($_POST['username']) && !empty($_POST['username'])) {
+
     $username = $_POST['username'];
 
-    $register_user = new AjaxRegisterUser($username);
+    // Determines whether or not the current input is already in the database
+    $username_status = AjaxRegisterUser::check_username($username);
 
-    echo $register_user->check_username();
+    echo $username_status;
 
 }
 
 if (isset($_POST['password']) && !empty($_POST['password'])) {
 
-    echo AjaxRegisterUser::check_password_strength($_POST['password']);
+    $password = $_POST['password'];
+
+    // Returns an integere (0, 1, 2, 3)
+    $password_strength = AjaxRegisterUser::check_password_strength($password);
+
+    echo $password_strength;
 }
