@@ -20,6 +20,7 @@ $(document).ready(function() {
                 data: formData,
                 success: function(response) {
                     if ($("#username-input").val() !== "") {
+                        // Y represents the username being free in the users table i.e the username doesn't exist in the database
                         if (response === "Y") {
                             $('#username-ajax-response').html('username doesn\'t exist').css("color", "red");
                         }
@@ -47,7 +48,9 @@ $(document).ready(function() {
                 data: formData,
                 success: function(response) {
                     console.log(response);
-                    if (response === "match") {
+                    // TODO: Clean this up
+                    // X comes from username existing in the database
+                    if (response === "Xmatch") {
                         $("#reg-form")[0].submit();
                     }
                     else {
