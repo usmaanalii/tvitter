@@ -41,7 +41,7 @@
                         <?php echo $movie_details['title']; ?>
                     </h2>
 
-                    <img src="http://image.tmdb.org/t/p/w92<?php echo $movie_details['poster_url']; ?>" alt="Movie Poster" onerror="this.src='../../../src/images/movie-poster-placeholder.png'" width="98" height="144">
+                    <img src="http://image.tmdb.org/t/p/w92<?php echo $movie_details['poster_url']; ?>" alt="Movie Poster" onerror="this.src='../../../src/images/movie-poster-placeholder.png'" wiodth="98" height="144">
                 </div>
 
 
