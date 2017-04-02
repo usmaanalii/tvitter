@@ -37,5 +37,6 @@
         <img src="<?php echo "http://image.tmdb.org/t/p/w300$backdrop_url"?>" alt="X">
 
         <p><?php echo $movie_details['overview']; ?></p>
+        <br>
     </body>
 </html>

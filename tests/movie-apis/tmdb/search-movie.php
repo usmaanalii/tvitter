@@ -9,7 +9,7 @@
     </head>
     <body>
         <?php
-            $movie_query = urlencode("la la land");
+            $movie_query = urlencode("departed");
 
             $movie_json = file_get_contents("https://api.themoviedb.org/3/search/movie?api_key=c0a98cb80fc4cd2f1ad1556e6dd29f91&language=en-US&query=$movie_query&page=1&include_adult=false");
 
