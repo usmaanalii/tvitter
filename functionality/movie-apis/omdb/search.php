@@ -39,7 +39,7 @@
             }
 
             // Results
-            // print_r($data_array);
+            // print_r($movie_data);
 
         ?>
 

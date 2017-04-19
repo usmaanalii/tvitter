@@ -26,8 +26,3 @@
             <h6 class="post-time"><?php echo $post['post_time']; ?></h6>
         </div>
 <?php endforeach; ?>
-
-<?php
-    // TODO: Change the time format - Ajax delete-post dependent on this
-    // substr($post['post_time'], 0, 5)
-?>
