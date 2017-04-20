@@ -30,7 +30,7 @@ class AjaxUserLogin extends AjaxUserRegistration
     {
         global $db_connection;
 
-        $login_password = $password;
+        $login_form_password = $password;
 
         $statement = $db_connection->prepare("SELECT `password` FROM `users` WHERE username = ?");
         $statement->bind_param("s", $username);
@@ -44,7 +44,7 @@ class AjaxUserLogin extends AjaxUserRegistration
 
         $statement->close();
 
-        if ($db_password === $login_password) {
+        if (password_verify($login_form_password, $db_password)) {
             return "match";
         }
         else {

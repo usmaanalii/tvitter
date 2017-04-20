@@ -43,7 +43,7 @@ class UserLogin
     {
         $db_connection = $this->db_connection;
 
-        $login_password = $this->password;
+        $login_form_password = $this->password;
 
         $statement = $db_connection->prepare("SELECT `password` FROM `users` WHERE username = ?");
         $statement->bind_param("s", $this->username);
@@ -57,7 +57,7 @@ class UserLogin
 
         $statement->close();
 
-        return $db_password === $login_password;
+        return password_verify($login_form_password, $db_password);
 
     }
 

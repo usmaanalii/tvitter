@@ -7,7 +7,7 @@ require_once __DIR__ . '/sql-helper.inc.php';
  * @param string username
  * @param string password
  *
- * @method int username_count (Returns the row count for a username)
+ * @method int check_username_exists (Returns the row count for a username)
  * @method void insert_user (Inserts a user into the users table)
  *
  */
@@ -27,7 +27,7 @@ class UserRegistration
     }
 
     /**
-    * @method username_count
+    * @method check_username_exists
     *
     * goals of the function include...
     *   1. Retrieve the user data for a specified username
@@ -39,7 +39,7 @@ class UserRegistration
     * @return int (If the integer returned is bigget than zero, then the username exists)
     */
 
-    public function username_count()
+    public function check_username_exists()
     {
         $db_connection = $this->db_connection;
 
@@ -77,7 +77,9 @@ class UserRegistration
         $db_connection = $this->db_connection;
 
         $statement = $db_connection->prepare("INSERT INTO `users` (username, password) VALUES (?, ?)");
-        $statement->bind_param("ss", $this->username, $this->password);
+
+        $hashed_password = password_hash($this->password, PASSWORD_DEFAULT);
+        $statement->bind_param("ss", $this->username, $hashed_password);
         $statement->execute();
         $statement->close();
     }

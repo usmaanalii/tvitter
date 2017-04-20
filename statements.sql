@@ -6,7 +6,7 @@ USE tvitter_1;
 CREATE TABLE `users` (
     `id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     `username` VARCHAR(255) NOT NULL,
-    `password` VARCHAR(16) NOT NULL,
+    `password` VARCHAR(255) NOT NULL,
     `bio` VARCHAR(180) NOT NULL,
     `email` VARCHAR(40) NOT NULL,
     `website` VARCHAR(40) NOT NULL
@@ -24,17 +24,6 @@ CREATE TABLE `posts` (
     FOREIGN KEY (sender_id) REFERENCES users(`id`),
     FOREIGN KEY (recipient_id) REFERENCES users(`id`)
 );
-
-
--- insert users
-INSERT INTO `users` (`username`, `password`, `bio`) VALUES
-
-        ('usy', 'password','usy\'s bio'),
-        ('ali', 'password','ali\'s bio'),
-        ('mum', 'password','mum\'s bio'),
-        ('jav', 'password','jav\'s bio'),
-        ('tam', 'password','tam\'s bio');
-
 
 -- query to collect, sender_username, recipient_username and post_body
 -- located in get_user_posts method

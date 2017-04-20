@@ -6,7 +6,7 @@ $complete_form = !empty($_POST['username']) && !empty($_POST['password']);
 $register_user = new UserRegistration($_POST['username'], $_POST['password']);
 
 if ($complete_form) {
-    if ($register_user->username_count() == 0) {
+    if ($register_user->check_username_exists() == 0) {
         $register_user->insert_user();
         header("Location: ../pages/login.php");
     } else {
