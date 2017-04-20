@@ -10,17 +10,20 @@
     <body>
         <?php
             // URL's
-            $search_url = "http://www.omdbapi.com/?s=";
+            $search_url = "http://www.omdbapi.com/?t=";
 
             // Parameters
             $search_params = array(
+                'i' => 'imdb id',
+                't' => 'title',
                 'type' => 'movie, series or episode',
-                'y' => 'year of release',
+                'plot' => 'short, full',
                 'r' => 'json or xml',
-                'page' => '1-100',
                 'callback' => 'JSONP callback name',
                 'v' => 'API version'
             );
+
+            // Building a search
 
 
             $movie = urlencode("avatar");
@@ -38,10 +41,13 @@
                 array_push($keys, $key);
             }
 
+            print_r($keys);
+
             // Results
             // print_r($movie_data);
 
         ?>
 
+        <img src="<?php echo $movie_data->Poster; ?>" alt="">
     </body>
 </html>
