@@ -33,6 +33,6 @@
                     </form>
                 <?php endif; ?>
             </p>
-            <h6 class="post-time"><?php echo $post['post_time']; ?></h6>
+            <h6 class="post-time"><?php echo substr($post['post_time'], 11, 5); ?></h6>
         </div>
 <?php endforeach; ?>

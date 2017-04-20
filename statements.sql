@@ -18,7 +18,7 @@ CREATE TABLE `posts` (
     `post_id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     `sender_id` INT NOT NULL,
     `recipient_id` INT NOT NULL,
-    `time` TIME NOT NULL,
+    `time` TIMESTAMP NOT NULL,
     `body` VARCHAR(140),
 
     FOREIGN KEY (sender_id) REFERENCES users(`id`),
