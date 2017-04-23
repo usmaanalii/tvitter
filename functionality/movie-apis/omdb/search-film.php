@@ -32,14 +32,6 @@
                 border-bottom: 1px solid red;
             }
 
-            form.movie-selection-form {
-                display: inline;
-            }
-
-            form.movie-selection-form h6 {
-                display: none;
-            }
-
             a.movie-name {
                 display: inline-block;
                 width: 70%;

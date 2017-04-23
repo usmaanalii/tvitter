@@ -12,6 +12,8 @@
 
             <p class = "sender-username"><a href="profile.php?username=<?php echo $post['sender_username']; ?>"><?php echo $post['sender_username']; ?></a></p>
 
+            <img class="movie-poster" src="../src/images/movie-poster-placeholder.png" alt="no image" width="50px">
+
             <p class="post-body">
                 <?php echo $post['post_body']; ?>
             </p>

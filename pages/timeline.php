@@ -37,6 +37,11 @@
                 padding: 1%;
             }
 
+            /*
+                * HTML in components/timeline/posts.php
+             */
+
+
             .posts-section .post:not(:first-child) {
                 margin-top: 3%;
             }
@@ -57,9 +62,18 @@
                 float: right;
             }
 
+            .movie-poster {
+                margin-top: 2%;
+                border: 1px solid black;
+                vertical-align: middle;
+            }
+
             .post p.post-body {
                 font-size: 0.9em;
-                margin-bottom: 1%; /* dependency with delete-post-button margin */
+                margin-left: 1%;
+                position: relative;
+                vertical-align: middle;
+                display: inline-block;
             }
 
             h6.post-time {
@@ -80,7 +94,6 @@
                 border: none;
                 float: right;
                 padding : 0;
-                margin-top: 7.8%;
                 color: rgb(168, 165, 165);
                 cursor: pointer;
             }

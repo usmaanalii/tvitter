@@ -79,6 +79,10 @@
                 text-align: center;
             }
 
+            /*
+                * HTML in components/profile/posts.php
+             */
+
             .posts-section .post:not(:first-child) {
                 margin-top: 3%;
             }
@@ -88,6 +92,12 @@
                 padding: 0 2%;
                 background: rgb(209, 209, 209);
                 word-wrap: break-word;
+            }
+
+            .movie-poster {
+                margin-top: 2%;
+                border: 1px solid black;
+                vertical-align: middle;
             }
 
             .post p.sender-username {
@@ -100,8 +110,10 @@
             }
 
             .post p.post-body {
-                font-size: 0.9em;
-                margin-bottom: 1%;
+                margin-left: 1%;
+                position: relative;
+                vertical-align: middle;
+                display: inline-block;
             }
 
             h6.post-time {
