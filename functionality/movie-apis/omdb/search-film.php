@@ -23,7 +23,7 @@
                 border: 1px solid red;
                 width: 60%;
                 margin: 0 auto;
-                height: 80vh;
+                height: 50vh;
                 overflow: scroll;
             }
 
@@ -56,12 +56,17 @@
             img.movie-poster {
                 vertical-align: middle;
             }
+
+            h4.movie-search-error {
+                text-align: center;
+                color: red;
+            }
         </style>
         <title>OMDB API</title>
     </head>
     <body>
         <form class="search-movie" action="search-film.php" method="post">
-            <input type="text" name="movie-name" placeholder="e.g. avatar">
+            <input type="text" name="movie-name" placeholder="e.g. avatar" value="<?php echo isset($_POST['movie-name']) ? $_POST['movie-name'] : '' ?>">
         </form>
         <?php
             // URL's
@@ -82,37 +87,35 @@
                 $movie = urlencode($_POST['movie-name']);
             }
             else {
-                $movie = urlencode("avatar");
+                $movie = urlencode("");
             }
 
             $movie_json = file_get_contents($search_url . $movie);
 
-            $search_results = json_decode($movie_json)->Search;
+            $search_results = json_decode($movie_json);
 
             // Results
             // print_r($search_results);
         ?>
+        <?php if ($_SERVER['REQUEST_METHOD'] == 'POST'): ?>
+            <?php if (array_key_exists('Search', $search_results)): ?>
+                <div class="movie-results">
+                    <?php foreach ($search_results->Search as $film_id => $film_details): ?>
 
-        <div class="movie-results">
+                    <div class="single-movie">
+                        <a class="movie-name" href="single-film.php?film-id=<?php echo $film_details->imdbID; ?>"><?php echo $film_details->Title . ' (' . $film_details->Year . ')'; ?>
+                        </a>
+                        <img class="movie-poster" src="<?php echo $film_details->Poster; ?>" alt="" width="50px" onerror="this.src = '../../../src/images/movie-poster-placeholder.png';">
+                        <br>
+                    </div>
 
-            <?php
-            $i = 0;
-            foreach ($search_results as $film_id => $film_details):
-            ?>
-            <div class="single-movie">
-                <form class="movie-selection-form" id="search-result<?php echo $i; ?>" method="post" action="single-film.php">
-                    <input type="hidden" name="movie-id" value="<?php echo $film_details->imdbID; ?>" />
-                    <a class="movie-name" onclick="document.getElementById('search-result<?php echo $i; ?>').submit();"><?php echo $film_details->Title . ' (' . $film_details->Year . ')'; ?>
-                    </a>
-                </form>
-                <img class="movie-poster" src="<?php echo $film_details->Poster; ?>" alt="" width="50px" onerror="this.src = '../../../src/images/movie-poster-placeholder.png';">
-                <br>
-            </div>
-            <?php
-            $i++;
-            ?>
-            <?php endforeach; ?>
+                    <?php endforeach; ?>
+                </div>
 
-        </div>
+            <?php else: ?>
+                <h4 class="movie-search-error">No results!</h4>
+            <?php endif; ?>
+        <?php endif; ?>
+
     </body>
 </html>
