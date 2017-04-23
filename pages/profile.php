@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -47,6 +48,58 @@
                 margin: 0 auto;
             }
 
+            /*
+                * OMDB API START
+             */
+
+             form.search-movie {
+                 text-align: center;
+                 margin-bottom: 4%;
+             }
+
+             form.search-movie input {
+                 width: 30%;
+                 padding: 0.8% 1.5%;
+             }
+
+             div.movie-results {
+                 border: 1px solid red;
+                 width: 60%;
+                 margin: 0 auto;
+                 height: 50vh;
+                 overflow: scroll;
+             }
+
+             div.single-movie {
+                 background: #e8e9cc;
+                 border-bottom: 1px solid red;
+             }
+
+             a.movie-name {
+                 display: inline-block;
+                 width: 70%;
+                 word-wrap: break-word;
+                 cursor: pointer;
+                 vertical-align: middle;
+                 margin-left: 2%;
+             }
+
+             a:hover {
+                 text-decoration: underline;
+             }
+
+             img.movie-poster {
+                 vertical-align: middle;
+             }
+
+             h4.movie-search-error {
+                 text-align: center;
+                 color: red;
+             }
+
+            /*
+                * OMDB API END
+             */
             .profile-bio {
                 width: 75%;
                 display: block;
@@ -75,7 +128,7 @@
                 height: 50px;
             }
 
-            #timeline-navigation {
+            #posts-header {
                 text-align: center;
             }
 
@@ -175,6 +228,58 @@
             </p>
         </div>
 
+        <form class="search-movie" action="profile.php?username=<?php echo $username; ?>" method="post">
+            <input type="text" name="movie-name" placeholder="add title" value="<?php echo isset($_POST['movie-name']) ? $_POST['movie-name'] : '' ?>">
+        </form>
+        <?php
+            // URL's
+            // Uses s=
+            $search_url = "http://www.omdbapi.com/?s=";
+
+            // Parameters
+            $search_params = array(
+                'type' => 'movie, series or episode',
+                'y' => 'year of release',
+                'r' => 'json or xml',
+                'page' => '1-100',
+                'callback' => 'JSONP callback name',
+                'v' => 'API version'
+            );
+
+            if (isset($_POST['movie-name'])) {
+                $movie = urlencode($_POST['movie-name']);
+            }
+            else {
+                $movie = urlencode("");
+            }
+
+            $movie_json = file_get_contents($search_url . $movie);
+
+            $search_results = json_decode($movie_json);
+
+            // Results
+            // print_r($search_results);
+        ?>
+        <?php if ($_SERVER['REQUEST_METHOD'] == 'POST'): ?>
+            <?php if (array_key_exists('Search', $search_results)): ?>
+                <div class="movie-results">
+                    <?php foreach ($search_results->Search as $film_id => $film_details): ?>
+
+                    <div class="single-movie">
+                        <a class="movie-name" href="../functionality/movie-apis/omdb/single-film-2.php?film-id=<?php echo $film_details->imdbID; ?>&username=<?php echo $username; ?>"><?php echo $film_details->Title . ' (' . $film_details->Year . ')'; ?>
+                        </a>
+                        <img class="movie-poster" src="<?php echo $film_details->Poster; ?>" alt="" width="50px" onerror="this.src = '../src/images/movie-poster-placeholder.png';">
+                        <br>
+                    </div>
+
+                    <?php endforeach; ?>
+                </div>
+
+            <?php else: ?>
+                <h4 class="movie-search-error">No results!</h4>
+            <?php endif; ?>
+        <?php endif; ?>
+
         <div class="container">
 
         <div class="posts-section">
@@ -184,7 +289,7 @@
                 <input type="submit" name="post-message-submit" value="tveet">
             </form>
 
-        <h2 id="timeline-navigation">Timeline</h2>
+        <h2 id="posts-header">Posts</h2>
 
             <?php
                 // individual posts

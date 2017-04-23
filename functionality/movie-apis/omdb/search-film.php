@@ -58,7 +58,7 @@
     </head>
     <body>
         <form class="search-movie" action="search-film.php" method="post">
-            <input type="text" name="movie-name" placeholder="e.g. avatar" value="<?php echo isset($_POST['movie-name']) ? $_POST['movie-name'] : '' ?>">
+            <input type="text" name="movie-name" placeholder="add title" value="<?php echo isset($_POST['movie-name']) ? $_POST['movie-name'] : '' ?>">
         </form>
         <?php
             // URL's
