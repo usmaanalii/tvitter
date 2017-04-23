@@ -88,7 +88,7 @@
                  margin-top: 2%;
              }
 
-             div.movie-results {
+             form.movie-results {
                  border: 1px solid red;
                  width: 100%;
                  margin: 0 auto;
@@ -266,6 +266,7 @@
                 <textarea name="post-message"></textarea>
                 <br>
                 <input type="submit" name="post-message-submit" value="tveet">
+                <input type="hidden" name="movie-selection-post" value="">
             </form>
 
         <h2 id="posts-header">Posts</h2>
@@ -276,5 +277,5 @@
             ?>
         </div>
     </div>
-    </body>
+</body>
 </html>

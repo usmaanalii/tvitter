@@ -17,7 +17,14 @@ $current_profile = new UserProfile($username);
  * Used to insert the post into the `posts` table
  */
 if (isset($_POST['post-message'])) {
-    $post = $_POST['post-message'];
+    if (isset($_POST['movie-selection-post'])) {
+        $title = $_POST['movie-selection-post'];
+        $post = $title . ' <br><br> ' . $_POST['post-message'];
+    }
+    else {
+        $post = $_POST['post-message'];
+    }
+
 
     $sender_profile = new UserProfile($_SESSION['username']);
     $recipient_profile = new UserProfile($_GET['recipient']);

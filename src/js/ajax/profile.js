@@ -19,7 +19,17 @@ $(document).ready(function() {
         });
     };
 
+    var addMovieSelection = function() {
+        $('#tveet-form').submit(function() {
+            $("input[name='movie-selection-post']").val($(".movie-results input[name='movie-selection']").val());
+
+            console.log($(".movie-results input[name='movie-selection']").val());
+            console.log($("input[name='movie-selection-post']").val());
+        });
+    };
+
     // Function call
     searchMovie();
+    addMovieSelection();
 
 });
