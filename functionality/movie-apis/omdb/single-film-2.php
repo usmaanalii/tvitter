@@ -19,7 +19,7 @@
     </head>
     <body>
         <?php $username = $_GET['username']; ?>
-        <a href="../../../pages/profile.php?username=<?php echo $_GET['username']; ?>">Back</a>
+        <a href="../../../pages/profile.php?username=<?php echo $username; ?>">Back</a>
         <?php
 
         function movie_details($id)

@@ -5,6 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
         <link rel="stylesheet" href="../src/css/navigation.css">
+        <script src="../src/js/ajax/profile.js"></script>
         <style media="screen">
             * {
                 /*border: 1px solid black;*/
@@ -48,26 +49,52 @@
                 margin: 0 auto;
             }
 
+            .profile-bio {
+                width: 75%;
+                display: block;
+                margin: 0 auto;
+            }
+
+            .profile-bio p {
+                padding: 0;
+                margin-top: 2%;
+                font-size: 1,1em;
+                text-align: center;
+                color: red;
+            }
+
             /*
                 * OMDB API START
              */
+
+             * {
+                 /*border: 1px solid black;*/
+             }
 
              form.search-movie {
                  text-align: center;
                  margin-bottom: 4%;
              }
 
-             form.search-movie input {
-                 width: 30%;
+             form.search-movie input[type="text"] {
+                 width: 60%;
                  padding: 0.8% 1.5%;
+
+                 display: block;
+                 margin: 0 auto;
+             }
+
+             form.search-movie input[type="submit"] {
+                 margin-top: 2%;
              }
 
              div.movie-results {
                  border: 1px solid red;
-                 width: 60%;
+                 width: 100%;
                  margin: 0 auto;
-                 height: 50vh;
+                 height: 27vh;
                  overflow: scroll;
+                 margin-bottom: 2%;
              }
 
              div.single-movie {
@@ -100,19 +127,6 @@
             /*
                 * OMDB API END
              */
-            .profile-bio {
-                width: 75%;
-                display: block;
-                margin: 0 auto;
-            }
-
-            .profile-bio p {
-                padding: 0;
-                margin: 0;
-                font-size: 1,1em;
-                text-align: center;
-                color: red;
-            }
 
             #tveet-form {
                 text-align: center;
@@ -228,59 +242,24 @@
             </p>
         </div>
 
-        <form class="search-movie" action="profile.php?username=<?php echo $username; ?>" method="post">
-            <input type="text" name="movie-name" placeholder="add title" value="<?php echo isset($_POST['movie-name']) ? $_POST['movie-name'] : '' ?>">
-        </form>
-        <?php
-            // URL's
-            // Uses s=
-            $search_url = "http://www.omdbapi.com/?s=";
-
-            // Parameters
-            $search_params = array(
-                'type' => 'movie, series or episode',
-                'y' => 'year of release',
-                'r' => 'json or xml',
-                'page' => '1-100',
-                'callback' => 'JSONP callback name',
-                'v' => 'API version'
-            );
-
-            if (isset($_POST['movie-name'])) {
-                $movie = urlencode($_POST['movie-name']);
-            }
-            else {
-                $movie = urlencode("");
-            }
-
-            $movie_json = file_get_contents($search_url . $movie);
-
-            $search_results = json_decode($movie_json);
-
-            // Results
-            // print_r($search_results);
-        ?>
-        <?php if ($_SERVER['REQUEST_METHOD'] == 'POST'): ?>
-            <?php if (array_key_exists('Search', $search_results)): ?>
-                <div class="movie-results">
-                    <?php foreach ($search_results->Search as $film_id => $film_details): ?>
-
-                    <div class="single-movie">
-                        <a class="movie-name" href="../functionality/movie-apis/omdb/single-film-2.php?film-id=<?php echo $film_details->imdbID; ?>&username=<?php echo $username; ?>"><?php echo $film_details->Title . ' (' . $film_details->Year . ')'; ?>
-                        </a>
-                        <img class="movie-poster" src="<?php echo $film_details->Poster; ?>" alt="" width="50px" onerror="this.src = '../src/images/movie-poster-placeholder.png';">
-                        <br>
-                    </div>
-
-                    <?php endforeach; ?>
-                </div>
-
-            <?php else: ?>
-                <h4 class="movie-search-error">No results!</h4>
-            <?php endif; ?>
-        <?php endif; ?>
-
         <div class="container">
+
+            <!--
+                - OMDB API START
+            -->
+            <form class="search-movie" action="" method="post">
+                <input type="hidden" name="username" value="<?php echo $username; ?>">
+                <input id="search-movie-query" type="text" name="movie-name" placeholder="add title" value="<?php echo isset($_POST['movie-name']) ? $_POST['movie-name'] : '' ?>">
+                <input type="submit" name="search-film-submit" value="Search">
+            </form>
+
+            <div class="ajax-response">
+
+            </div>
+
+            <!--
+                - OMDB API END
+            -->
 
         <div class="posts-section">
             <form id="tveet-form" action="../logic/profile.php?recipient=<?php echo $username ?>" method="post">
