@@ -12,6 +12,7 @@
 <?php foreach ($posts as $post): ?>
 
         <div class="post">
+            <!-- Usernames in the top right corner -->
             <?php if ($post['sender_username'] != $post['recipient_username']): ?>
                 <p class = "post-usernames">
                     <a href="profile.php?username=<?php echo $post['sender_username']; ?>"><?php echo $post['sender_username']; ?></a> to
@@ -23,12 +24,16 @@
                 </p>
             <?php endif; ?>
 
-            <img class="movie-poster" src="<?php echo $poster_url_method($post['title']); ?>" onerror="this.src = '../src/images/movie-poster-placeholder.png';" alt="no image" height="75x" width="50px">
+            <?php if (!empty($post['title'])): ?>
+                <img class="movie-poster" src="<?php echo $poster_url_method($post['title']); ?>" onerror="this.src = '../src/images/movie-poster-placeholder.png';" alt="no image" height="75px" width="50px">
+            <?php endif; ?>
 
             <p class="post-body">
-                <a class="movie-link" href="../pages/title-page.php?username=<?php echo $_POST['username']; ?>&title=<?php echo $post['title']; ?>"><?php echo $post['title']; ?>
-                </a>
-                <br><br>
+                <?php if (!empty($post['title'])): ?>
+                    <a class="movie-link" href="../pages/title-page.php?username=<?php echo $_POST['username']; ?>&title=<?php echo $post['title']; ?>"><?php echo $post['title']; ?>
+                    </a>
+                    <br><br>
+                <?php endif; ?>
                 <?php echo $post['post_body']; ?>
             </p>
 
