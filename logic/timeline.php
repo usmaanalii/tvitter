@@ -23,4 +23,5 @@ if (isset($_POST['delete-post-id'])) {
     header("Location: ../pages/timeline.php?username=" . $_GET['username']);
 }
 
-// No closing php tag according to php style guide
+// assigns the static method to a variable for use in the posts retrieval
+$poster_url_method = array('Timeline', 'get_poster_url');

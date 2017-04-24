@@ -23,7 +23,7 @@
                 </p>
             <?php endif; ?>
 
-            <img class="movie-poster" src="../src/images/movie-poster-placeholder.png" alt="no image" width="50px">
+            <img class="movie-poster" src="<?php echo $poster_url_method($post['title']); ?>" onerror="this.src = '../src/images/movie-poster-placeholder.png';" alt="no image" height="75x" width="50px">
 
             <p class="post-body">
                 <strong><?php echo $post['title']; ?></strong>

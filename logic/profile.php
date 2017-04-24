@@ -73,3 +73,6 @@ if (isset($_POST['movie-name'])) {
 
     require_once __DIR__ . '/../components/profile/title-search-results.php';
 }
+
+// assigns the static method to a variable for use in the posts retrieval
+$poster_url_method = array('UserProfile', 'get_poster_url');
