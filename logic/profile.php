@@ -11,6 +11,7 @@ if(!isset($_SESSION)) {
   * this will be either $_SESSION['username'] or $_GET['username']
   * @var $current_profile
   */
+
 if (isset($_POST['username'])) {
     $username = $_POST['username'];
 }

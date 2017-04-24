@@ -1,4 +1,4 @@
-<ul id="header">
+<ul id="navigation">
     <?php
             if (!isset($_SESSION)) {
                 session_start();

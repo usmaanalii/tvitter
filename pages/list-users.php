@@ -15,18 +15,18 @@
                 margin-top: 5%;
             }
 
-            #header, #user-list {
+            #navigation, #user-list {
                 list-style-type: none;
                 margin-right: 2px;
                 padding: 0;
             }
 
-            #header {
+            #navigation {
                 text-align: center;
 
             }
 
-            #header li {
+            #navigation li {
                 display: inline;
             }
 

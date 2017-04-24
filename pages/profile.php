@@ -18,10 +18,6 @@
                 margin-top: 5%;
             }
 
-            ul {
-                text-align: center;
-            }
-
             #welcome-user-message {
                 text-align: center;
             }

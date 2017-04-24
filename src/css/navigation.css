@@ -1,9 +1,10 @@
-#header {
+ul#navigation {
     list-style-type: none;
     margin-right: 2px;
     padding: 0;
+    text-align: center;
 }
 
-#header li {
+ul#navigation li {
     display: inline;
 }
