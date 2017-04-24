@@ -69,11 +69,11 @@
             }
 
             .post p.post-body {
-                font-size: 0.9em;
                 margin-left: 1%;
                 position: relative;
                 vertical-align: middle;
                 display: inline-block;
+                width: 73%;
             }
 
             h6.post-time {

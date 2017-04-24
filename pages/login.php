@@ -15,18 +15,16 @@
                 margin: 0 auto;
                 margin-top: 5%;
             }
-            ul {
-                list-style-type: none;
-                margin: 0;
-                padding: 0;
-            }
-
-            li {
-                display: inline;
-            }
 
             h2 {
                 color: green;
+            }
+
+            a#register-link {
+                color: black;
+                font-size: 0.9em;
+                margin-bottom: 0.5%;
+                display: block;
             }
 
             .ajax-response-container {
@@ -48,13 +46,10 @@
                 }
             ?>
 
-            <?php
-                include_once '../components/navigation/loggedout-navigation.php';
-            ?>
-
             <h2>Log in</h2>
 
             <form id="reg-form" action="../logic/login.php" method="post">
+                <a id="register-link" href="../index.php">Click here to register!</a>
                 <input id="username-input" type="text" name="username" placeholder="username">
                 <div id="username-ajax-response" class="ajax-response-container"></div>
                 <br>

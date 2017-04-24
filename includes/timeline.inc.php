@@ -10,7 +10,7 @@ require_once __DIR__ . "/profile.inc.php";
  * @method array get_all_posts (Returns data about all posts in posts table)
  * @method void delete_post (Deletes the selected post)
  */
-class Timeline
+class Timeline extends UserProfile
 {
     private $db_connection;
 
@@ -86,6 +86,7 @@ class Timeline
                     users2.username AS 'recipient',
                     posts.post_id AS 'post_id',
                     posts.body AS 'body',
+                    posts.title AS 'title',
                     posts.time AS 'time'
 
             FROM `posts`
@@ -103,47 +104,9 @@ class Timeline
         $returned_posts_array = array();
 
         while ($row = $returned_posts->fetch_array()) {
-            array_push($returned_posts_array, ['sender_username' => $row['sender'], 'recipient_username' => $row['recipient'], 'post_id' => $row['post_id'],'post_body' => $row['body'], 'post_time' => $row['time']]);
+            array_push($returned_posts_array, ['sender_username' => $row['sender'], 'recipient_username' => $row['recipient'], 'post_id' => $row['post_id'],'title' => $row['title'], 'post_body' => $row['body'], 'post_time' => $row['time']]);
         }
 
         return $returned_posts_array;
-    }
-
-    /**
-     * TODO: Docblock
-     * [get_poster_url description]
-     * @param  [type] $title [description]
-     * @return [type]        [description]
-     */
-    public static function get_poster_url($title)
-    {
-        // URL's
-        // Uses s=
-        $search_url = "http://www.omdbapi.com/?t=";
-
-        // Parameters
-        $search_params = array(
-            'type' => 'movie, series or episode',
-            'y' => 'year of release',
-            'r' => 'json or xml',
-            'page' => '1-100',
-            'callback' => 'JSONP callback name',
-            'v' => 'API version'
-        );
-
-        if (isset($title)) {
-            $movie = urlencode($title);
-        }
-        else {
-            $movie = urlencode("");
-        }
-
-        $movie_json = file_get_contents($search_url . $movie);
-
-        $results = json_decode($movie_json);
-
-        $poster_url = isset($results->Poster) ? $results->Poster: '';
-
-        return $poster_url;
     }
 }

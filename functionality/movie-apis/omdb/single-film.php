@@ -61,7 +61,7 @@
 
             // Results
             return $movie_data;
-            // print_r($movie_data->Ratings);
+            print_r($movie_data);
 
         }
         ?>

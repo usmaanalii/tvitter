@@ -43,7 +43,7 @@
 
             <?php include_once 'components/navigation/registration-navigation.php'; ?>
 
-            <h2>Register for <b> <?php echo $web_app; ?></b></h2>
+            <h2 id="register-header">Register for <b> <?php echo $web_app; ?></b></h2>
 
         <form id="reg-form" action="logic/registration.php" method="post">
             <input id="username-input" type="text" name="username" placeholder="username">

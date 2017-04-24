@@ -76,3 +76,4 @@ if (isset($_POST['movie-name'])) {
 
 // assigns the static method to a variable for use in the posts retrieval
 $poster_url_method = array('UserProfile', 'get_poster_url');
+$movie_details_method = array('UserProfile', 'get_movie_details');

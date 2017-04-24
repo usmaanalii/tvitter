@@ -26,7 +26,8 @@
             <img class="movie-poster" src="<?php echo $poster_url_method($post['title']); ?>" onerror="this.src = '../src/images/movie-poster-placeholder.png';" alt="no image" height="75x" width="50px">
 
             <p class="post-body">
-                <strong><?php echo $post['title']; ?></strong>
+                <a class="movie-link" href="../pages/title-page.php?username=<?php echo $_POST['username']; ?>&title=<?php echo $post['title']; ?>"><?php echo $post['title']; ?>
+                </a>
                 <br><br>
                 <?php echo $post['post_body']; ?>
             </p>
