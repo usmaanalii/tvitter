@@ -77,10 +77,13 @@
             }
 
             h6.post-time {
-                display: inline;
+                display: block;
                 /*margin-left: 95%;*/
-                margin-top: 20px;
                 color: rgb(184, 178, 178);
+
+                padding: 0;
+
+                margin: 1% 0;
             }
 
             h6.post-time:hover {

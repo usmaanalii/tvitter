@@ -39,22 +39,25 @@ class UserProfile
     }
 
     /**
+     * TODO: Docblock
     * @method insert_post
     *
+    * @param
+    *
     * goals of the function include...
-    *   1. Recieve a string and user id
-    *   2. Insert the string and user id into the posts table
-    *   3. The user id will act as a foriegn key so that the get_posts method can display user specific posts for each profile
+    *   1. Recieve sender id, recipient id, the post body and title
+    *   2. Insert these into the database
+    *
     *
     *
     * @return void (The post will be added to the table)
     */
-    public function insert_post($sender_id, $recipient_id, $post)
+    public function insert_post($sender_id, $recipient_id, $post_body, $title = "")
     {
         $db_connection = $this->db_connection;
-        $statement = $db_connection->prepare("INSERT INTO `posts` (sender_id, recipient_id, body, `time`) VALUES (?, ?, ?, NOW())");
+        $statement = $db_connection->prepare("INSERT INTO `posts` (sender_id, recipient_id, body, `time`, title) VALUES (?, ?, ?, NOW(), ?)");
 
-        $statement->bind_param("iis", $sender_id, $recipient_id, $post);
+        $statement->bind_param("iiss", $sender_id, $recipient_id, $post_body, $title);
         $statement->execute();
         $statement->close();
     }
@@ -73,6 +76,7 @@ class UserProfile
                     users2.username AS 'recipient',
                     posts.post_id AS 'post_id',
                     posts.body AS 'body',
+                    posts.title AS 'title',
                     posts.time AS 'time'
                     FROM `posts`
 
@@ -94,7 +98,7 @@ class UserProfile
         $returned_posts_array = array();
 
         while ($row = $returned_posts->fetch_array()) {
-            array_push($returned_posts_array, ['sender_username' => $row['sender'], 'recipient_username' => $row['recipient'], 'post_id' => $row['post_id'], 'post_body' => $row['body'], 'post_time' => $row['time']]);
+            array_push($returned_posts_array, ['sender_username' => $row['sender'], 'recipient_username' => $row['recipient'], 'post_id' => $row['post_id'], 'post_body' => $row['body'], 'title' => $row['title'], 'post_time' => $row['time']]);
         }
 
         return $returned_posts_array;
@@ -121,6 +125,43 @@ class UserProfile
         }
 
         $statement->close();
+    }
+
+    /**
+     * TODO: Docblock
+     * [search_title description]
+     * @param  [type] $title [description]
+     * @return [type]        [description]
+     */
+
+    public static function search_title($title)
+    {
+        // URL's
+        // Uses s=
+        $search_url = "http://www.omdbapi.com/?s=";
+
+        // Parameters
+        $search_params = array(
+            'type' => 'movie, series or episode',
+            'y' => 'year of release',
+            'r' => 'json or xml',
+            'page' => '1-100',
+            'callback' => 'JSONP callback name',
+            'v' => 'API version'
+        );
+
+        if (isset($title)) {
+            $movie = urlencode($title);
+        }
+        else {
+            $movie = urlencode("");
+        }
+
+        $movie_json = file_get_contents($search_url . $movie);
+
+        $results = json_decode($movie_json);
+
+        return $results;
     }
 }
 

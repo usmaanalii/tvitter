@@ -8,7 +8,7 @@ $(document).ready(function() {
 
             $.ajax({
                 type: 'POST',
-                url: '../logic/profile/omdb-search.php',
+                url: '../logic/profile.php',
                 data: formData,
                 success: function(response) {
                     console.log(formData);
@@ -19,17 +19,15 @@ $(document).ready(function() {
         });
     };
 
-    var addMovieSelection = function() {
+    var addMovieToPost = function() {
         $('#tveet-form').submit(function() {
-            $("input[name='movie-selection-post']").val($(".movie-results input[name='movie-selection']").val());
+            $("input[name='movie-selection-post']").val($("input[name='movie-selection']:checked").val());
 
-            console.log($(".movie-results input[name='movie-selection']").val());
-            console.log($("input[name='movie-selection-post']").val());
         });
     };
 
     // Function call
     searchMovie();
-    addMovieSelection();
+    addMovieToPost();
 
 });

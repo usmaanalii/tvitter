@@ -53,21 +53,13 @@
                 "Runtime", "Genre", "Director", "Writer", "Actors", "Plot", "Language", "Country", "Awards", "Poster", "Ratings", "Metascore", "imdbRating", "imdbVotes", "imdbID", "Type", "DVD", "BoxOffice", "Production", "Website", "Response"
             );
 
-            // $keys = array();
-            // foreach ($movie_data as $key => $value) {
-            //     array_push($keys, $key);
-            // }
-            //
-            // print_r($keys);
-
-            // Results
             return $movie_data;
-            // print_r($movie_data->Ratings);
 
         }
         ?>
 
         <?php if (isset($_GET['film-id'])): ?>
+
             <?php $movie_data = movie_details($_GET['film-id']); ?>
 
             <?php foreach ($movie_data as $key => $value): ?>

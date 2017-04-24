@@ -184,10 +184,12 @@
             }
 
             h6.post-time {
-                display: inline;
-                /*margin-left: 95%;*/
-                margin-top: 20px;
+                display: block;
                 color: rgb(184, 178, 178);
+
+                padding: 0;
+
+                margin: 1% 0;
             }
 
             h6.post-time:hover {
@@ -265,8 +267,8 @@
             <form id="tveet-form" action="../logic/profile.php?recipient=<?php echo $username ?>" method="post">
                 <textarea name="post-message"></textarea>
                 <br>
+                <input type="hidden" name="movie-selection-post">
                 <input type="submit" name="post-message-submit" value="tveet">
-                <input type="hidden" name="movie-selection-post" value="">
             </form>
 
         <h2 id="posts-header">Posts</h2>

@@ -26,8 +26,11 @@
             <img class="movie-poster" src="../src/images/movie-poster-placeholder.png" alt="no image" width="50px">
 
             <p class="post-body">
+                <strong><?php echo $post['title']; ?></strong>
+                <br><br>
                 <?php echo $post['post_body']; ?>
             </p>
+
             <?php if ($post['sender_username'] == $_GET['username']): ?>
                 <form action="../logic/timeline.php?username=<?php echo $_SESSION['username']; ?>" method="post">
                     <input type="hidden" name="post-recipient" value="<?php echo $post['recipient_username'] ?>">

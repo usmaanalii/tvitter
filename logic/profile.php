@@ -11,25 +11,33 @@ if(!isset($_SESSION)) {
   * this will be either $_SESSION['username'] or $_GET['username']
   * @var $current_profile
   */
+if (isset($_POST['username'])) {
+    $username = $_POST['username'];
+}
+
 $current_profile = new UserProfile($username);
 
 /**
  * Used to insert the post into the `posts` table
  */
 if (isset($_POST['post-message'])) {
-    if (isset($_POST['movie-selection-post'])) {
-        $title = $_POST['movie-selection-post'];
-        $post = $title . ' <br><br> ' . $_POST['post-message'];
-    }
-    else {
-        $post = $_POST['post-message'];
-    }
-
 
     $sender_profile = new UserProfile($_SESSION['username']);
     $recipient_profile = new UserProfile($_GET['recipient']);
 
-    $sender_profile->insert_post($sender_profile->id, $recipient_profile->id, $post);
+    if (isset($_POST['movie-selection-post'])) {
+        $title = $_POST['movie-selection-post'];
+        $post = $_POST['post-message'];
+
+        $sender_profile->insert_post($sender_profile->id, $recipient_profile->id, $post, $title);
+    }
+    else {
+        $post = $_POST['post-message'];
+
+        $sender_profile->insert_post($sender_profile->id, $recipient_profile->id, $post);
+    }
+
+
 
     header("Location: ../pages/profile.php?username=$recipient_profile->username");
 }
@@ -58,3 +66,9 @@ if (isset($_POST['edit-profile'])) {
 }
 
 // No closing php tag according to php style guide
+
+if (isset($_POST['movie-name'])) {
+    $search_results = UserProfile::search_title($_POST['movie-name']);
+
+    require_once __DIR__ . '/../components/profile/title-search-results.php';
+}
