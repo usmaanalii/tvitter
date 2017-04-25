@@ -80,7 +80,7 @@
     <body>
 
         <?php
-            include_once '../components/navigation/loggedin-navigation.php';
+            include_once '../components/navigation/navigation-links.php';
         ?>
 
         <?php

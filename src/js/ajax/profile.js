@@ -12,7 +12,7 @@ $(document).ready(function() {
                 data: formData,
                 success: function(response) {
                     console.log(formData);
-                    $('.ajax-response').html(response);
+                    $('.title-search-results').html(response);
                 }
         });
 
@@ -26,8 +26,25 @@ $(document).ready(function() {
         });
     };
 
+    var addCharacterCount = function() {
+        $('#tveet-form textarea').keyup(function() {
+            $('#character-count').html(140 - $('#tveet-form textarea').val().length);
+        });
+    };
+
+    var stopFormSubmit = function() {
+        $('#tveet-form').submit(function(event) {
+            if ($('#tveet-form textarea').val().length > 140) {
+                event.preventDefault();
+            }
+        });
+
+    };
+
     // Function call
     searchMovie();
     addMovieToPost();
+    addCharacterCount();
+    stopFormSubmit();
 
 });

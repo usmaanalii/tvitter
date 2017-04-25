@@ -101,7 +101,7 @@
         <div class="container">
 
             <?php
-                require_once __DIR__ . '/../components/navigation/loggedin-navigation.php';
+                require_once __DIR__ . '/../components/navigation/navigation-links.php';
 
                 require_once __DIR__ . '/../logic/list-users.php';
             ?>

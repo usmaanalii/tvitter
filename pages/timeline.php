@@ -108,7 +108,7 @@
     <div class="container">
 
         <?php
-            include_once '../components/navigation/loggedin-navigation.php';
+            include_once '../components/navigation/navigation-links.php';
         ?>
         <br><br>
         <h2>Timeline</h2>

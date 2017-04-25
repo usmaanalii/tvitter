@@ -29,7 +29,7 @@
 
         <div class="container">
 
-        <?php require_once '../components/navigation/loggedin-navigation.php'; ?>
+        <?php require_once '../components/navigation/navigation-links.php'; ?>
 
         <?php require_once '../logic/title-page.php'; ?>
     </div>

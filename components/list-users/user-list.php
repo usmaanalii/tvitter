@@ -9,10 +9,11 @@
             <p>
                 <span>
                     <?php if (!empty($username_info['email'])): ?>
-                        <?php echo $username_info['email'] . ' || '; ?>
+                        <a href="mailto:<?php echo $username_info['email']; ?>?Subject=Hello" target="_top"><?php echo $username_info['email']; ?></a>
                     <?php endif; ?>
                     <?php if (!empty($username_info['website'])): ?>
-                        <?php echo $username_info['website']; ?>
+                        ||
+                        <a href="http://<?php echo $username_info['website']; ?>" target="_blank"><?php echo $username_info['website']; ?></a>
                     <?php endif; ?>
                 </span>
 

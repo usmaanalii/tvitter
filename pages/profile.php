@@ -135,15 +135,24 @@
                 height: 50px;
             }
 
-            #posts-header {
-                text-align: center;
+            #character-count {
+                padding: 0;
+                margin: 0;
+                width: 66%;
+                margin: 0 auto;
+                text-align: right;
+                margin-top: -1.3%;
             }
 
-            /* Tveet form (START)
+            /* Tveet form (END)
             =============================================================== */
 
             /* Posts (START)
             =============================================================== */
+
+            #posts-header {
+                text-align: center;
+            }
 
             .posts-section .post:not(:first-child) {
                 margin-top: 3%;
@@ -212,14 +221,9 @@
     <body>
 
         <?php
-            include_once '../components/navigation/loggedin-navigation.php';
+            include_once '../components/navigation/navigation-links.php';
         ?>
 
-        <?php
-            if (!isset($_SESSION)) {
-                session_start();
-            }
-        ?>
         <?php
             // If the user comes from the 'log in' page, then $_SESSION is used
             // If the user comes from the 'Users' (list of all users) paee, then $_GET is used
@@ -248,28 +252,22 @@
 
         <div class="container">
 
-            <!--
-                - OMDB API START
-            -->
             <form class="search-movie" action="" method="post">
                 <input type="hidden" name="username" value="<?php echo $username; ?>">
                 <input id="search-movie-query" type="text" name="movie-name" placeholder="add title" value="<?php echo isset($_POST['movie-name']) ? $_POST['movie-name'] : '' ?>">
                 <input type="submit" name="search-film-submit" value="Search">
             </form>
 
-            <div class="ajax-response">
+            <div class="title-search-results">
 
             </div>
 
-            <!--
-                - OMDB API END
-            -->
-
         <div class="posts-section">
             <form id="tveet-form" action="../logic/profile.php?recipient=<?php echo $username ?>" method="post">
-                <textarea name="post-message"></textarea>
+                <textarea name="post-message" size="140"></textarea>
                 <br>
                 <input type="hidden" name="movie-selection-post">
+                <h6 id="character-count">0</h6>
                 <input type="submit" name="post-message-submit" value="tveet">
             </form>
 
