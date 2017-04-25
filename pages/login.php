@@ -20,7 +20,7 @@
                 color: green;
             }
 
-            a#register-link {
+            a#register-page-link {
                 color: black;
                 font-size: 0.9em;
                 margin-bottom: 0.5%;
@@ -49,7 +49,7 @@
             <h2>Log in</h2>
 
             <form id="reg-form" action="../logic/login.php" method="post">
-                <a id="register-link" href="../index.php">Click here to register!</a>
+                <a id="register-page-link" href="../index.php">Click here to register!</a>
                 <input id="username-input" type="text" name="username" placeholder="username">
                 <div id="username-ajax-response" class="ajax-response-container"></div>
                 <br>

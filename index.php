@@ -20,6 +20,13 @@
                 margin-top: 5%;
             }
 
+            a#login-page-link {
+                color: black;
+                font-size: 0.9em;
+                margin-bottom: 0.5%;
+                display: block;
+            }
+
             .ajax-response-container {
                 display: inline;
                 padding: 0;
@@ -41,10 +48,9 @@
 
         <div class="container">
 
-            <?php include_once 'components/navigation/registration-navigation.php'; ?>
-
             <h2 id="register-header">Register for <b> <?php echo $web_app; ?></b></h2>
 
+            <a id="login-page-link" href="pages/login.php">Log in here!</a>
         <form id="reg-form" action="logic/registration.php" method="post">
             <input id="username-input" type="text" name="username" placeholder="username">
             <div id="username-ajax-response" class="ajax-response-container"></div>
