@@ -59,13 +59,8 @@
                 color: red;
             }
 
-            /*
-                * OMDB API START
-             */
-
-             * {
-                 /*border: 1px solid black;*/
-             }
+            /* Title search form (START)
+            =============================================================== */
 
              form.search-movie {
                  text-align: center;
@@ -120,9 +115,11 @@
                  color: red;
              }
 
-            /*
-                * OMDB API END
-             */
+             /* Title search form (END)
+             =============================================================== */
+
+             /* Tveet form (START)
+             =============================================================== */
 
             #tveet-form {
                 text-align: center;
@@ -142,9 +139,11 @@
                 text-align: center;
             }
 
-            /*
-                * HTML in components/profile/posts.php
-             */
+            /* Tveet form (START)
+            =============================================================== */
+
+            /* Posts (START)
+            =============================================================== */
 
             .posts-section .post:not(:first-child) {
                 margin-top: 3%;
@@ -158,12 +157,11 @@
             }
 
             .movie-poster {
-                margin-top: 2%;
+                margin-top: 4%;
                 border: 1px solid black;
-                vertical-align: middle;
             }
 
-            .post p.sender-username {
+            .post p.post-username {
                 margin : 0;
                 padding: 0;
                 display: inline-block;
@@ -177,11 +175,7 @@
             }
 
             .post p.post-body {
-                margin-left: 1%;
-                position: relative;
-                vertical-align: middle;
-                display: inline-block;
-                width: 73%;
+                border: 1px solid black;
             }
 
             h6.post-time {
@@ -198,12 +192,19 @@
                 cursor: none;
             }
 
+            form.delete-post-form {
+                margin-bottom: 1.5em;
+            }
+
             .post .delete-button {
+                background: red;
                 float: right;
                 margin: 0;
                 padding: 0;
             }
 
+            /* Posts (END)
+            =============================================================== */
         </style>
         <meta charset="utf-8">
         <title>Registration Page</title>

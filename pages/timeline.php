@@ -16,10 +16,6 @@
                 margin-top: 5%;
             }
 
-            ul {
-                text-align: center;
-            }
-
             p {
                 font-size: 0.9em;
             }
@@ -37,10 +33,8 @@
                 padding: 1%;
             }
 
-            /*
-                * HTML in components/timeline/posts.php
-             */
-
+            /* Posts (START)
+            =============================================================== */
 
             .posts-section .post:not(:first-child) {
                 margin-top: 3%;
@@ -53,6 +47,11 @@
                 word-wrap: break-word;
             }
 
+            .movie-poster {
+                margin-top: 4%;
+                border: 1px solid black;
+            }
+
             .post-usernames {
                 margin : 0;
                 padding: 0;
@@ -62,23 +61,16 @@
                 float: right;
             }
 
-            .movie-poster {
-                margin-top: 2%;
-                border: 1px solid black;
-                vertical-align: middle;
+            a.movie-link {
+                display: inline;
             }
 
             .post p.post-body {
-                margin-left: 1%;
-                position: relative;
-                vertical-align: middle;
-                display: inline-block;
-                width: 73%;
+                border: 1px solid black;
             }
 
             h6.post-time {
                 display: block;
-                /*margin-left: 95%;*/
                 color: rgb(184, 178, 178);
 
                 padding: 0;
@@ -91,21 +83,20 @@
                 cursor: none;
             }
 
-            .post .delete-post-button {
-                background: none;
-                outline: none;
-                border: none;
-                float: right;
-                padding : 0;
-                color: rgb(168, 165, 165);
-                cursor: pointer;
+            form.delete-post-form {
+                margin-bottom: 1.5em;
             }
 
             .post .delete-button {
+                background: red;
                 float: right;
                 margin: 0;
+                margin-bottom: 1%;
                 padding: 0;
             }
+
+            /* Posts (END)
+            =============================================================== */
         </style>
         <meta charset="utf-8">
         <title>Registration Page</title>
