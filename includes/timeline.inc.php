@@ -94,7 +94,7 @@ class Timeline extends UserProfile
             INNER JOIN `users` `users1` ON users1.id = posts.sender_id
             INNER JOIN `users` `users2` ON users2.id = posts.recipient_id
 
-            WHERE posts.body LIKE '%$search_input%'
+            WHERE posts.body OR posts.title LIKE '%$search_input%'
 
             ORDER BY posts.time DESC;"
         );
