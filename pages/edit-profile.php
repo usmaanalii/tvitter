@@ -13,7 +13,7 @@
                 width: 80%;
                 max-width: 350px;
                 margin: 0 auto;
-                margin-top: 5%;
+                margin-top: 2%;
             }
 
             ul {
@@ -79,15 +79,12 @@
     </head>
     <body>
 
-        <?php
-            include_once '../components/navigation/navigation-links.php';
-        ?>
+        <?php if (!isset($_SESSION)): ?>
+            <?php session_start(); ?>
+        <?php endif; ?>
 
-        <?php
-            if (!isset($_SESSION)) {
-                session_start();
-            }
-        ?>
+        <?php include_once '../components/navigation/navigation-links.php'; ?>
+
         <?php
             // If the user comes from the 'log in' page, then $_SESSION is used
             // If the user comes from the 'Users' (list of all users) paee, then $_GET is used
@@ -108,9 +105,9 @@
 
         <div class="container">
             <form class="add-bio-form" action="../logic/edit-profile.php" method="post">
-                <textarea name="bio" placeholder="Bio"></textarea>
-                <input type="text" name="email" placeholder="Email">
-                <input type="text" name="website" placeholder="Website">
+                <textarea name="bio" placeholder="<?php echo $current_profile->bio; ?>"></textarea>
+                <input type="text" name="email" placeholder="<?php echo $current_profile->email; ?>">
+                <input type="text" name="website" placeholder="<?php echo $current_profile->website; ?>">
                 <br>
                 <input type="submit" name="bio-message-submit" value="Add">
             </form>

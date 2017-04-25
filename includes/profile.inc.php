@@ -21,6 +21,8 @@ class UserProfile
     public $username;
     private $password;
     public $bio;
+    public $email;
+    public $website;
 
     private $db_connection;
 
@@ -36,6 +38,8 @@ class UserProfile
         $this->username = $username;
         $this->password = $user_data["password"];
         $this->bio = $user_data["bio"];
+        $this->email = $user_data["email"];
+        $this->website = $user_data["website"];
     }
 
     /**

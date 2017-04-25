@@ -75,17 +75,19 @@ class UserLogin
     public function get_user_data()
     {
         $db_connection = $this->db_connection;
-        $statement = $db_connection->prepare("SELECT `id`, `username`, `password`, `bio` FROM `users` WHERE username = ?");
+        $statement = $db_connection->prepare("SELECT `id`, `username`, `password`, `bio`, `email`, `website` FROM `users` WHERE username = ?");
         $statement->bind_param("s", $this->username);
         $statement->execute();
         $statement->store_result();
-        $statement->bind_result($id_returned, $username_returned, $password_returned, $bio_returned);
+        $statement->bind_result($id_returned, $username_returned, $password_returned, $bio_returned, $email_returned, $website_returned);
 
         while ($statement->fetch()) {
             $db_id = $id_returned;
             $db_username = $username_returned;
             $db_password = $password_returned;
             $db_bio = !empty($bio_returned) ? $bio_returned: "No bio";
+            $db_email = $email_returned;
+            $db_website = $website_returned;
         }
 
         $statement->close();
@@ -94,7 +96,9 @@ class UserLogin
             "id" => $db_id,
             "username" => $db_username,
             "password" => $db_password,
-            "bio" => $db_bio
+            "bio" => $db_bio,
+            "email" => $db_email,
+            "website" => $db_website
         );
     }
 }

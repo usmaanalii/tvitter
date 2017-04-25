@@ -15,7 +15,7 @@
                 width: 80%;
                 max-width: 350px;
                 margin: 0 auto;
-                margin-top: 5%;
+                margin-top: 2%;
             }
 
             #welcome-user-message {
@@ -36,11 +36,11 @@
                 margin-bottom: 2%;
             }
 
-            form.edit-profile-form {
+            .edit-profile-form {
                 margin-bottom: 2px;
             }
 
-            form .edit-profile-button {
+            .edit-profile-button {
                 display: block;
                 margin: 0 auto;
             }
@@ -53,7 +53,7 @@
 
             .profile-bio p {
                 padding: 0;
-                margin-top: 2%;
+                margin-top: 1%;
                 font-size: 1,1em;
                 text-align: center;
                 color: red;
