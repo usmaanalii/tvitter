@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . '/../../../includes/list-users.inc.php';
+require_once __DIR__ . '/../../includes/list-users.inc.php';
 
 $list_users = new ListUsers();
 

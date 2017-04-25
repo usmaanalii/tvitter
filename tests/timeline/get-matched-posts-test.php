@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . '/../../../database-connection.php';
+require_once __DIR__ . '/../../database-connection.php';
 
 function get_matched_posts($search_input)
 {
@@ -36,4 +36,4 @@ function get_matched_posts($search_input)
     return $returned_posts_array;
 }
 
-print_r(get_matched_posts("black"));
+print_r(get_matched_posts("a"));

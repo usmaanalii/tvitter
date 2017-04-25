@@ -17,6 +17,7 @@ class ListUsers
         $sql_helper = new SqlHelper();
         $this->db_connection = $sql_helper->get_db_connection();
     }
+
     /**
     * @method get_all_usernames
     *
@@ -43,6 +44,38 @@ class ListUsers
         }
 
         return $usernames_array;
+    }
+
+    /**
+    * @method get_all_usernames
+    *
+    * goals of the function include...
+    *   1. Return all usernames in the users table
+    *   2. Will be used to list all users in the 'list-users' page
+    *   3. The usernames will be listed using a foreach loop
+    *
+    *
+    * @return array (Containing all usernames)
+    */
+
+    public function get_all_usernames_info()
+    {
+        $db_connection = $this->db_connection;
+        $statement = $db_connection->prepare("SELECT `username`, `bio`, `email`, `website` FROM users");
+        $statement->execute();
+        $returned_usernames = $statement->get_result();
+
+        $all_usernames_info = array();
+
+        while ($row = $returned_usernames->fetch_array()) {
+            $username_info =  array();
+            $username_info['bio'] = $row['bio'];
+            $username_info['email'] = $row['email'];
+            $username_info['website'] = $row['website'];
+            $all_usernames_info[$row['username']] = $username_info;
+        }
+
+        return $all_usernames_info;
     }
 }
 
