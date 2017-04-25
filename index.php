@@ -1,12 +1,9 @@
-<?php require_once 'database-connection.php'; ?>
-
 <!DOCTYPE html>
 <html>
     <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="src/css/navigation.css">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="src/js/ajax/login.js"></script>
         <style media="screen">
 
             * {
@@ -20,7 +17,11 @@
                 margin-top: 5%;
             }
 
-            a#login-page-link {
+            h2 {
+                color: green;
+            }
+
+            a#register-page-link {
                 color: black;
                 font-size: 0.9em;
                 margin-bottom: 0.5%;
@@ -28,45 +29,37 @@
             }
 
             .ajax-response-container {
-                display: inline;
+                font-size: 0.9em;
+                display: block;
                 padding: 0;
                 margin: 0;
             }
-
-            #empty-input-ajax-response {
-                display: block;
-                font-size: 0.9em;
-            }
-
-            input[type="submit"] {
-                margin-top: 4%;
-            }
         </style>
-        <title><?php echo $web_app; ?></title>
+        <meta charset="utf-8">
+        <title>Log in to tvitter</title>
     </head>
     <body>
 
         <div class="container">
+            <?php
+                if (!isset($_SESSION)) {
+                    session_start();
+                }
+            ?>
 
-            <h2 id="register-header">Register for <b> <?php echo $web_app; ?></b></h2>
+            <h2>Log in</h2>
 
-            <a id="login-page-link" href="pages/login.php">Log in here!</a>
-        <form id="reg-form" action="logic/registration.php" method="post">
-            <input id="username-input" type="text" name="username" placeholder="username">
-            <div id="username-ajax-response" class="ajax-response-container"></div>
-            <br><br>
-            <input id="password-input" type="text" name="password" placeholder="password">
-            <div id="password-ajax-response" class="ajax-response-container"></div>
-            <br>
-            <div id="empty-input-ajax-response" class="ajax-response-container"></div>
-
-            <input type="submit" name="register-submit" value="Sign up">
-        </form>
-
-        <br>
-
+            <form id="reg-form" action="logic/login.php" method="post">
+                <a id="register-page-link" href="pages/registration.php">Click here to register!</a>
+                <input id="username-input" type="text" name="username" placeholder="username">
+                <div id="username-ajax-response" class="ajax-response-container"></div>
+                <br>
+                <input id="password-input" type="text" name="password" placeholder="password">
+                <div id="password-ajax-response" class="ajax-response-container"></div>
+                <br>
+                <input type="submit" name="login-submit" value="Log in">
+            </form>
         </div>
 
-        <script src="src/js/ajax/registration.js"></script>
     </body>
 </html>

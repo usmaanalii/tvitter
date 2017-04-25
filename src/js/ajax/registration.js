@@ -16,7 +16,7 @@ $(document).ready(function() {
 
             $.ajax({
                 type: 'POST',
-                url: 'logic/ajax/registration.php',
+                url: '../logic/ajax/registration.php',
                 data: formData,
                 success: function(response) {
                     console.log(response);
@@ -47,7 +47,7 @@ $(document).ready(function() {
 
             $.ajax({
                 type: 'POST',
-                url: 'logic/ajax/registration.php',
+                url: '../logic/ajax/registration.php',
                 data: formData,
                 success: function(response) {
                     var strength = {

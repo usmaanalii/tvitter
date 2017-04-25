@@ -16,7 +16,7 @@ $(document).ready(function() {
 
             $.ajax({
                 type: 'POST',
-                url: '../logic/ajax/login.php',
+                url: 'logic/ajax/login.php',
                 data: formData,
                 success: function(response) {
                     if ($("#username-input").val() !== "") {
@@ -44,7 +44,7 @@ $(document).ready(function() {
 
             $.ajax({
                 type: 'POST',
-                url: '../logic/ajax/login.php',
+                url: 'logic/ajax/login.php',
                 data: formData,
                 success: function(response) {
                     console.log(response);
