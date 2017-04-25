@@ -8,13 +8,13 @@ $register_user = new UserRegistration($_POST['username'], $_POST['password']);
 if ($complete_form) {
     if ($register_user->check_username_exists() == 0) {
         $register_user->insert_user();
-        header("Location: ../pages/login.php");
+        header("Location: ../index.php");
     } else {
-        header("Location: ../pages/error/username-taken.php");
+        header("Location: ../pages/registration.php");
     }
 }
 else {
-    header("Location: ../pages/error/incomplete-field.php");
+    header("Location: ../pages/registration.php");
 }
 
 // No closing php tag according to php style guide

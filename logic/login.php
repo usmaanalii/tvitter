@@ -23,11 +23,11 @@ if ($complete_form) {
         header("Location: ../pages/profile.php?username=$session_username");
     }
     else {
-        header("Location: ../pages/error/incorrect-password.php");
+        header("Location: ../index.php");
     }
 }
 else {
-    header("Location: ../pages/error/incomplete-field.php");
+    header("Location: ../index.php");
 }
 
 // No closing php tag according to php style guide
