@@ -170,7 +170,7 @@
                 border: 1px solid black;
             }
 
-            .post p.post-username {
+            .post p.post-usernames {
                 margin : 0;
                 padding: 0;
                 display: inline-block;

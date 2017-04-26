@@ -71,42 +71,41 @@ class UserProfile
      * @param  int $profile_id (the current profile user id)
      * @return array (associative array containing the sender's username, recipient's username, post id, body and time)
      */
-    public function get_posts($id = null)
-    {
-        $db_connection = $this->db_connection;
+     public function get_posts($id = null)
+     {
+         $db_connection = $this->db_connection;
 
-        $statement = $db_connection->prepare(
-            "SELECT users1.username AS 'sender',
-                    users2.username AS 'recipient',
-                    posts.post_id AS 'post_id',
-                    posts.body AS 'body',
-                    posts.title AS 'title',
-                    posts.time AS 'time'
-                    FROM `posts`
+         $statement = $db_connection->prepare(
+             "SELECT users1.username AS 'sender',
+                     users2.username AS 'recipient',
+                     posts.post_id AS 'post_id',
+                     posts.body AS 'body',
+                     posts.title AS 'title',
+                     posts.time AS 'time'
+                     FROM `posts`
 
+             INNER JOIN `users` `users1` ON users1.id = posts.sender_id
+             INNER JOIN `users` `users2` ON users2.id = posts.recipient_id
 
-            INNER JOIN `users` `users1` ON users1.id = posts.sender_id
-            INNER JOIN `users` `users2` ON users2.id = posts.recipient_id
+             WHERE posts.recipient_id = ? OR posts.sender_id
 
-            WHERE posts.recipient_id = ?
+             ORDER BY posts.time DESC;"
+         );
 
-            ORDER BY posts.time DESC;"
-        );
+         $id = !$id ? $this->id : $id;
 
-        $id = !$id ? $this->id : $id;
+         $statement->bind_param("i", $this->id);
+         $statement->execute();
+         $returned_posts = $statement->get_result();
 
-        $statement->bind_param("i", $this->id);
-        $statement->execute();
-        $returned_posts = $statement->get_result();
+         $returned_posts_array = array();
 
-        $returned_posts_array = array();
+         while ($row = $returned_posts->fetch_array()) {
+             array_push($returned_posts_array, ['sender_username' => $row['sender'], 'recipient_username' => $row['recipient'], 'post_id' => $row['post_id'],'post_body' => $row['body'], 'title' => $row['title'], 'post_time' => $row['time']]);
+         }
 
-        while ($row = $returned_posts->fetch_array()) {
-            array_push($returned_posts_array, ['sender_username' => $row['sender'], 'recipient_username' => $row['recipient'], 'post_id' => $row['post_id'], 'post_body' => $row['body'], 'title' => $row['title'], 'post_time' => $row['time']]);
-        }
-
-        return $returned_posts_array;
-    }
+         return $returned_posts_array;
+     }
 
     /**
      * TODO: Docblock
