@@ -18,7 +18,7 @@
         <title>OMDB API</title>
     </head>
     <body>
-        <a href="search-film.php">Back</a>
+        <a href="search-title.php">Back</a>
         <?php
 
         function movie_details($id)

@@ -34,9 +34,9 @@
             <?php foreach ($search_results->Search as $film_id => $film_details): ?>
 
             <div class="single-movie">
-                <a class="movie-name" href="single-film.php?film-id=<?php echo $film_details->imdbID; ?>"><?php echo $film_details->Title . ' (' . $film_details->Year . ')'; ?>
+                <a id="<?php echo $film_details->imdbID; ?>" class="movie-link" href="single-title.php?film-id=<?php echo $film_details->imdbID; ?>"><?php echo $film_details->Title . ' (' . $film_details->Year . ')'; ?>
                 </a>
-                <img class="movie-poster" src="<?php echo $film_details->Poster; ?>" alt="" width="50px" onerror="this.src = '../../../src/images/movie-poster-placeholder.png';">
+                <img class="movie-poster" src="<?php echo $film_details->Poster; ?>" alt="" width="50px" onerror="this.src = '../../../../../src/images/movie-poster-placeholder.png';">
                 <br>
             </div>
 
