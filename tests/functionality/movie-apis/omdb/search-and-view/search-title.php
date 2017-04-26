@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html>
     <head>
         <meta charset="utf-8">
@@ -17,50 +16,6 @@
                 margin-top: 2%;
             }
 
-            form.search-movie {
-                text-align: center;
-                margin-bottom: 4%;
-            }
-
-            form.search-movie input[type="text"] {
-                width: 40%;
-                padding: 0.8% 1.5%;
-            }
-
-            div.movie-results {
-                border: 1px solid red;
-                margin: 0 auto;
-                height: 24vh;
-                overflow: scroll;
-            }
-
-            div.single-movie {
-                background: #e8e9cc;
-                border-bottom: 1px solid red;
-            }
-
-            a.movie-link {
-                display: inline-block;
-                width: 70%;
-                word-wrap: break-word;
-                cursor: pointer;
-                vertical-align: middle;
-                margin-left: 2%;
-            }
-
-            a:hover {
-                text-decoration: underline;
-            }
-
-            img.movie-poster {
-                vertical-align: middle;
-            }
-
-            h4.movie-search-error {
-                text-align: center;
-                color: red;
-            }
-
             h3, h4 {
                 text-align: center;
             }
@@ -77,6 +32,65 @@
             .error {
                 color: red;
             }
+
+            /* Title search form (START)
+            =============================================================== */
+
+             form.search-movie {
+                 text-align: center;
+                 margin-bottom: 4%;
+             }
+
+             form.search-movie input[type="text"] {
+                 width: 60%;
+                 padding: 0.8% 1.5%;
+
+                 display: block;
+                 margin: 0 auto;
+             }
+
+             form.search-movie input[type="submit"] {
+                 margin-top: 2%;
+             }
+
+             form.movie-results {
+                 border: 1px solid red;
+                 width: 100%;
+                 margin: 0 auto;
+                 height: 27vh;
+                 overflow: scroll;
+                 margin-bottom: 2%;
+             }
+
+             div.single-movie {
+                 background: #e8e9cc;
+                 border-bottom: 1px solid red;
+             }
+
+             a.movie-link {
+                 display: inline-block;
+                 width: 70%;
+                 word-wrap: break-word;
+                 cursor: pointer;
+                 vertical-align: middle;
+                 margin-left: 2%;
+             }
+
+             a:hover {
+                 text-decoration: underline;
+             }
+
+             img.movie-poster {
+                 vertical-align: middle;
+             }
+
+             h4.movie-search-error {
+                 text-align: center;
+                 color: red;
+             }
+
+             /* Title search form (END)
+             =============================================================== */
         </style>
         <title>OMDB API</title>
     </head>
@@ -89,7 +103,7 @@
             <input type="submit" name="search-film-submit" value="Search">
         </form>
 
-        <div class="ajax-response">
+        <div class="title-search-results">
 
         </div>
 

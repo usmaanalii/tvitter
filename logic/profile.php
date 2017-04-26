@@ -70,6 +70,7 @@ if (isset($_POST['edit-profile'])) {
 
 if (isset($_POST['movie-name'])) {
     $search_results = UserProfile::search_title($_POST['movie-name']);
+    $username = $_POST['username'];
 
     require_once __DIR__ . '/../components/profile/title-search-results.php';
 }

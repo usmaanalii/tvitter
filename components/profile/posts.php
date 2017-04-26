@@ -30,7 +30,7 @@
 
             <p class="post-body">
                 <?php if (!empty($post['title'])): ?>
-                    <a class="movie-link" href="../pages/title-page.php?username=<?php echo $_POST['username']; ?>&title=<?php echo $post['title']; ?>"><?php echo $post['title']; ?>
+                    <a class="movie-link" href="../pages/title-page.php?username=<?php echo $username; ?>&title=<?php echo $post['title']; ?>"><?php echo $post['title']; ?>
                     </a>
                     <br><br>
                 <?php endif; ?>

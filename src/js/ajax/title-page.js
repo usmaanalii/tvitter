@@ -8,7 +8,7 @@ $(document).ready(function() {
 
             $.ajax({
                 type: 'POST',
-                url: 'logic/title-results.php',
+                url: '../logic/title-page.php',
                 data: formData,
                 success: function(response) {
                     $('.title-search-results').html(response);
@@ -27,7 +27,7 @@ $(document).ready(function() {
 
             $.ajax({
                 type: 'POST',
-                url: 'logic/title-details.php',
+                url: '../logic/title-page.php',
                 data: {'title_id': title_id},
                 success: function(response) {
                     $('.title-details').html(response);
