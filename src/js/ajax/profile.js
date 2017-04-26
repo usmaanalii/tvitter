@@ -41,10 +41,24 @@ $(document).ready(function() {
 
     };
 
+    /**
+     * reset ajax error displays when delete key is pressed
+     * @return {[TODO: return type?]} [description]
+     */
+    var resetFields = function() {
+
+        $('#search-movie-query').keyup(function(event) {
+            if ($(this).val() <= 1) {
+                $('.title-search-results').html('');
+            }
+        });
+
+    };
+
     // Function call
     searchMovie();
     addMovieToPost();
     addCharacterCount();
     stopFormSubmit();
-
+    resetFields();
 });
