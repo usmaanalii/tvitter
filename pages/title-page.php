@@ -83,6 +83,7 @@
             .error {
                 color: red;
             }
+
         </style>
         <title><?php echo $_GET['username']; ?></title>
     </head>
@@ -94,7 +95,7 @@
 
         <form class="search-movie" action="title-page.php" method="post">
             <input type="hidden" name="username" value="<?php echo $_GET['username']; ?>">
-            <input id="search-movie-query" type="text" name="movie-name" placeholder="add title" value="<?php echo isset($_POST['movie-name']) ? $_POST['movie-name'] : '' ?>">
+            <input id="search-movie-query" type="text" name="movie-name" placeholder="search title" value="<?php echo isset($_POST['movie-name']) ? $_POST['movie-name'] : '' ?>">
             <input type="submit" name="search-film-submit" value="Search">
         </form>
 
@@ -104,11 +105,11 @@
 
         <div class="title-details">
 
-        </div>
+            <?php require_once '../logic/title-page.php'; ?>
 
         </div>
 
-        <?php require_once '../logic/title-page.php'; ?>
+        </div>
     </div>
 
 </body>

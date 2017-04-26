@@ -5,7 +5,7 @@
             <img src="<?php echo $value; ?>" alt="poster" width="80px">
         <?php elseif ($key === "Website"): ?>
             <h3><?php echo $key; ?>: </h3>
-            <a href="<?php echo $value; ?>" target="_blank"><?php echo $value; ?></a>
+            <a id="#movie-web-link" href="<?php echo $value; ?>" target="_blank"><?php echo $value; ?></a>
         <?php else: ?>
             <h3><?php echo $key; ?>: </h3>
             <h4><?php echo $value; ?></h4>

@@ -4,6 +4,8 @@ $(document).ready(function() {
         $('.search-movie').submit(function(event) {
             event.preventDefault();
 
+            $('.title-details').html('');
+
             var formData = $(this).serialize();
 
             $.ajax({
