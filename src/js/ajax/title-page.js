@@ -37,6 +37,19 @@ $(document).ready(function() {
         });
     };
 
+    var resetFields = function() {
+
+        $('#search-movie-query').keyup(function(event) {
+            if ($(this).val() <= 1) {
+                $('.title-search-results').html('');
+                $('.title-details').html('');
+            }
+        });
+
+    };
+
+    // function calls
     searchMovie();
+    resetFields();
 
 });
