@@ -1,7 +1,4 @@
 <ul id="navigation">
-    <?php if (!isset($_SESSION)): ?>
-        <?php session_start(); ?>
-    <?php endif; ?>
 
     <li><a href="profile.php?username=<?php echo $_SESSION['username'] ?>">Profile</a></li>
     <li><a href="list-users.php?username=<?php echo $_SESSION['username'] ?>">Users</a></li>

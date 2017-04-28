@@ -1,4 +1,4 @@
-<?php session_start(); ?>
+<?php require_once '../components/header.php'; ?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -220,9 +220,7 @@
     </head>
     <body>
 
-        <?php
-            include_once '../components/navigation/navigation-links.php';
-        ?>
+        <?php require_once '../components/navigation/navigation-links.php'; ?>
 
         <?php
             // If the user comes from the 'log in' page, then $_SESSION is used

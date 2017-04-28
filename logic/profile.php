@@ -2,10 +2,6 @@
 require_once __DIR__ . '/../includes/sql-helper.inc.php';
 require_once __DIR__ . "/../includes/profile.inc.php";
 
-if(!isset($_SESSION)) {
-    session_start();
-}
-
  /**
   * reprsents the user of the current profile being shown
   * this will be either $_SESSION['username'] or $_GET['username']
