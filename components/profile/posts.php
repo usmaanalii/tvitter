@@ -7,12 +7,18 @@
     back to the respective profile pages
     -
     - The javascript code that deletes posts based on the clicking of the button with the class 'delete-post-button' is dependent on the node structure of the html tags
-    - If the structure is changed, the query selectors in src/js/ajax need to be changed to match
+    =
+    - If the structure is changed, the query selectors in src/js/ajax/profile.js need to be changed to match
+    -
  -->
 <?php foreach ($posts as $post): ?>
 
         <div class="post">
-            <!-- Usernames in the top right corner -->
+
+            <!--
+                - Represents the username links in the top right corner of
+                individual posts
+            -->
             <?php if ($post['sender_username'] != $post['recipient_username']): ?>
                 <p class = "post-usernames">
                     <a href="profile.php?username=<?php echo $post['sender_username']; ?>"><?php echo $post['sender_username']; ?></a> to
@@ -37,6 +43,9 @@
                 <?php echo $post['post_body']; ?>
             </p>
 
+            <!--
+                - Form that allows the user to delete posts
+            -->
             <?php if ($post['sender_username'] == $_GET['username']): ?>
                 <form class="delete-post-form" action="../logic/timeline.php?username=<?php echo $_SESSION['username']; ?>" method="post">
                     <input type="hidden" name="post-recipient" value="<?php echo $post['recipient_username'] ?>">
@@ -45,6 +54,9 @@
                 </form>
             <?php endif; ?>
 
-            <h6 class="post-time"><?php echo substr($post['post_time'], 11, 5); ?></h6>
+            <h6 class="post-time">
+                <?php echo substr($post['post_time'], 11, 5); ?>
+            </h6>
         </div>
+
 <?php endforeach; ?>

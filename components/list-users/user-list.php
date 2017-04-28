@@ -1,7 +1,7 @@
 <?php foreach($all_users_info as $username => $username_info): ?>
 
         <li class="user-list-item">
-            <!-- passing the username in the url -->
+
             <a class="username-link" href="profile.php?username=<?php echo $username ?>"><?php echo $username; ?></a>
 
             <img class="profile-image" src="../src/images/profile-placeholder.jpg" alt="Profile Placeholder Image">
@@ -21,7 +21,6 @@
                     <?php echo $username_info['bio']; ?>
                     <br>
                 <?php endif; ?>
-
             </p>
         </li>
 

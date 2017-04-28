@@ -1,7 +1,9 @@
-<?php if (!isset($_SESSION)): ?>
-    <?php session_start(); ?>
-<?php endif; ?>
+<?php
 
-<?php if (!isset($_SESSION['username'])): ?>
-    <?php header("Location: ../index.php"); ?>
-<?php endif; ?>
+if (!isset($_SESSION)) {
+    session_start();
+}
+
+if (!isset($_SESSION['username'])) {
+    header("Location: ../index.php");
+}

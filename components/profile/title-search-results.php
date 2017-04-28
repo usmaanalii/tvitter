@@ -1,5 +1,6 @@
 <?php if (array_key_exists('Search', $search_results)): ?>
     <form class="movie-results" action="" method="post">
+
         <?php foreach ($search_results->Search as $film_id => $film_details): ?>
 
         <div class="single-movie">
@@ -11,6 +12,7 @@
         </div>
 
         <?php endforeach; ?>
+
     </form>
 
 <?php else: ?>
