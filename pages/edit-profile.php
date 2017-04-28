@@ -4,7 +4,8 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+        <script src="../vendor/components/jquery/jquery.min.js"></script>
+        <script src="../vendor/components/jquery/jquery.min.js"></script>
         <link rel="stylesheet" href="../src/css/navigation/navigation.css">
         <link rel="stylesheet" href="../src/css/edit-profile/main.css">
         <title>Registration Page</title>
