@@ -1,4 +1,4 @@
-<?php require_once '../components/header.php'; ?>
+<?php require_once 'components/header.php'; ?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -11,7 +11,7 @@
         <title><?php echo $_SESSION['username']; ?> | Tvitter</title>
     </head>
     <body>
-        <?php require_once '../components/navigation/navigation-links.php'; ?>
+        <?php require_once 'components/navigation/navigation-links.php'; ?>
 
         <!--
             - If the user comes from the 'log in' page, then $_SESSION is used
@@ -65,7 +65,7 @@
 
             <h2 id="posts-header">Posts</h2>
 
-                <?php require_once __DIR__ . "/../components/profile/posts.php"; ?>
+                <?php require_once "components/profile/posts.php"; ?>
             </div>
         </div>
     </body>

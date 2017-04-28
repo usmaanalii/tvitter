@@ -1,4 +1,4 @@
-<?php require_once '../components/header.php'; ?>
+<?php require_once 'components/header.php'; ?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -12,7 +12,7 @@
 
         <div class="container">
 
-            <?php require_once __DIR__ . '/../components/navigation/navigation-links.php'; ?>
+            <?php require_once 'components/navigation/navigation-links.php'; ?>
 
             <?php require_once __DIR__ . '/../logic/list-users.php'; ?>
 
@@ -21,7 +21,7 @@
             </h2>
 
             <ul id="users-list">
-                <?php require_once __DIR__ . '/../components/list-users/user-list.php'; ?>
+                <?php require_once 'components/list-users/user-list.php'; ?>
             </ul>
 
         </div>

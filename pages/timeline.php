@@ -14,7 +14,7 @@
 
         <div class="container">
 
-            <?php include_once '../components/navigation/navigation-links.php'; ?>
+            <?php require_once '../components/navigation/navigation-links.php'; ?>
 
             <h2>
                 Timeline

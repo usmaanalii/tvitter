@@ -1,4 +1,4 @@
-<?php require_once '../components/header.php'; ?>
+<?php require_once 'components/header.php'; ?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -14,7 +14,7 @@
 
         <div class="container">
 
-            <?php require_once '../components/navigation/navigation-links.php'; ?>
+            <?php require_once 'components/navigation/navigation-links.php'; ?>
 
             <form class="search-movie" action="title-page.php" method="post">
                 <input type="hidden" name="username" value="<?php echo $_GET['username']; ?>">
