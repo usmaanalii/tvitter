@@ -2,6 +2,11 @@
 require_once __DIR__ . '/../sql-helper.inc.php';
 /**
  * Class for ajax registration methods
+ *
+ * @param object db_connection
+ *
+ * @method check_username [used in the ajax password check]
+ * @method check_password_strength [provide password strength feedback via ajax]
  */
 class AjaxUserRegistration
 {
@@ -51,15 +56,12 @@ class AjaxUserRegistration
         else {
             return "Y";
         }
-
-        return $num_rows;
     }
 
     /**
-     * TODO: Docblock
-     * [password_strength_check description]
-     * @param  [type]  $password [description]
-     * @return {[type]           [description]
+     * [Used to assess the strength of the password as the user types it]
+     * @param  [string]  $password [password input]
+     * @return [int]           [higher integer represents stronger password]
      */
     public static function check_password_strength($password)
     {

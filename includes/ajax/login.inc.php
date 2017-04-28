@@ -3,6 +3,11 @@ require_once __DIR__ . '/../sql-helper.inc.php';
 require_once 'registration.inc.php';
 /**
  * Class for ajax registration methods
+ *
+ * @param object db_connection
+ *
+ * @method check_password_match [used in the ajax password check]
+ *
  */
 class AjaxUserLogin extends AjaxUserRegistration
 {
@@ -23,8 +28,10 @@ class AjaxUserLogin extends AjaxUserRegistration
     *   2. Use the posted username to retrieve its associated password in the database
     *   3. Compare the form password with the database password
     *
+    * @param string [username]
+    * @param string [password]
     *
-    * @return bool (indicate whether both passwords match)
+    * @return string (indicate whether both passwords match)
     */
     public static function check_password_match($username, $password)
     {
