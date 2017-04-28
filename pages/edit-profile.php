@@ -37,11 +37,11 @@
 
         <div class="container">
 
-            <form class="add-bio-form" action="../logic/edit-profile.php" method="post">
+            <form class="add-info-form" action="../logic/edit-profile.php" method="post">
                 <textarea name="bio" placeholder="<?php echo $current_profile->bio; ?>"></textarea>
                 <input type="text" name="email" placeholder="<?php echo $current_profile->email; ?>">
                 <input type="text" name="website" placeholder="<?php echo $current_profile->website; ?>">
-                <input type="submit" name="bio-message-submit" value="Add">
+                <input type="submit" name="add-info-submit" value="Add">
             </form>
 
         </div>

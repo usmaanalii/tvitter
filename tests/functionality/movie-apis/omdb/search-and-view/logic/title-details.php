@@ -6,7 +6,7 @@
 <?php endif; ?>
 
 <?php if (isset($_GET['title'])): ?>
-    <?php $movie_data = Title::get_movie_details_by_name($_GET['title']); ?>
+    <?php $movie_data = Title::get_title_details_by_name($_GET['title']); ?>
     <?php require_once __DIR__ . '/../../../../../../components/title-page/title-details.php'; ?>
 <?php endif; ?>
 

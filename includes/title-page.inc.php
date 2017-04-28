@@ -14,7 +14,7 @@ class Title extends UserProfile
      * @param  [type] $id [description]
      * @return [type]     [description]
      */
-    public static function get_movie_details_by_id($id)
+    public static function get_title_details_by_id($id)
         {
             // URL's
             $search_url = "http://www.omdbapi.com/";
@@ -55,7 +55,7 @@ class Title extends UserProfile
          * @param  [type] $title [description]
          * @return [type]        [description]
          */
-        public static function get_movie_details_by_name($title)
+        public static function get_title_details_by_name($title)
         {
             // URL's
             $search_url = "http://www.omdbapi.com/";

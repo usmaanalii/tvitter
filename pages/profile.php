@@ -45,7 +45,7 @@
 
             <form class="search-movie" action="" method="post">
                 <input type="hidden" name="username" value="<?php echo $username; ?>">
-                <input id="search-movie-query" type="text" name="movie-name" placeholder="add title" value="<?php echo isset($_POST['movie-name']) ? $_POST['movie-name'] : '' ?>">
+                <input id="search-movie-query" type="text" name="title-name" placeholder="add title" value="<?php echo isset($_POST['title-name']) ? $_POST['title-name'] : '' ?>">
                  <input type="submit" name="search-film-submit" value="Search">
             </form>
 
@@ -56,11 +56,11 @@
             <div class="posts-section">
 
                 <form id="tveet-form" action="../logic/profile.php?recipient=<?php echo $username ?>" method="post">
-                    <textarea name="post-message" size="140"></textarea>
+                    <textarea name="tveet-text" size="140"></textarea>
                     <br>
-                    <input type="hidden" name="movie-selection-post">
+                    <input type="hidden" name="title-selection">
                     <h6 id="character-count">0</h6>
-                    <input type="submit" name="post-message-submit" value="tveet">
+                    <input type="submit" name="tveet-form-submit" value="tveet">
                 </form>
 
             <h2 id="posts-header">Posts</h2>

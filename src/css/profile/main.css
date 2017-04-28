@@ -84,7 +84,7 @@
      border-bottom: 1px solid red;
  }
 
- a.movie-name {
+ a.title-name {
      display: inline-block;
      width: 70%;
      word-wrap: break-word;

@@ -12,7 +12,6 @@ CREATE TABLE `users` (
     `website` VARCHAR(40) NOT NULL
 );
 
--- TODO: Need to change the time to datetime
 -- create posts table
 CREATE TABLE `posts` (
     `post_id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,

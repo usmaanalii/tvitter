@@ -45,23 +45,23 @@ ul {
     color: red;
 }
 
-form.add-bio-form {
+form.add-info-form {
     width: 60%;
     margin: 0 auto;
 }
 
-form.add-bio-form textarea {
+form.add-info-form textarea {
     margin-left: 1.8%;
     width: 93%;
     height: 10vh;
 }
 
-form.add-bio-form input[type="text"] {
+form.add-info-form input[type="text"] {
     display: block;
     margin: 2%;
     width: 94%
 }
 
-form.add-bio-form input[type="submit"] {
+form.add-info-form input[type="submit"] {
     margin-left: 1.5%;
 }

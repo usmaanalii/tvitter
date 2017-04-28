@@ -211,7 +211,7 @@ class UserProfile
      * @param  [type] $title [description]
      * @return [type]        [description]
      */
-    public static function get_movie_details($title)
+    public static function get_title_details($title)
     {
         // URL's
         $search_url = "http://www.omdbapi.com/";

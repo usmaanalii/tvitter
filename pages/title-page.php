@@ -18,7 +18,7 @@
 
             <form class="search-movie" action="title-page.php" method="post">
                 <input type="hidden" name="username" value="<?php echo $_GET['username']; ?>">
-                <input id="search-movie-query" type="text" name="movie-name" placeholder="search title" value="<?php echo isset($_POST['movie-name']) ? $_POST['movie-name'] : '' ?>">
+                <input id="search-movie-query" type="text" name="title-name" placeholder="search title" value="<?php echo isset($_POST['title-name']) ? $_POST['title-name'] : '' ?>">
                 <input type="submit" name="search-film-submit" value="Search">
             </form>
 

@@ -2,49 +2,34 @@
 require_once __DIR__ . '/../includes/sql-helper.inc.php';
 require_once __DIR__ . "/../includes/profile.inc.php";
 
- /**
-  * reprsents the user of the current profile being shown
-  * this will be either $_SESSION['username'] or $_GET['username']
-  * @var $current_profile
-  */
-
 if (isset($_POST['username'])) {
     $username = $_POST['username'];
 }
 
 $current_profile = new UserProfile($username);
 
-/**
- * Used to insert the post into the `posts` table
- */
-if (isset($_POST['post-message'])) {
+if (isset($_POST['tveet-text'])) {
 
     $sender_profile = new UserProfile($_SESSION['username']);
     $recipient_profile = new UserProfile($_GET['recipient']);
 
-    if (isset($_POST['movie-selection-post'])) {
-        $title = $_POST['movie-selection-post'];
-        $post = $_POST['post-message'];
+    if (isset($_POST['title-selection'])) {
+        $title = $_POST['title-selection'];
+        $post = $_POST['tveet-text'];
 
         $sender_profile->insert_post($sender_profile->id, $recipient_profile->id, $post, $title);
     }
     else {
-        $post = $_POST['post-message'];
+        $post = $_POST['tveet-text'];
 
         $sender_profile->insert_post($sender_profile->id, $recipient_profile->id, $post);
     }
 
-
-
     header("Location: ../pages/profile.php?username=$recipient_profile->username");
 }
 
-/**
- * Used to retrieve the posts for the current profile being shown
- */
 $posts = $current_profile->get_posts();
 
-// Delete post
 if (isset($_POST['delete-post-id'])) {
 
     $current_profile->delete_post($_POST['delete-post-id']);
@@ -55,20 +40,30 @@ if (isset($_POST['delete-post-id'])) {
 }
 
 /**
- * Leads to the edit-profile page, where contact details can be added
+ * Leads to the edit-profile page, where further user details can be added
  */
 if (isset($_POST['edit-profile'])) {
 
     header("Location: ../pages/edit-profile.php?username=" . $_GET['username']);
 }
 
-// No closing php tag according to php style guide
+/**
+ * Used to add a title to the post
+ */
 
-if (isset($_POST['movie-name'])) {
-    $search_results = UserProfile::search_title($_POST['movie-name']);
+if (isset($_POST['title-name'])) {
+    $search_results = UserProfile::search_title($_POST['title-name']);
     require_once __DIR__ . '/../components/profile/title-search-results.php';
 }
 
-// assigns the static method to a variable for use in the posts retrieval
+/**
+ * assigns the static methods to variables
+ *
+ * $poster_url_method is used to insert the titles poster by providiing
+ * a url for the href value
+ *
+ * $title_details_method is used to display the selected title's details on
+ * the title-search page
+ */
 $poster_url_method = array('UserProfile', 'get_poster_url');
-$movie_details_method = array('UserProfile', 'get_movie_details');
+$title_details_method = array('UserProfile', 'get_title_details');

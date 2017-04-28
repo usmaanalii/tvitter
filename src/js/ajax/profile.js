@@ -21,7 +21,7 @@ $(document).ready(function() {
 
     var addMovieToPost = function() {
         $('#tveet-form').submit(function() {
-            $("input[name='movie-selection-post']").val($("input[name='movie-selection']:checked").val());
+            $("input[name='title-selection']").val($("input[name='title-selection']:checked").val());
 
         });
     };
