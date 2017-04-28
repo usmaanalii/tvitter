@@ -3,38 +3,8 @@
     <head>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="src/css/login/main.css">
         <script src="src/js/ajax/login.js"></script>
-        <style media="screen">
-
-            * {
-                /*border: 1px solid black;*/
-            }
-
-            .container {
-                width: 80%;
-                max-width: 350px;
-                margin: 0 auto;
-                margin-top: 5%;
-            }
-
-            h2 {
-                color: green;
-            }
-
-            a#register-page-link {
-                color: black;
-                font-size: 0.9em;
-                margin-bottom: 0.5%;
-                display: block;
-            }
-
-            .ajax-response-container {
-                font-size: 0.9em;
-                display: block;
-                padding: 0;
-                margin: 0;
-            }
-        </style>
         <meta charset="utf-8">
         <title>Log in to tvitter</title>
     </head>
