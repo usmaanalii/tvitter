@@ -6,6 +6,7 @@ require_once __DIR__ . '/sql-helper.inc.php';
  *
  * @param string username
  * @param string password
+ * @param object db_connection
  *
  * @method int check_username_exists (Returns the row count for a username)
  * @method void insert_user (Inserts a user into the users table)
@@ -68,8 +69,7 @@ class UserRegistration
     *   1. Recieve a username and password
     *   2. Insert the username and password into the users table
     *
-    *
-    * @return void ** May need to add error check **
+    * @return void
     */
 
     public function insert_user()

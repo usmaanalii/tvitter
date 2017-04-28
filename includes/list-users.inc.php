@@ -6,7 +6,9 @@ require_once __DIR__ . '/sql-helper.inc.php';
  *
  * @param object $db_connection
  *
- * @method array get_all_usernames (Returns array of all usernames)
+ * @method array get_all_usernames [Returns array of all usernames]
+ * @method array get_all_usernames_info [Returns an array of each username
+ * associated with their information]
  */
 class ListUsers
 {
@@ -47,15 +49,13 @@ class ListUsers
     }
 
     /**
-    * @method get_all_usernames
+    * @method get_all_usernames_info
     *
     * goals of the function include...
-    *   1. Return all usernames in the users table
-    *   2. Will be used to list all users in the 'list-users' page
-    *   3. The usernames will be listed using a foreach loop
+    *   1. Return all usernames and associated info
     *
     *
-    * @return array (Containing all usernames)
+    * @return array [contains username[bio], username[email], username[website]]
     */
 
     public function get_all_usernames_info()

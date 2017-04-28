@@ -12,14 +12,13 @@ require_once __DIR__ . "/sql-helper.inc.php";
  * TODO: Add all new methods
  *
  * @method void update_profile
- * 
+ *
  */
 class EditProfile
 {
     public $id;
     public $username;
     private $password;
-    public $bio;
 
     private $db_connection;
 
@@ -34,16 +33,14 @@ class EditProfile
         $this->id = $user_data["id"];
         $this->username = $username;
         $this->password = $user_data["password"];
-        $this->bio = $user_data["bio"];
     }
 
     /**
-     * TODO: Docblock
-     * [update_profile description]
-     * @param  [type]  $bio     [description]
-     * @param  [type]  $email   [description]
-     * @param  [type]  $website [description]
-     * @return {[type]          [description]
+     * [used to add further details to a use rprofile]
+     * @param  [string]  $bio     [biography for the user]
+     * @param  [string]  $email   [email for the user]
+     * @param  [string]  $website [wesbite for the user]
+     * @return [void]
      */
     public function update_profile($bio, $email, $website)
     {
@@ -59,5 +56,3 @@ class EditProfile
     }
 
 }
-
-// No closing php tag according to php style guide

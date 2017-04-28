@@ -1,6 +1,6 @@
 <?php
     require_once __DIR__ . '/../../includes/sql-helper.inc.php';
-    require_once __DIR__ . '/../../database-connection.php';
+    require_once __DIR__ . '/../../database-config.php';
 
     $sql_helper = new SqlHelper();
 ?>

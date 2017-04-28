@@ -1,26 +1,22 @@
 <?php
-require_once __DIR__  . '/../database-connection.php';
+require_once __DIR__  . '/../database-config.php';
 
 /**
 * SqlHelper class
 *
-* This will be used as a base for other classes that require database CRUD operations
-*
-* TODO: Add all new methods
-* TODO: methods that insert into the database to return TRUE?
+* Used by other classes to connect to the SQL database
 *
 * @method int user_count (Returns the row count for a username)
 * @method void add_user (Inserts a user into the users table)
-* @method array get_user_daa (Returns all user data in a associative array)
-* @method array get_all_usernames (Returns array of all usernames)
-* @method void insert_post (Inserts post into posts table)
-* @method array get_user_posts (Returns data about each post for a given id)
-* @method array get_all_posts (Returns data about all posts in posts table)
 *
 */
 
 class SqlHelper
 {
+    /**
+     * [provides the database connection from the database-config file]
+     * @return [object] [represents the connection to the database]
+     */
     public function get_db_connection()
     {
         global $db_connection;
@@ -37,7 +33,8 @@ class SqlHelper
     *
     * @param string username
     *
-    * @return array (Containing the user id, username, password and bio)
+    * @return array (Containing the user id, username, password bio,
+    * email and website)
     */
     public function get_user_data($username)
     {
@@ -69,5 +66,3 @@ class SqlHelper
         );
     }
 }
-
-// No closing php tag according to php style guide

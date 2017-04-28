@@ -8,8 +8,10 @@ require_once __DIR__ . "/sql-helper.inc.php";
  * @param string username
  * @param string password
  * @param string bio
+ * @param string email
+ * @param string website
+ * @param object db_cnonection
  *
- * TODO: Add all new methods
  *
  * @method void insert_post
  * @method array get_posts [retreieves posts for a given id]
@@ -43,18 +45,15 @@ class UserProfile
     }
 
     /**
-     * TODO: Docblock
     * @method insert_post
     *
     * @param
     *
     * goals of the function include...
-    *   1. Recieve sender id, recipient id, the post body and title
-    *   2. Insert these into the database
+    *   1. Recieve sender id, recipient id, post text and title
+    *   2. Insert these into the posts database
     *
-    *
-    *
-    * @return void (The post will be added to the table)
+    * @return void [The post will be added to the sql table]
     */
     public function insert_post($sender_id, $recipient_id, $post_body, $title = "")
     {
@@ -68,8 +67,8 @@ class UserProfile
 
     /**
      * Retrieve the posts for the current user profile
-     * @param  int $profile_id (the current profile user id)
-     * @return array (associative array containing the sender's username, recipient's username, post id, body and time)
+     * @param  int $id (the current profile user id)
+     * @return array (associative array containing the sender's username, recipient's username, post id, post body, title and post time)
      */
      public function get_posts($id = null)
      {
@@ -108,10 +107,11 @@ class UserProfile
      }
 
     /**
-     * TODO: Docblock
-     * [delete_post description]
-     * @param  [type]  $post_id [description]
-     * @return {[type]            [description]
+     * [Used to delete the post when the user clicks the
+     * associated posts' delete button]
+     * @param  [int]  $post_id [the post id from the
+     * posts table in the database]
+     * @return [void]
      */
     public function delete_post($post_id)
     {
@@ -131,10 +131,10 @@ class UserProfile
     }
 
     /**
-     * TODO: Docblock
-     * [search_title description]
-     * @param  [type] $title [description]
-     * @return [type]        [description]
+     * [Used to retrieve the search results from the OMDB API]
+     * @param  [string] $title [the title, the user is trying to
+     * add to the current post]
+     * @return [object]        [list of titles]
      */
 
     public static function search_title($title)
@@ -168,10 +168,11 @@ class UserProfile
     }
 
     /**
-     * TODO: Docblock
-     * [get_poster_url description]
-     * @param  [type] $title [description]
-     * @return [type]        [description]
+     * [returns the url for the title added, used to dispay the poster img tag
+     * of each post]
+     *
+     * @param  [string] $title [the title of the poster required]
+     * @return [string]        [the url used to locate the image]
      */
     public static function get_poster_url($title)
     {
@@ -206,10 +207,9 @@ class UserProfile
     }
 
     /**
-     * TODO: Docblock
-     * [movie_details description]
-     * @param  [type] $title [description]
-     * @return [type]        [description]
+     * [retrieve specific details about the title requested]
+     * @param  [string] $title [name of the title]
+     * @return [object]        [represents the details of the title]
      */
     public static function get_title_details($title)
     {
@@ -229,12 +229,9 @@ class UserProfile
 
         // Building a search
         $movie_json = file_get_contents($search_url . '?' . 't=' . $title);
-
         $movie_data = json_decode($movie_json);
 
         // Results
         return $movie_data;
     }
 }
-
-// No closing php tag according to php style guide

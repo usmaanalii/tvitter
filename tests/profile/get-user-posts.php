@@ -1,5 +1,5 @@
 <?php
-    require_once __DIR__  . '/../../database-connection.php';
+    require_once __DIR__  . '/../../database-config.php';
 
     /**
      * [get_user_posts description]

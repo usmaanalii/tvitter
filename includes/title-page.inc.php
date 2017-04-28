@@ -9,10 +9,10 @@ require_once __DIR__ . "/profile.inc.php";
 class Title extends UserProfile
 {
     /**
-     * TODO: Docblock
-     * [movie_details description]
-     * @param  [type] $id [description]
-     * @return [type]     [description]
+     * [get the details of the title]
+     * @param  [string] $id [unique string retrieved for the title whose
+     * details are required]
+     * @return [object]     [containing details of the title]
      */
     public static function get_title_details_by_id($id)
         {
@@ -50,10 +50,10 @@ class Title extends UserProfile
         }
 
         /**
-         * TODO: Docblock
-         * [movie_details description]
-         * @param  [type] $title [description]
-         * @return [type]        [description]
+         * [get the details of the title]
+         * @param  [string] $title [unique title name retrieved
+         * for the title whose details are required]
+         * @return [object]     [containing details of the title]
          */
         public static function get_title_details_by_name($title)
         {

@@ -19,21 +19,13 @@
             - @var [string]
         -->
         <?php $username = isset($_GET['username']) ? $_GET['username']: $_SESSION['username']; ?>
+        <?php require_once __DIR__ . "/../logic/profile.php"; ?>
 
         <h4 id="welcome-user-message">
             Welcome <span><?php echo $username ?></span>
         </h4>
 
         <img class="profile-image" src="../src/images/profile-placeholder.jpg" alt="Profile Placeholder Image">
-
-        <div class="profile-bio">
-
-            <p>
-                <?php require_once __DIR__ . "/../logic/profile.php"; ?>
-                <?php echo $current_profile->bio; ?>
-            </p>
-
-        </div>
 
         <div class="container">
 

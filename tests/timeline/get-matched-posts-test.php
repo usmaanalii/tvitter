@@ -1,7 +1,7 @@
 <?php
-require_once __DIR__ . '/../../database-connection.php';
+require_once __DIR__ . '/../../database-config.php';
 
-function get_matched_posts($search_input)
+function get_matched_posts($search_query)
 {
     global $db_connection;
     if (!($statement = $db_connection->prepare(
@@ -15,7 +15,7 @@ function get_matched_posts($search_input)
         INNER JOIN `users` `users1` ON users1.id = posts.sender_id
         INNER JOIN `users` `users2` ON users2.id = posts.recipient_id
 
-        WHERE posts.body LIKE '%$search_input%'
+        WHERE posts.body LIKE '%$search_query%'
 
         ORDER BY posts.time DESC;"))
         ) {

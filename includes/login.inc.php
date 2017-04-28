@@ -6,8 +6,8 @@ require_once __DIR__ . '/sql-helper.inc.php';
  *
  * @param string username
  * @param string password
+ * @param object db_connection
  *
- * TODO: Add all new methods
  *
  * @method bool check_password_match (compare form password with database password)
  * @method array get_user_data (used to id, username etc.. for the user logging in)
@@ -70,7 +70,8 @@ class UserLogin
     *
     * @param string username
     *
-    * @return array (Containing the user id, username, password and bio)
+    * @return array (Containing the user id, username,
+    * password, bio, email and website)
     */
     public function get_user_data()
     {
@@ -102,5 +103,3 @@ class UserLogin
         );
     }
 }
-
-// No closing php tag according to php style guide
