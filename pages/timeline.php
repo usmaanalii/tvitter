@@ -1,4 +1,4 @@
-<?php require_once '../components/header.php'; ?>
+<?php require_once 'components/header.php'; ?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -14,7 +14,7 @@
 
         <div class="container">
 
-            <?php require_once '../components/navigation/navigation-links.php'; ?>
+            <?php require_once 'components/navigation/navigation-links.php'; ?>
 
             <h2>
                 Timeline
@@ -27,7 +27,7 @@
 
             <div class="posts-section">
 
-                <?php require_once __DIR__ . "/../components/timeline/posts.php"; ?>
+                <?php require_once "components/timeline/posts.php"; ?>
 
             </div>
         </div>

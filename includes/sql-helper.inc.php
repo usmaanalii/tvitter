@@ -17,7 +17,7 @@ class SqlHelper
      * [provides the database connection from the database-config file]
      * @return [object] [represents the connection to the database]
      */
-    public function get_db_connection()
+    public static function get_db_connection()
     {
         global $db_connection;
 
@@ -36,7 +36,7 @@ class SqlHelper
     * @return array (Containing the user id, username, password bio,
     * email and website)
     */
-    public function get_user_data($username)
+    public static function get_user_data($username)
     {
         global $db_connection;
         $statement = $db_connection->prepare("SELECT `id`, `username`, `password`, `bio`, `email`, `website` FROM `users` WHERE username = ?");

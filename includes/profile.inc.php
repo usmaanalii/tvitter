@@ -31,10 +31,9 @@ class UserProfile
 
     function __construct($username)
     {
-        $sql_helper = new SqlHelper();
-        $this->db_connection = $sql_helper->get_db_connection();
+        $this->db_connection = SqlHelper::get_db_connection();
 
-        $user_data = $sql_helper->get_user_data($username);
+        $user_data = SqlHelper::get_user_data($username);
 
         $this->id = $user_data["id"];
         $this->username = $username;

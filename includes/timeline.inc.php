@@ -17,8 +17,7 @@ class Timeline extends UserProfile
 
     function __construct()
     {
-        $sql_helper = new SqlHelper();
-        $this->db_connection = $sql_helper->get_db_connection();
+        $this->db_connection = SqlHelper::get_db_connection();
     }
 
     /**

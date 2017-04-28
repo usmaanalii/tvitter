@@ -1,5 +1,4 @@
 <?php
-require_once __DIR__ . "/sql-helper.inc.php";
 require_once __DIR__ . "/profile.inc.php";
 
 /**
