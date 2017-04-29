@@ -1,0 +1,10 @@
+ul#navigation {
+    list-style-type: none;
+    margin-right: 2px;
+    padding: 0;
+    text-align: center;
+}
+
+ul#navigation li {
+    display: inline;
+}

@@ -44,28 +44,28 @@
         "homepage": "http://jquery.com"
     },
     {
-        "name": "twbs/bootstrap",
-        "version": "v3.3.7",
-        "version_normalized": "3.3.7.0",
+        "name": "components/normalize.css",
+        "version": "3.0.3",
+        "version_normalized": "3.0.3.0",
         "source": {
             "type": "git",
-            "url": "https://github.com/twbs/bootstrap.git",
-            "reference": "0b9c4a4007c44201dce9a6cc1a38407005c26c86"
+            "url": "https://github.com/components/normalize.css.git",
+            "reference": "45dc73f97034936e7ab1838be4887a3be315824b"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/twbs/bootstrap/zipball/0b9c4a4007c44201dce9a6cc1a38407005c26c86",
-            "reference": "0b9c4a4007c44201dce9a6cc1a38407005c26c86",
+            "url": "https://api.github.com/repos/components/normalize.css/zipball/45dc73f97034936e7ab1838be4887a3be315824b",
+            "reference": "45dc73f97034936e7ab1838be4887a3be315824b",
             "shasum": ""
         },
-        "replace": {
-            "twitter/bootstrap": "self.version"
-        },
-        "time": "2016-07-25T15:51:55+00:00",
-        "type": "library",
+        "time": "2015-05-21T16:25:32+00:00",
+        "type": "component",
         "extra": {
-            "branch-alias": {
-                "dev-master": "3.3.x-dev"
+            "component": {
+                "name": "normalize-css",
+                "styles": [
+                    "normalize.css"
+                ]
             }
         },
         "installation-source": "dist",
@@ -73,27 +73,7 @@
         "license": [
             "MIT"
         ],
-        "authors": [
-            {
-                "name": "Jacob Thornton",
-                "email": "jacobthornton@gmail.com"
-            },
-            {
-                "name": "Mark Otto",
-                "email": "markdotto@gmail.com"
-            }
-        ],
-        "description": "The most popular front-end framework for developing responsive, mobile first projects on the web.",
-        "homepage": "http://getbootstrap.com",
-        "keywords": [
-            "JS",
-            "css",
-            "framework",
-            "front-end",
-            "less",
-            "mobile-first",
-            "responsive",
-            "web"
-        ]
+        "description": "Normalize.css is a customisable CSS file that makes browsers render all elements more consistently and in line with modern standards.",
+        "homepage": "http://necolas.github.com/normalize.css/"
     }
 ]

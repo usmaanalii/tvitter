@@ -5,8 +5,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <script src="../vendor/components/jquery/jquery.min.js"></script>
-        <link rel="stylesheet" href="../src/css/navigation/navigation.css">
-        <link rel="stylesheet" href="../src/css/timeline/main.css">
+        <link rel="stylesheet" href="../src/sass/main.min.css">
         <title>Tvitter</title>
     </head>
     <body>
@@ -16,7 +15,7 @@
 
             <?php require_once 'components/navigation/navigation-links.php'; ?>
 
-            <h2>
+            <h2 id="timeline-header">
                 Timeline
             </h2>
 

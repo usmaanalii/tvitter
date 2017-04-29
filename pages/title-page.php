@@ -4,8 +4,7 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="../src/css/navigation/navigation.css">
-        <link rel="stylesheet" href="../src/css/title-page/main.css">
+        <link rel="stylesheet" href="../src/sass/main.min.css">
         <script src="../vendor/components/jquery/jquery.min.js"></script>
         <script src="../src/js/ajax/title-page.js"></script>
         <title>Title - Get the details</title>

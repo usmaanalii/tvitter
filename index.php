@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <script src="vendor/components/jquery/jquery.min.js"></script>
-        <link rel="stylesheet" href="src/css/login/main.css">
+        <link rel="stylesheet" href="src/sass/main.min.css">
         <script src="src/js/ajax/login.js"></script>
         <title>Tvitter. What's your show?</title>
     </head>
@@ -12,7 +12,7 @@
 
         <div class="container">
 
-            <h2>Log in</h2>
+            <h2 id="log-in-message">Log in</h2>
 
             <form id="reg-form" action="logic/login.php" method="post">
                 <a id="register-page-link" href="pages/registration.php">Click here to register!</a>

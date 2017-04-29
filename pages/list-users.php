@@ -4,8 +4,7 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="../src/css/navigation/navigation.css">
-        <link rel="stylesheet" href="../src/css/list-users/main.css">
+        <link rel="stylesheet" href="../src/sass/main.min.css">
         <title>Tvitter users</title>
     </head>
     <body>
