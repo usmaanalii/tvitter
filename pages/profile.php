@@ -1,4 +1,4 @@
-<?php require_once 'components/header.php'; ?>
+<?php require_once '../header.php'; ?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -58,6 +58,7 @@
                 <form id="tveet-form" action="../logic/profile.php?recipient=<?php echo $username ?>" method="post">
                     <textarea name="tveet-text" size="140"></textarea>
                     <br>
+                    <input type="hidden" name="username" value="<?php echo $username; ?>">
                     <input type="hidden" name="title-selection">
                     <h6 id="character-count">0</h6>
                     <input type="submit" name="tveet-form-submit" value="tveet">

@@ -1,4 +1,4 @@
-<?php require_once 'components/header.php'; ?>
+<?php require_once '../header.php'; ?>
 <!DOCTYPE html>
 <html>
     <head>

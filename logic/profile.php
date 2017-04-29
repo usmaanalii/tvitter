@@ -1,12 +1,11 @@
 <?php
+require_once __DIR__ . '/../header.php';
 require_once __DIR__ . '/../includes/sql-helper.inc.php';
 require_once __DIR__ . "/../includes/profile.inc.php";
 
-if (isset($_POST['username'])) {
-    $username = $_POST['username'];
-}
-
+$username = isset($_GET['username']) ? $_GET['username'] : $_SESSION['username'];
 $current_profile = new UserProfile($username);
+$posts = $current_profile->get_posts();
 
 if (isset($_POST['tveet-text'])) {
 
@@ -27,8 +26,6 @@ if (isset($_POST['tveet-text'])) {
 
     header("Location: ../pages/profile.php?username=$recipient_profile->username");
 }
-
-$posts = $current_profile->get_posts();
 
 if (isset($_POST['delete-post-id'])) {
 

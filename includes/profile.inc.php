@@ -57,7 +57,7 @@ class UserProfile
     public function insert_post($sender_id, $recipient_id, $post_body, $title = "")
     {
         $db_connection = $this->db_connection;
-        $statement = $db_connection->prepare("INSERT INTO `posts` (sender_id, recipient_id, body, `time`, title) VALUES (?, ?, ?, NOW(), ?)");
+        $statement = $db_connection->prepare("INSERT INTO `posts` (sender_id, recipient_id, `time`, body, title) VALUES (?, ?, NOW(), ?, ?)");
 
         $statement->bind_param("iiss", $sender_id, $recipient_id, $post_body, $title);
         $statement->execute();
@@ -85,14 +85,14 @@ class UserProfile
              INNER JOIN `users` `users1` ON users1.id = posts.sender_id
              INNER JOIN `users` `users2` ON users2.id = posts.recipient_id
 
-             WHERE posts.recipient_id = ? OR posts.sender_id
+             WHERE posts.recipient_id = ? OR posts.sender_id = ?
 
              ORDER BY posts.time DESC;"
          );
 
-         $id = !$id ? $this->id : $id;
+        //  $id = !$id ? $this->id : $id;
 
-         $statement->bind_param("i", $this->id);
+         $statement->bind_param("ii", $this->id, $this->id);
          $statement->execute();
          $returned_posts = $statement->get_result();
 

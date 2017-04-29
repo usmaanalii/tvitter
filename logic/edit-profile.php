@@ -1,4 +1,5 @@
 <?php
+require_once __DIR__ . '/../header.php';
 require_once __DIR__ . '/../includes/edit-profile.inc.php';
 
 if (isset($_POST['add-info-submit'])) {

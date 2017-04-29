@@ -1,4 +1,5 @@
 <?php
+require_once __DIR__ . '/../header.php';
 require_once __DIR__ . '/../includes/login.inc.php';
 
 $complete_form = !empty($_POST['username']) && !empty($_POST['password']);
