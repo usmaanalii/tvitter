@@ -12,6 +12,8 @@ if ($complete_form) {
 
         $logged_in_user_data = $logged_in_user->get_user_data();
 
+        session_start();
+
         $session_id = $_SESSION['id'] = $logged_in_user_data['id'];
         $session_username = $_SESSION['username'] = $logged_in_user_data['username'];
 
