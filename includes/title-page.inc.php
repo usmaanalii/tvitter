@@ -22,7 +22,7 @@ class Title extends UserProfile
             $search_params = array(
                 'i' => 'imdb id',
                 't' => 'title',
-                'type' => 'movie, series or episode',
+                'type' => 'title, series or episode',
                 'plot' => 'short, full',
                 'r' => 'json or xml',
                 'callback' => 'JSONP callback name',
@@ -30,21 +30,21 @@ class Title extends UserProfile
             );
 
             // Building a search
-            $movie_json = file_get_contents($search_url . '?' . 'i=' . $id);
+            $title_json = file_get_contents($search_url . '?' . 'i=' . $id);
 
-            $movie_data = json_decode($movie_json);
+            $title_data = json_decode($title_json);
 
             // Keys
             $series_keys = array(
                 "Title", "Year", "Rated", "Released", "Runtime", "Genre", "Director", "Writer", "Actors", "Plot", "Language", "Country", "Awards", "Poster", "Metascore", "imdbRating", "imdbVotes", "imdbID", "Type", "totalSeasons", "Response"
             );
 
-            $movie_keys = array(
+            $title_keys = array(
                 "Title", "Year", "Rated", "Released", "Runtime", "Genre", "Director", "Writer", "Actors", "Plot", "Language", "Country", "Awards", "Poster", "Metascore", "imdbRating", "imdbVotes", "imdbID", "Type", "totalSeasons", "Response", "Title", "Year", "Rated", "Released",
                 "Runtime", "Genre", "Director", "Writer", "Actors", "Plot", "Language", "Country", "Awards", "Poster", "Ratings", "Metascore", "imdbRating", "imdbVotes", "imdbID", "Type", "DVD", "BoxOffice", "Production", "Website", "Response"
             );
 
-            return $movie_data;
+            return $title_data;
 
         }
 
@@ -63,7 +63,7 @@ class Title extends UserProfile
             $search_params = array(
                 'i' => 'imdb id',
                 't' => 'title',
-                'type' => 'movie, series or episode',
+                'type' => 'title, series or episode',
                 'plot' => 'short, full',
                 'r' => 'json or xml',
                 'callback' => 'JSONP callback name',
@@ -71,10 +71,10 @@ class Title extends UserProfile
             );
 
             // Building a search
-            $movie_json = file_get_contents($search_url . '?' . 't=' . urlencode($title));
-            $movie_data = json_decode($movie_json);
+            $title_json = file_get_contents($search_url . '?' . 't=' . urlencode($title));
+            $title_data = json_decode($title_json);
 
             // Results
-            return $movie_data;
+            return $title_data;
         }
 }

@@ -9,19 +9,19 @@ if (isset($_POST['title-name'])) {
 }
 
 if (isset($_GET['film-id'])) {
-    $movie_data = Title::get_title_details_by_id($_GET['film-id']);
+    $title_data = Title::get_title_details_by_id($_GET['film-id']);
 
     require_once '../pages/components/title-page/title-details.php';
 }
 
 if (isset($_GET['title'])) {
-    $movie_data = Title::get_title_details_by_name($_GET['title']);
+    $title_data = Title::get_title_details_by_name($_GET['title']);
 
     require_once '../pages/components/title-page/title-details.php';
 }
 
 if (isset($_POST['title_id'])) {
-    $movie_data = Title::get_title_details_by_id($_POST['title_id']);
+    $title_data = Title::get_title_details_by_id($_POST['title_id']);
 
     require_once '../pages/components/title-page/title-details.php';
 }

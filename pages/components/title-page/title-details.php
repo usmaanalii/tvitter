@@ -1,4 +1,4 @@
-<?php foreach ($movie_data as $key => $value): ?>
+<?php foreach ($title_data as $key => $value): ?>
 
     <?php if (is_string($value)): ?>
         <?php if ($key === "Poster"): ?>
@@ -10,7 +10,7 @@
             <h3>
                 <?php echo $key; ?>:
             </h3>
-            <a id="#movie-web-link" href="<?php echo $value; ?>" target="_blank"><?php echo $value; ?></a>
+            <a id="#title-web-link" href="<?php echo $value; ?>" target="_blank"><?php echo $value; ?></a>
         <?php else: ?>
             <h3>
                 <?php echo $key; ?>:
@@ -23,7 +23,7 @@
 
         <hr>
 
-        <?php foreach ($movie_data->Ratings as $index => $rating_site): ?>
+        <?php foreach ($title_data->Ratings as $index => $rating_site): ?>
 
             <h3>
                 <?php echo $rating_site->Source; ?>:

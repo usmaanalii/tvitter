@@ -8,7 +8,7 @@ function get_poster_url($title)
 
     // Parameters
     $search_params = array(
-        'type' => 'movie, series or episode',
+        'type' => 'title, series or episode',
         'y' => 'year of release',
         'r' => 'json or xml',
         'page' => '1-100',
@@ -17,15 +17,15 @@ function get_poster_url($title)
     );
 
     if (isset($title)) {
-        $movie = urlencode($title);
+        $title = urlencode($title);
     }
     else {
-        $movie = urlencode("");
+        $title = urlencode("");
     }
 
-    $movie_json = file_get_contents($search_url . $movie);
+    $title_json = file_get_contents($search_url . $title);
 
-    $results = json_decode($movie_json);
+    $results = json_decode($title_json);
 
     $poster_url = isset($results->Poster) ? $results->Poster: '';
 
@@ -35,4 +35,4 @@ function get_poster_url($title)
 $poster_url = get_poster_url('avatar');
 ?>
 
-<img src="<?php echo $poster_url; ?>" alt="Poster" onerror="this.src = '../../../src/images/movie-poster-placeholder.png';" width="150px">
+<img src="<?php echo $poster_url; ?>" alt="Poster" onerror="this.src = '../../../src/images/title-poster-placeholder.png';" width="150px">

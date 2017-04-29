@@ -28,12 +28,12 @@
             <?php endif; ?>
 
             <?php if (!empty($post['title'])): ?>
-                <img class="movie-poster" src="<?php echo $poster_url_method($post['title']); ?>" onerror="this.src = '../src/images/movie-poster-placeholder.png';" alt="no image" height="75px" width="50px">
+                <img class="title-poster" src="<?php echo $poster_url_method($post['title']); ?>" onerror="this.src = '../src/images/title-poster-placeholder.png';" alt="no image" height="75px" width="50px">
             <?php endif; ?>
 
             <p class="post-body">
                 <?php if (!empty($post['title'])): ?>
-                    <a class="movie-link" href="../pages/title-page.php?username=<?php echo $_POST['username']; ?>&title=<?php echo $post['title']; ?>"><?php echo $post['title']; ?>
+                    <a class="title-link" href="../pages/title-page.php?username=<?php echo $_POST['username']; ?>&title=<?php echo $post['title']; ?>"><?php echo $post['title']; ?>
                     </a>
                     <br><br>
                 <?php endif; ?>

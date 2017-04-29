@@ -20,7 +20,7 @@
     <body>
         <?php
 
-        function movie_details($title)
+        function title_details($title)
         {
             // URL's
             $search_url = "http://www.omdbapi.com/";
@@ -29,7 +29,7 @@
             $search_params = array(
                 'i' => 'imdb id',
                 't' => 'title',
-                'type' => 'movie, series or episode',
+                'type' => 'title, series or episode',
                 'plot' => 'short, full',
                 'r' => 'json or xml',
                 'callback' => 'JSONP callback name',
@@ -37,15 +37,15 @@
             );
 
             // Building a search
-            $movie_json = file_get_contents($search_url . '?' . 't=' . $title);
+            $title_json = file_get_contents($search_url . '?' . 't=' . $title);
 
-            $movie_data = json_decode($movie_json);
+            $title_data = json_decode($title_json);
 
             // Results
-            return $movie_data;
+            return $title_data;
         }
 
-        $details = movie_details('avatar');
+        $details = title_details('avatar');
 
         print_r($details);
         ?>

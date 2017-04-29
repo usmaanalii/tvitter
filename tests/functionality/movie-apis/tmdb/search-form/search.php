@@ -8,16 +8,16 @@
                 /*border: 1px solid black;*/
             }
         </style>
-        <title>Search Movie</title>
+        <title>Search title</title>
     </head>
     <body>
-        <form class="movie-search-form" action="movie-data.php" method="post">
-            <input id="movie-search-input" type="text" name="movie-search-input" placeholder="e.g die hard" required>
-            <input type="submit" name="movie-search-submit" value="search">
+        <form class="title-search-form" action="title-data.php" method="post">
+            <input id="title-search-input" type="text" name="title-search-input" placeholder="e.g die hard" required>
+            <input type="submit" name="title-search-submit" value="search">
         </form>
 
-        <div class="all-movies-response">
-            <div class="movie-data-response">
+        <div class="all-titles-response">
+            <div class="title-data-response">
 
             </div>
 

@@ -1,7 +1,7 @@
 $(document).ready(function() {
 
-    var searchMovie = function() {
-        $('.search-movie').submit(function(event) {
+    var searchtitle = function() {
+        $('.search-title').submit(function(event) {
             event.preventDefault();
 
             var formData = $(this).serialize();
@@ -19,7 +19,7 @@ $(document).ready(function() {
         });
     };
 
-    var addMovieToPost = function() {
+    var addtitleToPost = function() {
         $('#tveet-form').submit(function() {
             $("input[name='title-selection']").val($("input[name='title-selection']:checked").val());
 
@@ -47,7 +47,7 @@ $(document).ready(function() {
      */
     var resetFields = function() {
 
-        $('#search-movie-query').keyup(function(event) {
+        $('#search-title-query').keyup(function(event) {
             if ($(this).val() <= 1) {
                 $('.title-search-results').html('');
             }
@@ -56,8 +56,8 @@ $(document).ready(function() {
     };
 
     // Function call
-    searchMovie();
-    addMovieToPost();
+    searchtitle();
+    addtitleToPost();
     addCharacterCount();
     stopFormSubmit();
     resetFields();

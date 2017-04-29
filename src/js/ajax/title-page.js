@@ -1,7 +1,7 @@
 $(document).ready(function() {
 
-    var searchMovie = function() {
-        $('.search-movie').submit(function(event) {
+    var searchtitle = function() {
+        $('.search-title').submit(function(event) {
             event.preventDefault();
 
             $('.title-details').html('');
@@ -14,15 +14,15 @@ $(document).ready(function() {
                 data: formData,
                 success: function(response) {
                     $('.title-search-results').html(response);
-                    getMovieDetails();
+                    gettitleDetails();
                 }
         });
 
         });
     };
 
-    var getMovieDetails = function() {
-        $('.movie-link').click(function(event) {
+    var gettitleDetails = function() {
+        $('.title-link').click(function(event) {
             event.preventDefault();
 
             title_id = $(this).attr('id');
@@ -41,7 +41,7 @@ $(document).ready(function() {
 
     var resetFields = function() {
 
-        $('#search-movie-query').keyup(function(event) {
+        $('#search-title-query').keyup(function(event) {
             if ($(this).val() <= 1) {
                 $('.title-search-results').html('');
                 $('.title-details').html('');
@@ -51,7 +51,7 @@ $(document).ready(function() {
     };
 
     // function calls
-    searchMovie();
+    searchtitle();
     resetFields();
 
 });

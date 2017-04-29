@@ -3,7 +3,7 @@
 $(document).ready(function() {
 
     var search = function() {
-        $('.movie-search-form').submit(function(event) {
+        $('.title-search-form').submit(function(event) {
             event.preventDefault();
 
             var formData = $(this).serialize();
@@ -13,7 +13,7 @@ $(document).ready(function() {
                 url: 'search-output.php',
                 data: formData,
                 success: function(response) {
-                    $('.all-movies-response').html(response);
+                    $('.all-titles-response').html(response);
                 }
         });
 

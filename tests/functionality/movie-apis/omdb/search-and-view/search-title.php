@@ -20,7 +20,7 @@
                 text-align: center;
             }
 
-            h3 + img, #movie-web-link {
+            h3 + img, #title-web-link {
                 display: block;
                 margin: 0 auto;
                 text-align: center;
@@ -36,12 +36,12 @@
             /* Title search form (START)
             =============================================================== */
 
-             form.search-movie {
+             form.search-title {
                  text-align: center;
                  margin-bottom: 4%;
              }
 
-             form.search-movie input[type="text"] {
+             form.search-title input[type="text"] {
                  width: 60%;
                  padding: 0.8% 1.5%;
 
@@ -49,11 +49,11 @@
                  margin: 0 auto;
              }
 
-             form.search-movie input[type="submit"] {
+             form.search-title input[type="submit"] {
                  margin-top: 2%;
              }
 
-             form.movie-results {
+             form.title-results {
                  border: 1px solid red;
                  width: 100%;
                  margin: 0 auto;
@@ -62,12 +62,12 @@
                  margin-bottom: 2%;
              }
 
-             div.single-movie {
+             div.single-title {
                  background: #e8e9cc;
                  border-bottom: 1px solid red;
              }
 
-             a.movie-link {
+             a.title-link {
                  display: inline-block;
                  width: 70%;
                  word-wrap: break-word;
@@ -80,11 +80,11 @@
                  text-decoration: underline;
              }
 
-             img.movie-poster {
+             img.title-poster {
                  vertical-align: middle;
              }
 
-             h4.movie-search-error {
+             h4.title-search-error {
                  text-align: center;
                  color: red;
              }
@@ -98,8 +98,8 @@
 
         <div class="container">
 
-        <form class="search-movie" action="search-title.php" method="post">
-            <input id="search-movie-query" type="text" name="title-name" placeholder="add title" value="<?php echo isset($_POST['title-name']) ? $_POST['title-name'] : '' ?>">
+        <form class="search-title" action="search-title.php" method="post">
+            <input id="search-title-query" type="text" name="title-name" placeholder="add title" value="<?php echo isset($_POST['title-name']) ? $_POST['title-name'] : '' ?>">
             <input type="submit" name="search-film-submit" value="Search">
         </form>
 

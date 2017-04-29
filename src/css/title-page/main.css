@@ -9,68 +9,77 @@
     margin-top: 5%;
 }
 
+
 /* Title search form (START)
 =============================================================== */
 
- form.search-movie {
-     text-align: center;
-     margin-bottom: 4%;
- }
+form.search-title {
+    margin-bottom: 4%;
 
- form.search-movie input[type="text"] {
-     width: 60%;
-     padding: 0.8% 1.5%;
+    text-align: center;
+}
 
-     display: block;
-     margin: 0 auto;
- }
+form.search-title input[type="text"] {
+    display: block;
 
- form.search-movie input[type="submit"] {
-     margin-top: 2%;
- }
+    width: 60%;
+    margin: 0 auto;
+    padding: 0.8% 1.5%;
+}
 
- form.movie-results {
-     border: 1px solid red;
-     width: 100%;
-     margin: 0 auto;
-     height: 27vh;
-     overflow: scroll;
-     margin-bottom: 2%;
- }
+form.search-title input[type="submit"] {
+    margin-top: 2%;
+}
 
- div.single-movie {
-     background: #e8e9cc;
-     border-bottom: 1px solid red;
- }
-
- a.movie-link {
-     display: inline-block;
-     width: 70%;
-     word-wrap: break-word;
-     cursor: pointer;
-     vertical-align: middle;
-     margin-left: 2%;
- }
-
- a:hover {
-     text-decoration: underline;
- }
-
- img.movie-poster {
-     vertical-align: middle;
- }
-
- h4.movie-search-error {
-     text-align: center;
-     color: red;
- }
-
- /* Title search form (END)
+/* Title search results (START)
  =============================================================== */
+
+
+form.title-results {
+    overflow: scroll;
+
+    width: 100%;
+    height: 27vh;
+    margin: 0 auto;
+    margin-bottom: 2%;
+
+    border: 1px solid red;
+}
+
+div.single-title {
+    border-bottom: 1px solid red;
+    background: #e8e9cc;
+}
+
+a.title-link {
+    display: inline-block;
+
+    width: 70%;
+    margin-left: 2%;
+
+    cursor: pointer;
+    vertical-align: middle;
+    word-wrap: break-word;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+img.title-poster {
+    vertical-align: middle;
+}
+
+h4.title-search-error {
+    text-align: center;
+
+    color: red;
+}
 
 h4 {
     color: blue;
 }
+
 .error {
     color: red;
 }

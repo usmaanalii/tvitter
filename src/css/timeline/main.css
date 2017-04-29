@@ -40,7 +40,7 @@ form.search-posts input[type="text"] {
     word-wrap: break-word;
 }
 
-.movie-poster {
+.title-poster {
     margin-top: 4%;
     border: 1px solid black;
 }
@@ -54,7 +54,7 @@ form.search-posts input[type="text"] {
     float: right;
 }
 
-a.movie-link {
+a.title-link {
     display: inline;
 }
 
@@ -87,6 +87,3 @@ form.delete-post-form {
     margin-bottom: 1%;
     padding: 0;
 }
-
-/* Posts (END)
-=============================================================== */

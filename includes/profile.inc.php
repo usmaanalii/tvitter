@@ -144,7 +144,7 @@ class UserProfile
 
         // Parameters
         $search_params = array(
-            'type' => 'movie, series or episode',
+            'type' => 'title, series or episode',
             'y' => 'year of release',
             'r' => 'json or xml',
             'page' => '1-100',
@@ -153,15 +153,15 @@ class UserProfile
         );
 
         if (isset($title)) {
-            $movie = urlencode($title);
+            $title = urlencode($title);
         }
         else {
-            $movie = urlencode("");
+            $title = urlencode("");
         }
 
-        $movie_json = file_get_contents($search_url . $movie);
+        $title_json = file_get_contents($search_url . $title);
 
-        $results = json_decode($movie_json);
+        $results = json_decode($title_json);
 
         return $results;
     }
@@ -181,7 +181,7 @@ class UserProfile
 
         // Parameters
         $search_params = array(
-            'type' => 'movie, series or episode',
+            'type' => 'title, series or episode',
             'y' => 'year of release',
             'r' => 'json or xml',
             'page' => '1-100',
@@ -190,15 +190,15 @@ class UserProfile
         );
 
         if (isset($title)) {
-            $movie = urlencode($title);
+            $title = urlencode($title);
         }
         else {
-            $movie = urlencode("");
+            $title = urlencode("");
         }
 
-        $movie_json = file_get_contents($search_url . $movie);
+        $title_json = file_get_contents($search_url . $title);
 
-        $results = json_decode($movie_json);
+        $results = json_decode($title_json);
 
         $poster_url = isset($results->Poster) ? $results->Poster: '';
 
@@ -219,7 +219,7 @@ class UserProfile
         $search_params = array(
             'i' => 'imdb id',
             't' => 'title',
-            'type' => 'movie, series or episode',
+            'type' => 'title, series or episode',
             'plot' => 'short, full',
             'r' => 'json or xml',
             'callback' => 'JSONP callback name',
@@ -227,10 +227,10 @@ class UserProfile
         );
 
         // Building a search
-        $movie_json = file_get_contents($search_url . '?' . 't=' . $title);
-        $movie_data = json_decode($movie_json);
+        $title_json = file_get_contents($search_url . '?' . 't=' . $title);
+        $title_data = json_decode($title_json);
 
         // Results
-        return $movie_data;
+        return $title_data;
     }
 }
