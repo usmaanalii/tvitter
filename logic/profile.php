@@ -53,7 +53,7 @@ if (isset($_POST['edit-profile'])) {
 
 if (isset($_POST['title-name'])) {
     $search_results = UserProfile::search_title($_POST['title-name']);
-    require_once '../pages/components/title-page/title-details.php';
+    require_once '../pages/components/title-page/title-search-results.php';
 }
 
 /**

@@ -47,7 +47,7 @@
                 - Form that allows the user to delete posts
             -->
             <?php if ($post['sender_username'] == $_GET['username']): ?>
-                <form class="delete-post-form" action="../logic/timeline.php?username=<?php echo $_SESSION['username']; ?>" method="post">
+                <form class="delete-post-form" action="../logic/profile.php?username=<?php echo $_SESSION['username']; ?>" method="post">
                     <input type="hidden" name="post-recipient" value="<?php echo $post['recipient_username'] ?>">
                     <input type="hidden" name="delete-post-id" value="<?php echo $post['post_id'] ?>">
                     <input class="delete-button" type="submit" name="delete-post" value="x">

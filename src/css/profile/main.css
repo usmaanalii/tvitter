@@ -53,6 +53,9 @@
 /* Title search form (START)
 =============================================================== */
 
+/* Title search form (START)
+=============================================================== */
+
  form.search-movie {
      text-align: center;
      margin-bottom: 4%;
@@ -84,7 +87,7 @@
      border-bottom: 1px solid red;
  }
 
- a.title-name {
+ a.movie-link {
      display: inline-block;
      width: 70%;
      word-wrap: break-word;
