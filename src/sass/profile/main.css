@@ -35,14 +35,14 @@
     margin: 0 auto;
 }*/
 
-.profile-bio {
+/*.profile-bio {
     display: block;
 
     width: 75%;
     margin: 0 auto;
-}
+}*/
 
-.profile-bio p {
+/*p#profile-bio {
     margin-top: 1%;
     padding: 0;
 
@@ -51,7 +51,7 @@
     color: red;
 
     font-size: 1, 1em;
-}
+}*/
 
 
 /* Title search form (START)
@@ -78,7 +78,7 @@ form.search-title input[type="submit"] {
 /* Title search results (START)
  =============================================================== */
 
-form.title-results {
+/*form.title-results {
     overflow: scroll;
 
     width: 100%;
@@ -118,7 +118,7 @@ h4.title-search-error {
     text-align: center;
 
     color: red;
-}
+}*/
 
 
 /* Tveet form (START)
@@ -157,7 +157,7 @@ h4.title-search-error {
     text-align: center;
 }*/
 
-.posts-section .post:not(:first-child) {
+/*.posts-section .post:not(:first-child) {
     margin-top: 3%;
 }
 
@@ -221,4 +221,4 @@ form.delete-post-form {
     padding: 0;
 
     background: red;
-}
+}*/

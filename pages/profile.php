@@ -34,15 +34,11 @@
 
             <?php endif; ?>
 
-            <div class="profile-bio">
-
-                <p>
+                <p id="profile-bio">
                     <?php require_once __DIR__ . "/../logic/profile.php"; ?>
 
                     <?php echo $current_profile->bio; ?>
                 </p>
-
-            </div>
 
             <form class="search-title" action="" method="post">
                 <input type="hidden" name="username" value="<?php echo $username; ?>">

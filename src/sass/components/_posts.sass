@@ -1,0 +1,46 @@
+@import "../base/_color"
+
+.posts-section
+    .post
+        padding: 0 2%
+        word-wrap: break-word
+        border: 1px solid black
+        background: $post-background
+        &:first-child
+            margin-top: 3%
+
+        .title-poster
+            margin-top: 4%
+            border: 1px solid black
+
+        p.post-usernames
+            display: inline-block
+            float: right
+            margin: 0
+            padding: 0
+            font-size: 0.7em
+            font-style: italic
+
+        p.post-body
+            border: 1px solid black
+
+            a.title-link
+                display: inline
+
+        h6.post-time
+            display: block
+            margin: 1% 0
+            padding: 0
+            color: $post-time-color
+            &:hover
+                cursor: none
+                color: $post-time-color-hovered
+
+        form.delete-post-form
+            margin-bottom: 1.5em
+
+            .delete-button
+                float: right
+                margin: 0
+                padding: 0
+                background: $delete-post-button-color

@@ -1,37 +1,37 @@
-.container {
+/*.container {
     width: 80%;
     max-width: 350px;
     margin: 0 auto;
     margin-top: 5%;
-}
+}*/
 
-#navigation, #user-list {
+/*#navigation, #user-list {
     margin-right: 2px;
     padding: 0;
 
     list-style-type: none;
-}
+}*/
 
 #navigation {
-    text-align: center;
+    /*text-align: center;*/
 
 }
 
 #navigation li {
-    display: inline;
+    /*display: inline;*/
 }
 
 /* li + li selects all but first element since '+' is a sibling selector*/
 #user-list li + li {
-    margin-top: 2%;
+    /*margin-top: 2%;*/
 }
 
 /* Users List (START)
 =============================================================== */
 
-h2#users-header {
+/*h2#users-header {
     text-align: center;
-}
+}*/
 
 ul#users-list {
     padding: 0;

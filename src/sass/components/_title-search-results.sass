@@ -1,0 +1,34 @@
+@import "../base/_color"
+
+.title-results
+    overflow: scroll
+
+    height: 27vh
+    margin: 0 auto
+    margin-bottom: 2%
+
+    border: 1px solid red
+
+    .single-title
+        border-bottom: 1px solid red
+        background: $search-results-title-color
+
+        a.title-link
+            color: red
+            display: inline-block
+
+            width: 70%
+            margin-left: 2%
+
+            cursor: pointer
+            vertical-align: middle
+            word-wrap: break-word
+            &:hover
+                text-decoration: none
+
+        img.title-poster
+            vertical-align: middle
+
+h4.title-search-error
+    text-align: center
+    color: red

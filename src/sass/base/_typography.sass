@@ -1,15 +1,41 @@
+@import "_color"
+
 $font-stack:    "Helvetica Neue", sans-serif
 
 body
     font: 100% $font-stack
 
 //  Profile page
+    1. Welcome user message
+    2. Profile bio message that the user adds to their profile
+    3. Posts header that signals the beginning of the 'posts' section
     ===============================================================
 h4#welcome-user-message
     text-align: center
 
     span
-        color: rgb(97, 242, 61)
+        color: $welcome-user-color
+
+#profile-bio
+    margin: 2% auto
+    padding: 0
+
+    text-align: center
+
+    color: $profile-bio-color
+
+    font-size: 1.1em
+
+    border: 1px solid red
+
+    width: 80%
+
 
 h2#posts-header
+    text-align: center
+
+//  Users page
+    1. Users header
+    ===============================================================
+h2#users-header 
     text-align: center
