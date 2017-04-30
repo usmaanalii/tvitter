@@ -28,7 +28,7 @@
 
             <?php if ($_SESSION['username'] == $_GET['username']): ?>
 
-            <form class="edit-profile-form" action="../logic/profile.php?username=<?php echo $username; ?>" method="post">
+            <form class="navbar-form edit-profile-form" action="../logic/profile.php?username=<?php echo $username; ?>" method="post">
                 <input class="edit-profile-button "type="submit" name="edit-profile" value="?">
             </form>
 
@@ -40,7 +40,7 @@
                 <?php echo $current_profile->bio; ?>
             </p>
 
-            <form class="search-title" action="" method="post">
+            <form class="navbar-form search-title" action="" method="post">
                 <input type="hidden" name="username" value="<?php echo $username; ?>">
                 <input id="search-title-query" type="text" name="title-name" placeholder="add title" value="<?php echo isset($_POST['title-name']) ? $_POST['title-name'] : '' ?>">
                  <input type="submit" name="search-film-submit" value="Search">
@@ -50,7 +50,7 @@
 
             </div>
 
-                <form id="tveet-form" action="../logic/profile.php?recipient=<?php echo $username ?>" method="post">
+                <form class="navbar-form" id="tveet-form" action="../logic/profile.php?recipient=<?php echo $username ?>" method="post">
                     <textarea name="tveet-text" size="140"></textarea>
                     <br>
                     <input type="hidden" name="username" value="<?php echo $username; ?>">

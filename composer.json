@@ -1,6 +1,7 @@
 {
     "require": {
         "components/jquery": "^3.2",
-        "components/normalize.css": "^3.0"
+        "components/normalize.css": "^3.0",
+        "twbs/bootstrap-sass": "^3.3"
     }
 }
