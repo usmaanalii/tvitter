@@ -37,7 +37,7 @@ $(document).ready(function() {
      * @return {[type]} [description]
      */
     var checkPasswordValid = function() {
-        $('#reg-form').submit(function(event) {
+        $('#login-form').submit(function(event) {
             event.preventDefault();
 
             var formData = $(this).serialize();
@@ -51,7 +51,7 @@ $(document).ready(function() {
                     // TODO: Clean this up
                     // X comes from username existing in the database
                     if (response === "Xmatch") {
-                        $("#reg-form")[0].submit();
+                        $("#login-form")[0].submit();
                     }
                     else {
                         $('#username-ajax-response').html('');

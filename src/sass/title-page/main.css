@@ -9,7 +9,7 @@
 /* Title search form (START)
 =============================================================== */
 
-form.search-title {
+/*form.search-title {
     margin-bottom: 4%;
 
     text-align: center;
@@ -25,11 +25,10 @@ form.search-title input[type="text"] {
 
 form.search-title input[type="submit"] {
     margin-top: 2%;
-}
+}*/
 
 /* Title search results (START)
  =============================================================== */
-
 
 form.title-results {
     overflow: scroll;

@@ -12,9 +12,9 @@
 
         <div class="container">
 
-            <h2 id="log-in-message">Log in</h2>
+            <h2 id="log-in-header">Log in</h2>
 
-            <form id="reg-form" action="logic/login.php" method="post">
+            <form id="login-form" action="logic/login.php" method="post">
                 <a id="register-page-link" href="pages/registration.php">Click here to register!</a>
 
                 <input id="username-input" type="text" name="username" placeholder="username">

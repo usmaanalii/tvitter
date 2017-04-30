@@ -1,0 +1,50 @@
+@import "../base/_color"
+
+ul#users-list
+    padding: 0
+
+    list-style-type: none
+
+    li.single-user
+        overflow: scroll
+
+        height: 5.5em
+        padding: 1% 0 0 1%
+
+        border: 1px solid black
+        background-color: $user-background-color
+        &:not(:first-child)
+            margin-top: 1.5%
+
+        a.username-link
+            display: block
+
+            margin-left: 1%
+
+        img.profile-image
+            display: inline-block
+
+            width: 40px
+            height: 40px
+            margin-top: 2%
+
+            vertical-align: top
+
+            border: 2px solid black
+            border-radius: 20%
+
+        p.user-info
+            display: inline-block
+
+            width: 80%
+            margin: 2% 0 0 1%
+            padding: 0
+
+            vertical-align: top
+
+            span.email-web-links
+                display: block
+                margin-bottom: 2%
+
+                font-size: 0.8em
+                font-style: italic

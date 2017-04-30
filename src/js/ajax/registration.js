@@ -111,7 +111,7 @@ $(document).ready(function() {
     };
 
     var emptySubmit = function() {
-        $('#reg-form').submit(function(event) {
+        $('#registration-form').submit(function(event) {
 
             var username = $('#username-input').val();
             var password = $('#password-input').val();
