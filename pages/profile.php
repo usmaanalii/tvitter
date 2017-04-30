@@ -28,17 +28,17 @@
 
             <?php if ($_SESSION['username'] == $_GET['username']): ?>
 
-                <form class="edit-profile-form" action="../logic/profile.php?username=<?php echo $username; ?>" method="post">
-                    <input class="edit-profile-button "type="submit" name="edit-profile" value="?">
-                </form>
+            <form class="edit-profile-form" action="../logic/profile.php?username=<?php echo $username; ?>" method="post">
+                <input class="edit-profile-button "type="submit" name="edit-profile" value="?">
+            </form>
 
             <?php endif; ?>
 
-                <p id="profile-bio">
-                    <?php require_once __DIR__ . "/../logic/profile.php"; ?>
+            <p id="profile-bio">
+                <?php require_once __DIR__ . "/../logic/profile.php"; ?>
 
-                    <?php echo $current_profile->bio; ?>
-                </p>
+                <?php echo $current_profile->bio; ?>
+            </p>
 
             <form class="search-title" action="" method="post">
                 <input type="hidden" name="username" value="<?php echo $username; ?>">
@@ -50,8 +50,6 @@
 
             </div>
 
-            <div class="posts-section">
-
                 <form id="tveet-form" action="../logic/profile.php?recipient=<?php echo $username ?>" method="post">
                     <textarea name="tveet-text" size="140"></textarea>
                     <br>
@@ -61,11 +59,11 @@
                     <input type="submit" name="tveet-form-submit" value="tveet">
                 </form>
 
-            <h2 id="posts-header">Posts</h2>
+            <h2 id="posts-header">
+                Posts
+            </h2>
 
                 <?php require_once "components/profile/posts.php"; ?>
-
-            </div>
 
         </div>
     </body>

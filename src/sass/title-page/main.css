@@ -1,9 +1,9 @@
-.container {
+/*.container {
     width: 80%;
     max-width: 350px;
     margin: 0 auto;
     margin-top: 5%;
-}
+}*/
 
 
 /* Title search form (START)
@@ -70,10 +70,10 @@ h4.title-search-error {
     color: red;
 }
 
-.title-details h4 {
+/*.title-details h4 {
     color: blue;
 }
 
 .error {
     color: red;
-}
+}*/

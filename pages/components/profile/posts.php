@@ -15,10 +15,8 @@
     <?php foreach ($posts as $post): ?>
 
             <div class="post">
-
                 <!--
-                    - Represents the username links in the top right corner of
-                    individual posts
+                    - Represents the username links in the top right corner of individual posts
                 -->
                 <?php if ($post['sender_username'] != $post['recipient_username']): ?>
                     <p class = "post-usernames">
