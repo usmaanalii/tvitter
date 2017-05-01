@@ -1,4 +1,4 @@
-<ul class="nav navbar-nav dropdown" id="navigation">
+<ul id="navigation">
 
     <li>
         <a href="profile.php?username=<?php echo $_SESSION['username'] ?>">Profile</a>

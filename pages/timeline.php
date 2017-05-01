@@ -24,8 +24,11 @@
                 <input type="text" name="search-input" placeholder="e.g. game of thrones">
             </form>
 
-            <?php require_once "components/timeline/posts.php"; ?>
+            <div class="posts-section">
 
+                <?php require_once "components/timeline/posts.php"; ?>
+
+            </div>
         </div>
     </body>
 </html>

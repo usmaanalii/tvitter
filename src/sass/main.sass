@@ -2,10 +2,6 @@
     ===============================================================
 @import "base/_normalize"
 
-// Vendors
-    ===============================================================
-@import "vendors/stylesheets/_bootstrap"
-
 //  Base
     ===============================================================
 @import "base/_typography"
@@ -32,6 +28,7 @@
 @import "components/forms/_title-search"
 @import "components/forms/_edit-profile"
 @import "components/forms/_tveet"
+@import "components/forms/_search-posts"
 
 @import "components/_title-search-results"
 
@@ -39,21 +36,33 @@
 
 @import "components/_users-list"
 
+// Vendors
+    ===============================================================
+@import "vendors/stylesheets/_bootstrap"
+
 
 //  Global
+    1. Prevent zoom on inputs (mobile devices)
     ===============================================================
 
-// *
-//     border: 1px solid black
+/* iPhone 6, iPhone 6s, iPhone 7 portrait/landscape */
+@media screen and (device-aspect-ratio: 375/667)
+    select, textarea, input[type="text"], input[type="password"],
+    input[type="datetime"], input[type="datetime-local"],
+    input[type="date"], input[type="month"], input[type="time"],
+    input[type="week"], input[type="number"], input[type="email"],
+    input[type="url"]
+        font-size: 16px
 
-html
-    font-size: 100%
-//
-// form
-//     border: 1px solid black
-//
-//     input
-//         border: 2px solid red
-//
-//     textarea
-//         border: 2px solid red
+
+*
+    // border: 1px solid black
+
+form
+    // border: 1px solid black
+
+    input
+        // border: 2px solid red
+
+    textarea
+        // border: 2px solid red
