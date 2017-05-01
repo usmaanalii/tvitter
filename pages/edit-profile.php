@@ -9,7 +9,7 @@
         <title>Registration Page</title>
     </head>
     <body>
-        <div class="container">
+        <div class="container-fluid">
 
             <?php require_once 'components/navigation/navigation-links.php'; ?>
 
@@ -27,8 +27,6 @@
 
             <img class="profile-image" src="../src/images/profile-placeholder.jpg" alt="Profile Placeholder Image">
 
-            <div class="container">
-
                 <form class="add-info-form" action="../logic/edit-profile.php" method="post">
                     <textarea name="bio" placeholder="<?php echo $current_profile->bio; ?>"></textarea>
                     <input type="text" name="email" placeholder="<?php echo $current_profile->email; ?>">
@@ -36,7 +34,6 @@
                     <input type="submit" name="add-info-submit" value="Add">
                 </form>
 
-            </div>
-        </div>    
+        </div>
     </body>
 </html>

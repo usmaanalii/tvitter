@@ -36,7 +36,6 @@ back to the respective profile pages
                 <?php if (!empty($post['title'])): ?>
                     <a class="title-link" href="../pages/title-page.php?username=<?php echo $username; ?>&title=<?php echo $post['title']; ?>"><?php echo $post['title']; ?>
                     </a>
-                    <br><br>
                 <?php endif; ?>
                 <?php echo $post['post_body']; ?>
             </p>
@@ -48,7 +47,7 @@ back to the respective profile pages
                 <form class="delete-post-form" action="../logic/profile.php?username=<?php echo $_SESSION['username']; ?>" method="post">
                     <input type="hidden" name="post-recipient" value="<?php echo $post['recipient_username'] ?>">
                     <input type="hidden" name="delete-post-id" value="<?php echo $post['post_id'] ?>">
-                    <input class="delete-button" type="submit" name="delete-post" value="x">
+                    <input class="btn btn-danger delete-button" type="submit" name="delete-post" value="x">
                 </form>
             <?php endif; ?>
 

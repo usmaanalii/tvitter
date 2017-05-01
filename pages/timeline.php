@@ -11,7 +11,7 @@
     <body>
         <?php require_once __DIR__ . "/../logic/timeline.php"; ?>
 
-        <div class="container">
+        <div class="container-fluid">
 
             <?php require_once 'components/navigation/navigation-links.php'; ?>
 
@@ -19,9 +19,9 @@
                 Timeline
             </h2>
 
-            <form class="search-posts" action="timeline.php?username=<?php echo $_SESSION['username']; ?>" method="post">
+            <form class="form-group search-posts" action="timeline.php?username=<?php echo $_SESSION['username']; ?>" method="post">
                 <input type="hidden" name="username" value="<?php echo $_GET['username']; ?>">
-                <input type="text" name="search-input" placeholder="e.g. game of thrones">
+                <input class="form-control" type="text" name="search-input" placeholder="e.g. game of thrones">
             </form>
 
             <div class="posts-section">

@@ -4,7 +4,7 @@
 
             <a class="username-link" href="profile.php?username=<?php echo $username ?>"><?php echo $username; ?></a>
 
-            <img class="profile-image" src="../src/images/profile-placeholder.jpg" alt="Profile Placeholder Image">
+            <img class="img-rounded profile-image" src="../src/images/profile-placeholder.jpg" alt="Profile Placeholder Image">
 
             <p class="user-info">
                 <span class="email-web-links">

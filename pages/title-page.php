@@ -11,14 +11,14 @@
     </head>
     <body>
 
-        <div class="container">
+        <div class="container-fluid">
 
             <?php require_once 'components/navigation/navigation-links.php'; ?>
 
-            <form class="search-title" action="title-page.php" method="post">
+            <form class="form-group search-title" action="title-page.php" method="post">
                 <input type="hidden" name="username" value="<?php echo $_GET['username']; ?>">
-                <input id="search-title-query" type="text" name="title-name" placeholder="search title" value="<?php echo isset($_POST['title-name']) ? $_POST['title-name'] : '' ?>">
-                <input type="submit" name="search-film-submit" value="Search">
+                <input class="form-control" id="search-title-query" type="text" name="title-name" placeholder="search title" value="<?php echo isset($_POST['title-name']) ? $_POST['title-name'] : '' ?>">
+                <input class="btn btn-default form-control" type="submit" name="search-film-submit" value="Search">
             </form>
 
             <div class="title-search-results">

@@ -34,7 +34,8 @@ $(document).ready(function() {
 
     var stopFormSubmit = function() {
         $('#tveet-form').submit(function(event) {
-            if ($('#tveet-form textarea').val().length > 140) {
+            var tveetLength = $('#tveet-form textarea').val().length;
+            if (tveetLength > 140 || tveetLength === 0) {
                 event.preventDefault();
             }
         });

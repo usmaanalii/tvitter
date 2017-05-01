@@ -11,7 +11,7 @@
     </head>
     <body>
 
-        <div class="container">
+        <div class="container-fluid">
 
             <?php require_once 'components/navigation/navigation-links.php'; ?>
 
@@ -30,8 +30,8 @@
 
                 <?php if ($_SESSION['username'] == $_GET['username']): ?>
 
-                <form class="edit-profile-form" action="../logic/profile.php?username=<?php echo $username; ?>" method="post">
-                    <input class="edit-profile-button "type="submit" name="edit-profile" value="?">
+                <form class="form-group edit-profile-form" action="../logic/profile.php?username=<?php echo $username; ?>" method="post">
+                    <input class="btn btn-default form-control edit-profile-button "type="submit" name="edit-profile" value="Edit profile">
                 </form>
 
                 <?php endif; ?>
@@ -46,23 +46,23 @@
 
             <div class="tveet-forms-section">
 
-                <form class="search-title" action="" method="post">
+                <form class="form-group search-title" action="" method="post">
                     <input type="hidden" name="username" value="<?php echo $username; ?>">
-                    <input id="search-title-query" type="text" name="title-name" placeholder="add title" value="<?php echo isset($_POST['title-name']) ? $_POST['title-name'] : '' ?>">
-                     <input type="submit" name="search-film-submit" value="Search">
+                    <input class="form-control" id="search-title-query" type="text" name="title-name" placeholder="add title" value="<?php echo isset($_POST['title-name']) ? $_POST['title-name'] : '' ?>">
+                     <input class="btn btn-default" type="submit" name="search-film-submit" value="Search">
                 </form>
 
                 <div class="title-search-results">
 
                 </div>
 
-                <form id="tveet-form" action="../logic/profile.php?recipient=<?php echo $username ?>" method="post">
-                    <textarea name="tveet-text" size="140"></textarea>
+                <form class="form-group" id="tveet-form" action="../logic/profile.php?recipient=<?php echo $username ?>" method="post">
+                    <textarea class="form-control" name="tveet-text" size="140"></textarea>
                     <br>
                     <input type="hidden" name="username" value="<?php echo $username; ?>">
                     <input type="hidden" name="title-selection">
                     <h6 id="character-count">0</h6>
-                    <input type="submit" name="tveet-form-submit" value="tveet">
+                    <input class="btn btn-default" type="submit" name="tveet-form-submit" value="tveet">
                 </form>
 
             </div>
@@ -76,7 +76,6 @@
                 <?php require_once "components/profile/posts.php"; ?>
 
             </div>
-
         </div>
     </body>
 </html>
