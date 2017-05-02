@@ -5,6 +5,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <script src="../vendor/components/jquery/jquery.min.js"></script>
+        <script src="../src/js/ajax/edit-profile.js"></script>
         <link rel="stylesheet" href="../src/sass/main.min.css">
         <title>Registration Page</title>
     </head>
@@ -30,6 +31,7 @@
                 <form class="add-info-form" action="../logic/edit-profile.php" method="post">
                     <textarea name="bio"><?php echo $current_profile->bio; ?></textarea>
                     <input type="text" name="email" value="<?php echo $current_profile->email; ?>">
+                    <div id="ajax-response" class="ajax-response-container"></div>
                     <input type="text" name="website" value="<?php echo $current_profile->website; ?>">
                     <input type="submit" name="add-info-submit" value="Add">
                 </form>
