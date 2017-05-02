@@ -14,16 +14,16 @@
 
             <h2 id="log-in-header">Log in</h2>
 
-            <form id="login-form" action="logic/login.php" method="post">
+            <form class="form-group" id="login-form" action="logic/login.php" method="post">
                 <a id="register-page-link" href="pages/registration.php">Click here to register!</a>
 
-                <input id="username-input" type="text" name="username" placeholder="username">
+                <input class="form-control" id="username-input" type="text" name="username" placeholder="username">
                 <div id="username-ajax-response" class="ajax-response-container"></div>
                 <br>
-                <input id="password-input" type="text" name="password" placeholder="password">
+                <input class="form-control" id="password-input" type="text" name="password" placeholder="password">
                 <div id="password-ajax-response" class="ajax-response-container"></div>
                 <br>
-                <input type="submit" name="login-submit" value="Log in">
+                <input class="btn btn-default" type="submit" name="login-submit" value="Log in">
             </form>
 
         </div>
