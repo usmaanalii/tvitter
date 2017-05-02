@@ -30,8 +30,7 @@ class Title extends UserProfile
             );
 
             // Building a search
-            $title_json = file_get_contents($search_url . '?' . 'i=' . $id);
-
+            $title_json = file_get_contents("$search_url?i=$id");
             $title_data = json_decode($title_json);
 
             // Keys
@@ -71,7 +70,7 @@ class Title extends UserProfile
             );
 
             // Building a search
-            $title_json = file_get_contents($search_url . '?' . 't=' . urlencode($title));
+            $title_json = file_get_contents("$search_url?t=" . urlencode($title) . "");
             $title_data = json_decode($title_json);
 
             // Results
