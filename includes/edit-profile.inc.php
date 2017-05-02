@@ -9,7 +9,6 @@ require_once __DIR__ . "/sql-helper.inc.php";
  * @param string password
  * @param string bio
  *
- * TODO: Add all new methods
  *
  * @method void update_profile
  *

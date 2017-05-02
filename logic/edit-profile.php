@@ -11,7 +11,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $email = $_POST['email'];
     $website = $_POST['website'];
 
-    $edit_profile->update_profile($bio, $email, $website);
+    $valid_email = !filter_var($email, FILTER_VALIDATE_EMAIL) === false;
 
-    header("Location: ../pages/profile.php?username=" .  $_SESSION['username']);
+    if ($valid_email) {
+        $edit_profile->update_profile($bio, $email, $website);
+        header("Location: ../pages/profile.php?username=" . $_SESSION['username']);
+    }
+    else {
+        header("Location: ../pages/edit-profile.php?username=" . $_SESSION['username']);
+    }
 }

@@ -10,7 +10,7 @@
         <div class="single-title">
             <a id="<?php echo $film_details->imdbID; ?>" class="title-link" href="../../../../../../../pages/title-page.php?username=<?php echo $_POST['username']; ?>&film-id=<?php echo $film_details->imdbID; ?>"><?php echo $film_details->Title . ' (' . $film_details->Year . ')'; ?>
             </a>
-            <img class="title-poster" src="<?php echo $film_details->Poster; ?>" alt="" width="50px" onerror="this.src = '../title-poster-placeholder.png;">
+            <img class="img-rounded title-poster" src="<?php echo $film_details->Poster; ?>" alt="" width="50px" onerror="this.src = '../title-poster-placeholder.png;">
             <input type="radio" name="title-selection" value="<?php echo $film_details->Title; ?>">
             <br>
         </div>

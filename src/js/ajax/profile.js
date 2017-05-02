@@ -13,9 +13,16 @@ $(document).ready(function() {
                 success: function(response) {
                     console.log(formData);
                     $('.title-search-results').html(response);
+                    styleTitleDiv();
                 }
         });
 
+        });
+    };
+
+    var styleTitleDiv = function() {
+        $("input[name='title-selection']").change(function(){
+            // TODO: Make the selected div change color and others remain white
         });
     };
 

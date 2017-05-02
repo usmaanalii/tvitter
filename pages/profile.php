@@ -24,7 +24,7 @@
 
             <div class="profile-details-section">
 
-                <h4 id="welcome-user-message">Welcome <span><?php echo $username ?></span></h4>
+                <h4 id="welcome-user-message">Welcome <strong><?php echo $username ?></strong></h4>
 
                 <img class="profile-image" src="../src/images/profile-placeholder.jpg" alt="Profile Placeholder Image">
 
@@ -37,9 +37,9 @@
                 <?php endif; ?>
 
                 <p id="profile-bio">
-                    <?php require_once __DIR__ . "/../logic/profile.php"; ?>
+                <?php require_once __DIR__ . "/../logic/profile.php"; ?>
 
-                    <?php echo $current_profile->bio; ?>
+                <?php echo $current_profile->bio; ?>
                 </p>
 
             </div>
@@ -67,15 +67,12 @@
 
             </div>
 
-            <div class="posts-section">
-
                 <h2 id="posts-header">
                     Posts
                 </h2>
 
                 <?php require_once "components/profile/posts.php"; ?>
 
-            </div>
         </div>
     </body>
 </html>
