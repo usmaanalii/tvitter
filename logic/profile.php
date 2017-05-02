@@ -40,7 +40,6 @@ if (isset($_POST['delete-post-id'])) {
  * Leads to the edit-profile page, where further user details can be added
  */
 if (isset($_POST['edit-profile'])) {
-
     header("Location: ../pages/edit-profile.php?username=" . $_GET['username']);
 }
 

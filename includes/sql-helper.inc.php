@@ -43,7 +43,7 @@ class SqlHelper
         $statement->bind_param("s", $username);
         $statement->execute();
         $statement->store_result();
-        $statement->bind_result($id_returned, $username_returned, $password_returned, $bio_returned, $email_returned, $email_returned);
+        $statement->bind_result($id_returned, $username_returned, $password_returned, $bio_returned, $email_returned, $website_returned);
 
         while ($statement->fetch()) {
             $db_id = $id_returned;

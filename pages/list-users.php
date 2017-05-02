@@ -19,11 +19,7 @@
                 Users
             </h2>
 
-            <ul id="users-list">
-
-                <?php require_once 'components/list-users/user-list.php'; ?>
-
-            </ul>
+            <?php require_once 'components/list-users/user-list.php'; ?>
 
         </div>
     </body>

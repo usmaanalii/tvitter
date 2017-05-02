@@ -1,8 +1,9 @@
 <?php
 require_once __DIR__ . '/../header.php';
+require_once __DIR__ . '/../includes/profile.inc.php';
 require_once __DIR__ . '/../includes/edit-profile.inc.php';
 
-if (isset($_POST['add-info-submit'])) {
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     $edit_profile = new EditProfile($_SESSION['username']);
 
