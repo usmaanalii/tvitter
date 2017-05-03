@@ -19,11 +19,12 @@
                 <input class="form-control" id="username-input" type="text" name="username" placeholder="username">
                 <div id="username-ajax-response" class="ajax-response-container"></div>
                 <br>
+                <br>
                 <input class="form-control" id="password-input" type="text" name="password" placeholder="password">
                 <div id="password-ajax-response" class="ajax-response-container"></div>
                 <br>
                 <div id="empty-input-ajax-response" class="ajax-response-container"></div>
-
+                <br>
                 <input class="btn btn-default" type="submit" name="register-submit" value="Sign up">
             </form>
 

@@ -28,12 +28,12 @@
 
             <img class="profile-image" src="../src/images/profile-placeholder.jpg" alt="Profile Placeholder Image">
 
-                <form class="add-info-form" action="../logic/edit-profile.php" method="post">
-                    <textarea name="bio"><?php echo $current_profile->bio; ?></textarea>
-                    <input type="text" name="email" value="<?php echo $current_profile->email; ?>">
+                <form class="form-group add-info-form" action="../logic/edit-profile.php" method="post">
+                    <textarea class="form-control" name="bio"><?php echo $current_profile->bio; ?></textarea>
+                    <input class="form-control" type="text" name="email" value="<?php echo $current_profile->email; ?>">
                     <div id="ajax-response" class="ajax-response-container"></div>
-                    <input type="text" name="website" value="<?php echo $current_profile->website; ?>">
-                    <input type="submit" name="add-info-submit" value="Add">
+                    <input class="form-control" type="text" name="website" value="<?php echo $current_profile->website; ?>">
+                    <input class="btn btn-default" type="submit" name="add-info-submit" value="Add">
                 </form>
 
         </div>
