@@ -48,7 +48,7 @@ back to the respective profile pages
                     <form class="delete-post-form" action="../logic/timeline.php?username=<?php echo $_SESSION['username']; ?>" method="post">
                         <input type="hidden" name="post-recipient" value="<?php echo $post['recipient_username'] ?>">
                         <input type="hidden" name="delete-post-id" value="<?php echo $post['post_id'] ?>">
-                        <input class="btn btn-danger delete-button" type="submit" name="delete-post" value="x">
+                        <button type="submit" name="search-film-submit"><i class="fa fa-trash-o fa-2x" aria-hidden="true"></i></button>
                     </form>
                 <?php endif; ?>
 

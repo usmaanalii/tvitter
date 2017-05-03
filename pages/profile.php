@@ -31,7 +31,8 @@
                 <?php if ($_SESSION['username'] == $_GET['username']): ?>
 
                 <form class="form-group edit-profile-form" action="../logic/profile.php?username=<?php echo $username; ?>" method="post">
-                    <input class="btn btn-default form-control edit-profile-button "type="submit" name="edit-profile" value="Edit profile">
+                    <button class="edit-profile-button" type="submit" name="edit-profile"><i class="fa fa-pencil fa-2x" aria-hidden="true"></i></button>
+                    <!-- <input class="btn btn-default form-control edit-profile-button" type="submit" name="edit-profile" value="Edit profile"> -->
                 </form>
 
                 <?php endif; ?>
@@ -49,7 +50,7 @@
                 <form class="form-group search-title" action="" method="post">
                     <input type="hidden" name="username" value="<?php echo $username; ?>">
                     <input class="form-control" id="search-title-query" type="text" name="title-name" placeholder="add title" value="<?php echo isset($_POST['title-name']) ? $_POST['title-name'] : '' ?>">
-                     <input class="btn btn-default" type="submit" name="search-film-submit" value="Search">
+                    <button type="submit" name="search-film-submit"><i class="fa fa-search fa-2x" aria-hidden="true"></i></button>
                 </form>
 
                 <div class="title-search-results">

@@ -43,3 +43,25 @@ form.delete-post-form
 img.img-rounded
     &:not(.post-content)
         margin: 1% 0
+
+// Button conversions
+form.edit-profile-form, form.search-title, form.delete-post-form
+    button
+        background: none
+        padding: 0
+        margin: 0
+        border: none
+        width: 4.5em
+        &:focus
+            outline-color: $post-time-color-hovered
+
+
+form.search-title
+    button
+        margin-top: 2%
+        display: inline-block
+
+form.delete-post-form
+    button
+        float: right
+        margin: -2% -4% 0 0

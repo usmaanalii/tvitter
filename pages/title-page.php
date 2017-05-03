@@ -18,7 +18,7 @@
             <form class="form-group search-title on-title-page" action="title-page.php" method="post">
                 <input type="hidden" name="username" value="<?php echo $_GET['username']; ?>">
                 <input class="form-control" id="search-title-query" type="text" name="title-name" placeholder="search title" value="<?php echo isset($_POST['title-name']) ? $_POST['title-name'] : '' ?>">
-                <input class="btn btn-default form-control" type="submit" name="search-film-submit" value="Search">
+                <button type="submit" name="search-film-submit"><i class="fa fa-search fa-2x" aria-hidden="true"></i></button>
             </form>
 
             <div class="title-search-results">
