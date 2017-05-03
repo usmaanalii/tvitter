@@ -40,7 +40,7 @@ $(document).ready(function() {
      * @return {[TODO: ajax return type??]} [Inserts a circle element which has the colour of it's strength e.g. red = weak, dark-green = very strong]
      */
     var checkPasswordStrength = function() {
-        $('#password-input').blur(function(event) {
+        $('#password-input').keyup(function(event) {
             event.preventDefault();
 
             var formData = $(this).serialize();
