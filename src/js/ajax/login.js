@@ -5,8 +5,8 @@ $(document).ready(function() {
     /**
      * Recieves registration username input and displays sign based it's
      * uniqueness
-     * @return [string] [div will be populated with a string 'X' or 'Y'
-     *                  with suitable colour]
+     * @return {string} [div will be populated with a string
+     * 'username doesn't exist if the username is already taken]
      */
     var checkUsername = function() {
         $('#username-input').blur(function(event) {
@@ -32,9 +32,12 @@ $(document).ready(function() {
     };
 
     /**
-     * TODO: Docblock
-     * [description]
-     * @return {[type]} [description]
+     * Retrieves login username and password input. Displays a message
+     * if it doesn't match the password in the database for the username
+     *
+     * @return {string} or {form_submit} [If the password matches,
+     * the login form submits, otherwise 'password incorrect' will load into
+     * a div with the id 'password-ajax-response']
      */
     var checkPasswordValid = function() {
         $('#login-form').submit(function(event) {
@@ -64,9 +67,10 @@ $(document).ready(function() {
     };
 
     /**
-     * TODO: Docblock
-     * [description]
-     * @return {[type]} [description]
+     * Remove the ajax response when the user focuses on the input, since it
+     * doesn't need to remain, once the user begins updating their input
+     * @return {string} [returns an empty string into divs with the class
+     * 'ajax-response-container']
      */
     var emptyInputs = function() {
         $('#username-input, #password-input').focus(function() {
