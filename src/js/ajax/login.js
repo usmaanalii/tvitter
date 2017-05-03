@@ -5,11 +5,13 @@ $(document).ready(function() {
     /**
      * Recieves registration username input and displays sign based it's
      * uniqueness
+     * @param  {string} usernameSelector     [selector to retrieve the username]
+     * @param  {string} responseSelector [selector to add results to]
      * @return {string} [div will be populated with a string
      * 'username doesn't exist if the username is already taken]
      */
-    var checkUsername = function() {
-        $('#username-input').blur(function(event) {
+    var checkUsername = function(usernameSelector, responseSelector) {
+        $(usernameSelector).blur(function(event) {
             event.preventDefault();
 
             var formData = $(this).serialize();
@@ -19,10 +21,15 @@ $(document).ready(function() {
                 url: 'logic/ajax/login.php',
                 data: formData,
                 success: function(response) {
-                    if ($("#username-input").val() !== "") {
-                        // Y represents the username being free in the users table i.e the username doesn't exist in the database
+                    if ($(usernameSelector).val() !== "") {
+                        /*
+                            * Y represents the username being
+                            free in the users table i.e
+                            the username doesn't exist in the database
+                         */
                         if (response === "Y") {
-                            $('#username-ajax-response').html('username doesn\'t exist').css("color", "red");
+                            $(responseSelector)
+                            .html('username doesn\'t exist').css("color", "red");
                         }
                     }
                 }
@@ -35,12 +42,17 @@ $(document).ready(function() {
      * Retrieves login username and password input. Displays a message
      * if it doesn't match the password in the database for the username
      *
+     * @param  {string} formSelector [selector to retrieve the form]
+     * @param  {string} usernameResponseSelector [selector to add results to]
+     * @param  {string} passwordResponseSelector [selector to add results to]
+     *
      * @return {string} or {form_submit} [If the password matches,
      * the login form submits, otherwise 'password incorrect' will load into
      * a div with the id 'password-ajax-response']
      */
-    var checkPasswordValid = function() {
-        $('#login-form').submit(function(event) {
+    var checkPasswordValid = function(formSelector, usernameResponseSelector,
+                                      passwordResponseSelector) {
+        $(formSelector).submit(function(event) {
             event.preventDefault();
 
             var formData = $(this).serialize();
@@ -54,11 +66,12 @@ $(document).ready(function() {
                     // TODO: Clean this up
                     // X comes from username existing in the database
                     if (response === "Xmatch") {
-                        $("#login-form")[0].submit();
+                        $(formSelector)[0].submit();
                     }
                     else {
-                        $('#username-ajax-response').html('');
-                        $('#password-ajax-response').html('password incorrect').css("color", "red");
+                        $(usernameResponseSelector).html('');
+                        $(passwordResponseSelector).html('password incorrect')
+                                                   .css("color", "red");
                     }
                 }
         });
@@ -67,6 +80,7 @@ $(document).ready(function() {
     };
 
     /**
+     * TODO: parameterise this method
      * Remove the ajax response when the user focuses on the input, since it
      * doesn't need to remain, once the user begins updating their input
      * @return {string} [returns an empty string into divs with the class
@@ -79,7 +93,7 @@ $(document).ready(function() {
     };
 
     // Function call's
-    checkUsername();
-    checkPasswordValid();
+    checkUsername('#username-input', '#username-ajax-response');
+    checkPasswordValid('#login-form', '#username-ajax-response', '#password-ajax-response');
     emptyInputs();
 });

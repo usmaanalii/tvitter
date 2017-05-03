@@ -5,14 +5,16 @@ $(document).ready(function() {
     /**
      * Recieves registration username input and displays sign based it's
      * uniqueness
+     * @param  {string} formSelector     [selector to retrieve the form]
+     * @param  {string} responseSelector [selector to add results to]
      * @return {string} [The response will be a circle via a unicode character
      * placed in a div with the id 'username-ajax-response'
      *
      * 1. If the username is free, the circle will be green
      * 2. If the username is taken, the circle will be red]
      */
-    var checkUsername = function() {
-        $('#username-input').blur(function(event) {
+    var checkUsername = function(formSelector, responseSelector) {
+        $(formSelector).blur(function(event) {
             event.preventDefault();
 
             var formData = $(this).serialize();
@@ -24,13 +26,13 @@ $(document).ready(function() {
                 success: function(response) {
                     console.log(response);
                     if (response === "") {
-                        $('#username-ajax-response').html('');
+                        $(responseSelector).html('');
                     }
                     else if (response === "X") {
-                        $('#username-ajax-response').html('&#9679;').css("color", "red");
+                        $(responseSelector).html('&#9679;').css("color", "red");
                     }
                     else {
-                        $('#username-ajax-response').html('&#9679;').css("color", "green");
+                        $(responseSelector).html('&#9679;').css("color", "green");
                     }
                 }
             });
@@ -40,6 +42,8 @@ $(document).ready(function() {
 
     /**
      * Recieves a password and assesses it's strength returning a colour matching it's strength
+     * @param  {string} passwordSelector     [selector to retrieve the password]
+     * @param  {string} responseSelector [selector to add results to]
      * @return {string} [The response will be a circle via a unicode character
      * placed in a div with the id 'password-ajax-response'
      *
@@ -48,8 +52,8 @@ $(document).ready(function() {
      * 3. If the password is strong, the circle will be green
      * 3. If the password is very strong, the circle will be dark green]
      */
-    var checkPasswordStrength = function() {
-        $('#password-input').keyup(function(event) {
+    var checkPasswordStrength = function(passwordSelector, responseSelector) {
+        $(passwordSelector).keyup(function(event) {
             event.preventDefault();
 
             var formData = $(this).serialize();
@@ -78,7 +82,8 @@ $(document).ready(function() {
                         }
                     };
                     if (response) {
-                        $('#password-ajax-response').html('&#9679;').css("color", strength[response]['color']);
+                        $(responseSelector).html('&#9679;')
+                        .css("color", strength[response]['color']);
                     }
                 }
             });
@@ -87,7 +92,8 @@ $(document).ready(function() {
     };
 
     /**
-     * Eeset ajax error displays when delete key is pressed
+     * TODO: Clean this up
+     * Reset ajax error displays when delete key is pressed
      * @return {string} [Populate the response div's with an empty space]
      */
     var resetFields = function() {
@@ -119,8 +125,18 @@ $(document).ready(function() {
 
     };
 
-    var emptySubmit = function() {
-        $('#registration-form').submit(function(event) {
+    /**
+     * Check form completion
+     * @param  {string} formSelector     [selector to retrieve the form]
+     * @param  {string} usernameSelector     [selector to retrieve the username]
+     * @param  {string} passwordSelector     [selector to retrieve the password]
+     * @param  {string} responseSelector [selector to add results to]
+     * @return {string} [return error message into div with id
+     * 'empty-input-ajax-response' if incomplete form is submitted]
+     */
+    var emptySubmitError = function(formSelector, usernameSelector,
+                                    passwordSelector, responseSelector) {
+        $(formSelector).submit(function(event) {
 
             var username = $('#username-input').val();
             var password = $('#password-input').val();
@@ -135,8 +151,9 @@ $(document).ready(function() {
     };
 
     // Function call's
-    checkUsername();
-    checkPasswordStrength();
+    checkUsername('#username-input', '#username-ajax-response');
+    checkPasswordStrength('#password-input', '#password-ajax-response');
     resetFields();
-    emptySubmit();
+    emptySubmit('#registration-form', '#username-input', '#password-input',
+                '#empty-input-ajax-response');
 });

@@ -4,16 +4,22 @@ $(document).ready(function() {
      * Receives the form submission when a user searches for a title to get
      * it's details.
      * .
+     * @param  {string} formSelector     [selector to retrieve the form]
+     * @param  {string} searchResultsSelector [selector for the current search
+     * results, this will be removed when the user begins a new query]
+     * @param  {string} titleDetailsResponseSelector [selector to add
+     * title details to]
      * @return {string} [Inserts HTML markup that produces a list of
      * title results into a div with the class 'title-search-results'.
      * Also inserts a function that handles loading details of the title
      * the user selects (from the title results)]
      */
-    var searchTitle = function() {
-        $('.search-title').submit(function(event) {
+    var searchTitle = function(formSelector, searchResultsSelector,
+                                titleDetailsResponseSelector) {
+        $(formSelector).submit(function(event) {
             event.preventDefault();
 
-            $('.title-details').html('');
+            $(searchResultsSelector).html('');
 
             var formData = $(this).serialize();
 
@@ -22,8 +28,8 @@ $(document).ready(function() {
                 url: '../logic/title-page.php',
                 data: formData,
                 success: function(response) {
-                    $('.title-search-results').html(response);
-                    getTitleDetails();
+                    $(titleDetailsResponseSelector).html(response);
+                    getTitleDetails('.title-link', '.title-details');
                 }
         });
 
@@ -33,11 +39,15 @@ $(document).ready(function() {
     /**
      * Returns details of the title that the user selects. Selection is
      * made via clicking on an anchor link associated with the title
+     *
+     * @param  {string} inputSelector     [selector for the anchor link
+     * clicked which provides the title id via it's id attribute]
+     * @param  {string} responseSelector [selector to add results to]
      * @return {string} [Loads HTML markup that produces title details,
      * such as poster, actors etc...
      * This is inserted into a div with the class 'title-details']
      */
-    var getTitleDetails = function() {
+    var getTitleDetails = function(inputSelector, responseSelector) {
         $('.title-link').click(function(event) {
             event.preventDefault();
 
@@ -57,22 +67,32 @@ $(document).ready(function() {
 
     /**
      * Reset title detail results
+     *
+     * @param  {string} inputSelector     [selector to retrieve the text]
+     * @param  {string} formSelector     [selector to retrieve the form]
+     * @param  {string} searchResultsSelector [selector for the current search
+     * results, this will be removed when the user empties the current query
+     * input]
+     * @param  {string} titleDetailsSelector [selector for the current title
+     * details, this will be removed when the user empties the current query
+     * input]
      * @return {string} [Inserts an empty string into a div with a class
      * 'title-details']
      */
-    var resetFields = function() {
+    var resetFields = function(inputSelector, searchResultsSelector,
+                               titleDetailsSelector) {
 
-        $('#search-title-query').keyup(function(event) {
+        $(inputSelector).keyup(function(event) {
             if ($(this).val() <= 1) {
-                $('.title-search-results').html('');
-                $('.title-details').html('');
+                $(searchResultsSelector).html('');
+                $(titleDetailsSelector).html('');
             }
         });
 
     };
 
     // function calls
-    searchTitle();
-    resetFields();
+    searchTitle('.search-title', '.title-details', '.title-search-results');
+    resetFields('#search-title-query', '.title-search-results', '.title-details');
 
 });
