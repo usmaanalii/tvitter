@@ -5,6 +5,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="../src/sass/main.min.css">
+        <script src="../vendor/components/jquery/jquery.min.js"></script>
         <title>Tvitter users</title>
     </head>
     <body>
