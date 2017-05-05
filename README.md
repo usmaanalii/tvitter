@@ -7,6 +7,12 @@
 
 **Create a twitter like social media platform for sharing tv/movie interests**
 
+#### Instructions
+To use the application
+- Read line 2 of `database-config.php`
+- Create a file that defines the database `CONSTANTS` and that matches the specified path (line 2 of `database-config.php`)
+- Copy the code from `statements.sql` into your SQL command line
+- Have fun!
 #### Basic Features
 
 You are tasked with developing a prototype system in **PHP** and **JavaScript** with a back-end
