@@ -1,5 +1,4 @@
 $(document).ready(function() {
-
     /**
      * Receives the form submission when a user searches for a title to add to
      * their posts.
@@ -35,6 +34,7 @@ $(document).ready(function() {
      */
     var styleTitleDiv = function() {
         $("input[name='title-selection']").change(function(){
+            console.log($(this).text());
         });
     };
 

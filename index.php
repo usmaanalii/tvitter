@@ -4,6 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <script src="vendor/components/jquery/jquery.min.js"></script>
+        <script src="src/js/ajax/navigation.js"></script>
         <link rel="stylesheet" href="src/sass/main.min.css">
         <script src="src/js/ajax/login.js"></script>
         <title>Tvitter. What's your show?</title>

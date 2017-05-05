@@ -1,4 +1,5 @@
 <!--
+    - Object: $title_data
     - Keys:
         - Title, Year, Rated, Released, Runtime, Genre, Director,
         Writer, Actors, Plot, Language, Country, Awards, Poster,
@@ -6,44 +7,58 @@
         Metascore, imdbRating, imdbVotes, imdbId, DVD, BoxOffice
         Production, Website, Response
 -->
-<?php foreach ($title_data as $key => $value): ?>
+<h1>
+    <?php echo $title_data->Title . ' (' . $title_data->Year . ')'; ?>
+</h1>
 
-    <?php if (is_string($value)): ?>
-        <?php if ($key === "Poster"): ?>
-            <h3>
-                <?php echo $key; ?>:
-            </h3>
-            <img src="<?php echo $value; ?>" alt="poster" width="80px">
-        <?php elseif ($key === "Website"): ?>
-            <h3>
-                <?php echo $key; ?>:
-            </h3>
-            <a id="#title-web-link" href="<?php echo $value; ?>" target="_blank"><?php echo $value; ?></a>
-        <?php else: ?>
-            <h3>
-                <?php echo $key; ?>:
-            </h3>
-            <h4>
-                <?php echo $value; ?>
-            </h4>
-        <?php endif; ?>
-    <?php else: ?>
+<img class="img-responsive img-rounded title-poster" src="<?php echo $title_data->Poster; ?>" alt="poster" width="170px" onerror="this.src = '../src/images/title-poster-placeholder.png';">
 
-        <hr>
 
-        <?php foreach ($title_data->Ratings as $index => $rating_site): ?>
+<div class="ratings">
 
-            <h3>
-                <?php echo $rating_site->Source; ?>:
-            </h3>
-            <h4>
-                <?php echo $rating_site->Value; ?>
-            </h4>
-
-        <?php endforeach; ?>
-
-        <hr>
-
+    <?php if (array_key_exists('imdbRating', $title_data)): ?>
+        <div class="imdb-rating">
+            <img class="img-responsive rating-icon" src="../src/images/imdb-logo.png" alt="imdb-logo" width="70px">
+            <h2 class="rating-value">
+                <?php echo $title_data->imdbRating; ?>
+            </h2>
+            <h5>
+                <?php echo $title_data->imdbVotes ?>
+            </h5>
+        </div>
     <?php endif; ?>
 
-<?php endforeach; ?>
+    <?php if (array_key_exists('Metascore', $title_data)): ?>
+
+        <?php if ($title_data->Metascore !== "N/A"): ?>
+            <div class="metacritic-rating">
+                <img class="img-responsive rating-icon" src="../src/images/metacritic-logo.svg" alt="metacritic-logo" width="45px">
+                <h2 class="rating-value">
+                    <span>
+                        <?php echo $title_data->Metascore; ?>
+                    </span>
+                </h2>
+            </div>
+        <?php endif; ?>
+    <?php endif; ?>
+
+    <?php if (array_key_exists('Ratings', $title_data)): ?>
+        <?php foreach ($title_data->Ratings as $key => $value): ?>
+                <?php if ($value->Source == 'Rotten Tomatoes'): ?>
+                    <div class="rotten-rating">
+                        <img class="img-responsive rating-icon" src="../src/images/rotten-tomatoes-logo.svg" alt="rotten-logo" width="80px">
+                        <h2 class="rating-value">
+                            <?php echo "&nbsp;&nbsp;&nbsp;" . $title_data->Ratings[1]->Value; ?>
+                        </h2>
+                    </div>
+                <?php endif; ?>
+            <?php endforeach; ?>
+    <?php endif; ?>
+
+</div>
+
+<p class="title-plot">
+    <?php if ($title_data->Plot !== "N/A"): ?>
+        <?php echo $title_data->Plot; ?>
+    <?php endif; ?>
+</p>

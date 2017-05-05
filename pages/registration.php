@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="../src/sass/main.min.css">
-        <script src="../vendor/components/jquery/jquery.min.js"></script>
+        <script src="../vendor/components/jquery/jquery.min.js"></script><script src="../src/js/ajax/navigation.js"></script>
         <script src="../src/js/ajax/registration.js"></script>
         <title>Register for tvitter</title>
     </head>

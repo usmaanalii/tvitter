@@ -23,9 +23,3 @@
 
     </ul>
 </nav>
-
-<script>
-    console.log('AAAAAA\n');
-    console.log(window.location.href);
-    console.log($('a').attr('href'));
-</script>
