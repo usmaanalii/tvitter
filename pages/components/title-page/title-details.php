@@ -1,3 +1,11 @@
+<!--
+    - Keys:
+        - Title, Year, Rated, Released, Runtime, Genre, Director,
+        Writer, Actors, Plot, Language, Country, Awards, Poster,
+        Ratings[0]->Source & Ratings[0]->Value (0, 1, 2),
+        Metascore, imdbRating, imdbVotes, imdbId, DVD, BoxOffice
+        Production, Website, Response
+-->
 <?php foreach ($title_data as $key => $value): ?>
 
     <?php if (is_string($value)): ?>

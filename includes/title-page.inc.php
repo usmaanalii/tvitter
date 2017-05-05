@@ -77,3 +77,7 @@ class Title extends UserProfile
             return $title_data;
         }
 }
+
+$title_data = Title::get_title_details_by_name('lost');
+
+// print_r($title_data);
