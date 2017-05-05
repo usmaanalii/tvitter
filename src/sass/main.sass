@@ -47,9 +47,11 @@
 
 //  Global
     1. Prevent zoom on inputs (mobile devices)
+    2. Padding from the navigation bar & set default text color
+    3. Chaneg anchor text color
     ===============================================================
 
-/* iPhone 6, iPhone 6s, iPhone 7 portrait/landscape */
+/* 1. iPhone 6, iPhone 6s, iPhone 7 portrait/landscape */
 @media screen and (device-aspect-ratio: 375/667)
     select, textarea, input[type="text"], input[type="password"],
     input[type="datetime"], input[type="datetime-local"],
@@ -61,9 +63,11 @@
 *
     // border: 1px solid black
 
+// 2
 body
     padding-top: 40px
     color: $primary-text-color
 
+// 3
 a
     color: $anchor-links-color
