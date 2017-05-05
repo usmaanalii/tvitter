@@ -20,7 +20,7 @@ $(document).ready(function() {
                 success: function(response) {
                     console.log(formData);
                     $(responseSelector).html(response);
-                    styleTitleDiv();
+                    styleSelectedTitleDiv();
                 }
         });
 
@@ -30,11 +30,17 @@ $(document).ready(function() {
     /**
      * TODO: Make the selected div change color and others remain white
      * [description]
-     * @return {[type]} [description]
+     * @return {css} gives div a grey background
      */
-    var styleTitleDiv = function() {
+    var styleSelectedTitleDiv = function() {
         $("input[name='title-selection']").change(function(){
-            console.log($(this).text());
+            $(this).parent().css('background', '#e7e7e7');
+
+        $("input[name='title-selection']").each(function() {
+            if ($(this).is(':not(:checked)')) {
+                $(this).parent().css('background', 'white');
+            }
+        });
         });
     };
 
