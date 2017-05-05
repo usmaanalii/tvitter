@@ -91,8 +91,19 @@ $(document).ready(function() {
 
     };
 
+    // TODO: Get this to change the span to the metacritic color
+    var metacriticBackground = function() {
+
+        $('a.title-link').click(function() {
+            var rating  = $('.metacritic-rating > .rating-value > span').text();
+
+            console.log(rating);
+        });
+    };
+
+    metacriticBackground();
+
     // function calls
     searchTitle('.search-title', '.title-details', '.title-search-results');
     resetFields('#search-title-query', '.title-search-results', '.title-details');
-
 });

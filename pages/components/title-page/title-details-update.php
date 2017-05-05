@@ -34,7 +34,9 @@
             <div class="metacritic-rating">
                 <img class="img-responsive rating-icon" src="../src/images/metacritic-logo.svg" alt="metacritic-logo" width="45px">
                 <h2 class="rating-value">
-                    <?php echo $title_data->Metascore; ?>
+                    <span>
+                        <?php echo $title_data->Metascore; ?>
+                    </span>
                 </h2>
             </div>
         <?php endif; ?>
