@@ -15,5 +15,5 @@
     </form>
 
 <?php else: ?>
-    <h4 class="title-search-error">No results!</h4>
+    <h4 class="title-search-error">Sorry, we can't find this!</h4>
 <?php endif; ?>

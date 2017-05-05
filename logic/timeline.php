@@ -27,5 +27,7 @@ if (isset($_POST['delete-post-id'])) {
 /**
  * $poster_url_method is used to insert the titles poster by providiing
  * a url for the href value
+ *
+ * Used in pages/components/timeline/posts.php
  */
 $poster_url_method = array('Timeline', 'get_poster_url');
