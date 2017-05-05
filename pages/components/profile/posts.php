@@ -53,7 +53,13 @@ back to the respective profile pages
                 <?php endif; ?>
 
                 <h6 class="post-time">
-                    <?php echo substr($post['post_time'], 11, 5); ?>
+                    <?php if (date('d-m') == substr($post['post_time'], 5, 5)): ?>
+                        <?php echo substr($post['post_time'], 11, 5); ?>
+                    <?php elseif (substr($post['post_time'], 0, 4) !== date('Y')): ?>
+                        <?php echo substr(date("M Y jS H:i:s", strtotime($post['post_time'])), 0, 8); ?>
+                    <?php else: ?>
+                        <?php echo substr(date("Y - M jS H:i:s", strtotime($post['post_time'])), 7, 8); ?>
+                    <?php endif; ?>
                 </h6>
             </div>
 
