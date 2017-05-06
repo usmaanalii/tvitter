@@ -145,8 +145,6 @@ $(document).ready(function() {
                 event.preventDefault();
                 $('#empty-input-ajax-response').html('Incomplete Field').css('color', 'red');
             }
-
-            emptyInputs();
         });
     };
 
@@ -154,6 +152,6 @@ $(document).ready(function() {
     checkUsername('#username-input', '#username-ajax-response');
     checkPasswordStrength('#password-input', '#password-ajax-response');
     resetFields();
-    emptySubmit('#registration-form', '#username-input', '#password-input',
+    emptySubmitError('#registration-form', '#username-input', '#password-input',
                 '#empty-input-ajax-response');
 });

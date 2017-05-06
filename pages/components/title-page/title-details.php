@@ -57,8 +57,12 @@
 
 </div>
 
-<p class="title-plot">
-    <?php if ($title_data->Plot !== "N/A"): ?>
+<?php if ($title_data->Plot !== "N/A"): ?>
+    <p class="title-plot">
         <?php echo $title_data->Plot; ?>
-    <?php endif; ?>
-</p>
+    </p>
+<?php else: ?>
+    <p class="title-plot title-plot-error">
+        <?php echo 'Sorry we have no plot details for this title!'; ?>
+    </p>
+<?php endif; ?>
