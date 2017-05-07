@@ -68,7 +68,7 @@
 </div>
 
 <?php if ($title_data->Plot !== "N/A"): ?>
-    <p class="title-plot">
+    <p class="title-plot" data-id="<?php echo $title_data->imdbID; ?>">
         <?php echo $title_data->Plot; ?>
     </p>
 <?php else: ?>

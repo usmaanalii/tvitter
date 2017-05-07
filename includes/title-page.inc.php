@@ -76,8 +76,18 @@ class Title extends UserProfile
             // Results
             return $title_data;
         }
+
+        public function get_long_plot($id)
+        {
+            $search_url = "http://www.omdbapi.com/";
+
+            $title_json = file_get_contents("$search_url?i=$id&plot=full");
+            $title_data = json_decode($title_json);
+
+            return $title_data->Plot;
+        }
 }
 
-$title_data = Title::get_title_details_by_name('lost');
+$title_data = Title::get_title_details_by_name('catastrophe');
 
-// print_r($title_data);
+print_r($title_data);

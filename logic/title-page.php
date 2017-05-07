@@ -25,3 +25,9 @@ if (isset($_POST['title_id'])) {
 
     require_once '../pages/components/title-page/title-details.php';
 }
+
+if (isset($_POST['imdb_id'])) {
+    $long_plot = Title::get_long_plot($_POST['imdb_id']);
+
+    echo $long_plot;
+}

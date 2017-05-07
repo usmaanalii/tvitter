@@ -103,6 +103,31 @@ $(document).ready(function() {
 
     metacriticBackground();
 
+    /**
+     * TODO: Add docblock
+     * [description]
+     * @return {[type]} [description]
+     */
+    var getExtraDetails = function() {
+        $('.title-plot').click(function() {
+
+            var imdbID = $(".title-plot").data("id");
+
+            $.ajax({
+                type: 'POST',
+                url: '../logic/title-page.php',
+                data: {'imdb_id': imdbID},
+                success: function(response) {
+                    $('.title-plot').html(response);
+                }
+        });
+
+            console.log(imdbId);
+        });
+    };
+
+    getExtraDetails();
+
     // function calls
     searchTitle('.search-title', '.title-details', '.title-search-results');
     resetFields('#search-title-query', '.title-search-results', '.title-details');
