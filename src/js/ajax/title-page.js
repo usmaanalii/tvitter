@@ -59,6 +59,7 @@ $(document).ready(function() {
                 data: {'title_id': title_id},
                 success: function(response) {
                     $('.title-details').html(response);
+                    getExtraDetails();
                 }
         });
 
@@ -126,9 +127,9 @@ $(document).ready(function() {
         });
     };
 
-    getExtraDetails();
-
     // function calls
     searchTitle('.search-title', '.title-details', '.title-search-results');
     resetFields('#search-title-query', '.title-search-results', '.title-details');
+
+    getExtraDetails();
 });
