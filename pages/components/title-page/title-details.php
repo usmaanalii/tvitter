@@ -34,9 +34,19 @@
             <div class="metacritic-rating">
                 <img class="img-responsive rating-icon" src="../src/images/metacritic-logo.svg" alt="metacritic-logo" width="45px">
                 <h2 class="rating-value">
-                    <span>
+                <?php if ($title_data->Metascore < 40): ?>
+                    <span style="background:#f90000;">
                         <?php echo $title_data->Metascore; ?>
                     </span>
+                <?php elseif ($title_data->Metascore < 80 && $title_data->Metascore > 40): ?>
+                    <span style="background:#ffcc33">
+                        <?php echo $title_data->Metascore; ?>
+                    </span>
+                <?php else: ?>
+                    <span style="background:#66cc33">
+                        <?php echo $title_data->Metascore; ?>
+                    </span>
+                <?php endif; ?>
                 </h2>
             </div>
         <?php endif; ?>
