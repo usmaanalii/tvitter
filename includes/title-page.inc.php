@@ -88,6 +88,6 @@ class Title extends UserProfile
         }
 }
 
-$title_data = Title::get_title_details_by_name('catastrophe');
-
-print_r($title_data);
+// $title_data = Title::get_title_details_by_name('catastrophe');
+//
+// print_r($title_data);
