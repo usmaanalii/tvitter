@@ -17,6 +17,7 @@
 <div class="ratings">
 
     <?php if (array_key_exists('imdbRating', $title_data)): ?>
+        <?php if ($title_data->imdbRating !== "N/A"): ?>
         <div class="imdb-rating">
             <img class="img-responsive rating-icon" src="../src/images/imdb-logo.png" alt="imdb-logo" width="70px">
             <h2 class="rating-value">
@@ -26,6 +27,10 @@
                 <?php echo $title_data->imdbVotes ?>
             </h5>
         </div>
+        <?php endif; ?>
+        <h4 class="no-ratings-error">
+            No ratings
+        </h4>
     <?php endif; ?>
 
     <?php if (array_key_exists('Metascore', $title_data)): ?>
