@@ -27,10 +27,11 @@
                 <?php echo $title_data->imdbVotes ?>
             </h5>
         </div>
+        <?php else: ?>
+            <h4 class="no-ratings-error">
+                No ratings
+            </h4>
         <?php endif; ?>
-        <h4 class="no-ratings-error">
-            No ratings
-        </h4>
     <?php endif; ?>
 
     <?php if (array_key_exists('Metascore', $title_data)): ?>
