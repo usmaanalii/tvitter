@@ -23,8 +23,8 @@ $(document).ready(function() {
             };
 
             if (!validateEmail(email)) {
-                $(responseSelector).html('Sorry, that isn\'t a ' +
-                                                    'valid email address');
+                $(responseSelector).html('Sorry, that isn\'t a' +
+                                                    ' valid email address');
             }
 
         });
