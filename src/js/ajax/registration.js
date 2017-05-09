@@ -101,12 +101,14 @@ $(document).ready(function() {
         $('#username-input').keydown(function(event) {
             if (event.keyCode === 8) {
                 $('#username-ajax-response').html('');
+                $('#empty-input-ajax-response').html('');
             }
         });
 
         $('#password-input').keydown(function(event) {
             if (event.keyCode === 8) {
                 $('#password-ajax-response').html('');
+                $('#empty-input-ajax-response').html('');
             }
         });
 
@@ -114,12 +116,14 @@ $(document).ready(function() {
         $('#username-input').blur(function(event) {
             if ($(this).val() === "") {
                 $('#username-ajax-response').html('');
+                $('#empty-input-ajax-response').html('');
             }
         });
 
         $('#password-input').blur(function(event) {
             if ($(this).val() === "") {
                 $('#password-ajax-response').html('');
+                $('#empty-input-ajax-response').html('');
             }
         });
 
@@ -147,6 +151,23 @@ $(document).ready(function() {
             }
         });
     };
+
+    /**
+     * TODO: Docblock
+     * @return {[type]} [description]
+     */
+    var showPassword = function() {
+        $("#show-password").click(function () {
+            if ($("#password-input").attr("type") == "password") {
+                $("#password-input").attr("type", "text");
+            }
+            else{
+                $("#password-input").attr("type", "password");
+            }
+        });
+    };
+
+    showPassword();
 
     // Function call's
     checkUsername('#username-input', '#username-ajax-response');
