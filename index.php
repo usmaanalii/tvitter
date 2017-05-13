@@ -20,7 +20,7 @@
                 <input class="form-control" id="username-input" type="text" name="username" placeholder="username">
                 <div id="username-ajax-response" class="ajax-response-container"></div>
                 <br>
-                <input class="form-control" id="password-input" type="text" name="password" placeholder="password">
+                <input class="form-control" id="password-input" type="password" name="password" placeholder="password">
                 <div id="password-ajax-response" class="ajax-response-container"></div>
                 <br>
                 <input class="btn btn-default" type="submit" name="login-submit" value="Log in">
