@@ -5,12 +5,31 @@
 
 #### Task
 
-**Create a twitter like social media platform for sharing tv/movie interests**
+Create a twitter like social media platform for sharing tv/movie interests
+
+#### Requirements
+
+- Server, such as **XAMPP/LAMP/MAMP**
+- PHP 5.5+
 
 #### Instructions
-To use the application
+To use the application:
+
+- Clone into your `htdocs` directory
 - Read line 2 of `database-config.php`
-- Create a file that defines the database `CONSTANTS` and that matches the specified path (line 2 of `database-config.php`)
+- Create a file that defines the database `CONSTANTS` and that matches the specified path (line 2 of `database-config.php`), **OR** remove the required file path and define the necessary constants within the file e.g...
+
+``` php
+<?php
+
+// Create the connection
+$db_connection = new mysqli('host', 'database_username', 'database_password', 'database_table');
+
+// Check the connection, and output an error message if unsuccessful
+if ($db_connection->connect_error) {
+    die("Connection failed: " . $db_connection->connect_error);
+}
+```
 - Copy the code from `statements.sql` into your SQL command line
 - Have fun!
 #### Basic Features
@@ -32,7 +51,7 @@ posted.
 
 6. Both interfaces (mobile and desktop) have the same functionality and display the same content but in a manner appropriate to each device.
 
-##### You also need to provide the following functionality:
+#### You also need to provide the following functionality:
 
 1. A post should contain the TV episode name and series/TV programme it is a part of and a comment of up to 140 characters including spaces.
 
