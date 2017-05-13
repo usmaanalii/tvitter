@@ -159,6 +159,7 @@ class UserProfile
             $title = urlencode("");
         }
 
+        // TODO: Fix XSS attack
         $title_json = file_get_contents($search_url . $title);
 
         $results = json_decode($title_json);

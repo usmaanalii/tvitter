@@ -48,7 +48,7 @@ if (isset($_POST['edit-profile'])) {
  */
 
 if (isset($_POST['title-name'])) {
-    $search_results = UserProfile::search_title(trim($_POST['title-name']));
+    $search_results = UserProfile::search_title(htmlentities(trim($_POST['title-name'])));
     require_once '../pages/components/profile/title-search-results.php';
 }
 

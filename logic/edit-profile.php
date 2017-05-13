@@ -7,9 +7,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     $edit_profile = new EditProfile($_SESSION['username']);
 
-    $bio = $_POST['bio'];
-    $email = $_POST['email'];
-    $website = $_POST['website'];
+    $bio = htmlentities($_POST['bio']);
+    $email = htmlentities($_POST['email']);
+    $website = htmlentities($_POST['website']);
 
     $valid_email = !filter_var($email, FILTER_VALIDATE_EMAIL) === false;
 

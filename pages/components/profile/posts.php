@@ -39,7 +39,7 @@ back to the respective profile pages
                             <a class="title-link" href="../pages/title-page.php?username=<?php echo $username; ?>&title=<?php echo $post['title']; ?>"><?php echo $post['title']; ?>
                             </a>
                         <?php endif; ?>
-                        <?php echo $post['post_body']; ?>
+                        <?php echo htmlentities($post['post_body']); ?>
                     </p>
 
                     <!--

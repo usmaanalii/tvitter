@@ -68,11 +68,11 @@ class SqlHelper
 
     public static function sanitizeString($input)
     {
-        global $connection;
+        global $db_connection;
         $input = strip_tags($input);
         $input = htmlentities($input);
         $input = stripslashes($input);
 
-        return $connection->real_escape_string($input);
+        return $input;
     }
 }
