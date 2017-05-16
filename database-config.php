@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . '/../tvitter-config/config.php';
+require_once __DIR__ . '/../../tvitter-config/config.php';
 
 // Create the connection
 $db_connection = new mysqli(DB_HOST, DB_USERNAME, DB_PASSWORD, DB_NAME);
