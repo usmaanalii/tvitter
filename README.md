@@ -3,6 +3,10 @@
 ## MSC Advanced Computer Science
 ### Module: Web Technologies and Security
 
+**NOTE**
+
+Searching for movies/tv shows isn't currently working due to the OMDB API now requiring a key.
+
 #### Task
 
 Create a twitter like social media platform for sharing tv/movie interests
